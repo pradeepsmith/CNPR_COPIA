@@ -272,6 +272,9 @@ type
     dxLayoutItem44: TdxLayoutItem;
     btnCancelarCPP: TcxButton;
     dxLayoutAutoCreatedGroup9: TdxLayoutAutoCreatedGroup;
+    view_VisualizaCFDColumn6: TcxGridDBColumn;
+    mConceptosTipoRelacion: TStringField;
+    gridView_NotasCreditoColumn6: TcxGridDBColumn;
 
     procedure FormShow(Sender: TObject);
     procedure CargarDatos;
@@ -288,6 +291,9 @@ type
     procedure cxEditaDetalleClick(Sender: TObject);
     procedure cxEliminarClick(Sender: TObject);
     procedure btnCancelarCPPClick(Sender: TObject);
+    procedure cxView_ComprobantesCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
 
 
   private
@@ -506,20 +512,21 @@ begin
           zInsert.Active:=False;
           AsignarSQL(zInsert,'upd_diascredito_comprobantes', pUpdate);
           if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active) )then
-          FiltrarDataSet(zInsert,'IdComprobante',[frmComprobantesFiscalesD.cxView_Comprobantes.DataController.DataSource.DataSet.FieldByName('IdComprobanteFiscal').AsInteger])
+          FiltrarDataSet(zInsert,'DiasCredito, ComprobanteCPP, IdComprobante',[cxDiasCredito.EditValue,cxView_Comprobantes.DataController.DataSet.FieldByName('IdComprobanteCPP').AsInteger,frmComprobantesFiscalesD.cxView_Comprobantes.DataController.DataSource.DataSet.FieldByName('IdComprobanteFiscal').AsInteger])
           else
           if((assigned(frmBancosMovimientos)) and (frmBancosMovimientos.Active) )then
-          FiltrarDataSet(zInsert,'IdComprobante',[frmBancosMovimientos.cxGridCFDIDBTableView1.DataController.DataSource.DataSet.FieldByName('IdComprobanteFiscal').AsInteger]);
+          FiltrarDataSet(zInsert,'DiasCredito,ComprobanteCPP,IdComprobante',[cxDiasCredito.EditValue,cxView_Comprobantes.DataController.DataSet.FieldByName('IdComprobanteCPP').AsInteger,frmBancosMovimientos.cxGridCFDIDBTableView1.DataController.DataSource.DataSet.FieldByName('IdComprobanteFiscal').AsInteger]);
           zInsert.ExecSQL;
         end;
 //        zCuentasPorPagar.FieldByName('Total').AsFloat:=cxMonto.EditValue;
         if (cxCotizacion.EditValue <> null) or (NombreDocto <> '') then begin
-           zCuentasPorPagar.FieldByName('FolioCotizacion').AsString:=cxCotizacion.EditValue;
+           zCuentasPorPagar.FieldByName('FolioCotizacion').AsString:=NombreDocto;
            zCuentasPorPagar.FieldByName('NombreDocto').AsString:=NombreDocto;
            zCuentasPorPagar.FieldByName('Direccion').AsString:=Direccion;
         end;
 
         zCuentasPorPagar.Post;
+        ;
       end;
     end;
 
@@ -652,7 +659,7 @@ begin
 //  end;
 
    zCuentasPorPagar.Refresh;
-
+   grid_comprobantes.Enabled:=True;
 end;
 
 procedure TfrmVisualizaComprobanteFD.btnCancelarCPPClick(Sender: TObject);
@@ -666,6 +673,7 @@ begin
   cxOC.Enabled:=False;
   btnAceptarCPP.Visible:=False;
   btnCancelarCPP.Visible:=False;
+  grid_comprobantes.Enabled:=True;
 end;
 
 procedure TfrmVisualizaComprobanteFD.btnDoctoCotizacionClick(Sender: TObject);
@@ -692,6 +700,7 @@ begin
 
 
     NombreDocto := ExtractFileName(Archivo);
+    cxCotizacion.EditValue:=NombreDocto;
     Direccion := ExtractFilePath(Archivo) + ExtractFileName(Archivo);
 
 
@@ -713,9 +722,11 @@ var
   Nodo, SubNodo, SubNodo2,
   ConceptosXML, ConceptoXML,
   NominaXML,
-  NominaRecept,
+  NominaRecept,TipoElacionadoXML,
   ImpuestosXML, TimbreFiscal, tfd: IXMLNode;
   i,j,k,l,m, x : Integer;
+  TipoRelacionado:String;
+  isTrue:boolean;
 begin
   // Datos layout top
   if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active) and (frmComprobantesFiscalesD.ComF))then begin
@@ -730,7 +741,7 @@ begin
   // Datos layot button
   cxFormaPago.Text   := frmComprobantesFiscalesD.zComprobantes.FieldByName('Titulo').AsString ;
   cxMetodoPago.Text  := frmComprobantesFiscalesD.zComprobantes.FieldByName('MetodoP').AsString ;
-  cxUso.Text         := frmComprobantesFiscalesD.zComprobantes.FieldByName('RegimenFiscal_Emisor').AsString ;
+  cxUso.Text         := frmComprobantesFiscalesD.zComprobantes.FieldByName('Uso_CFDI').AsString ;
   cxUUID.Text        := frmComprobantesFiscalesD.zComprobantes.FieldByName('Folio_UUID').AsString ;
   cxTotal.Value      := frmComprobantesFiscalesD.zComprobantes.FieldByName('Total').AsFloat;
 
@@ -743,6 +754,7 @@ begin
     Closefile(archivoTXT);
   end;
 
+  isTrue:=False;
   {$region 'Leer xml'}
     mConceptos.Active := False;
     mConceptos.Active := True;
@@ -769,9 +781,11 @@ begin
     begin
       Nodo := ComprobanteXML.ChildNodes[i];
 
-      if pos('cfdi:Emisor',Nodo.XML) > 0 then
+      if pos('cfdi:CfdiRelacionados',Nodo.XML) > 0 then
       begin
-
+        TipoElacionadoXML := ComprobanteXML.ChildNodes[i];
+        TipoRelacionado  := VarToStr(TipoElacionadoXML.Attributes['TipoRelacion']);
+        isTrue:=True;
       end;
 
       if pos('cfdi:Conceptos',Nodo.XML) > 0 then
@@ -784,6 +798,10 @@ begin
           begin
             ConceptoXML := ConceptosXML.ChildNodes[j];
             mConceptos.Append;
+            if isTrue then
+             mConceptos.FieldByName('TipoRelacion').AsString := TipoRelacionado
+            else
+             mConceptos.FieldByName('TipoRelacion').AsVariant := '';
             mConceptos.FieldByName('Cantidad').AsVariant := ConceptoXML.Attributes['Cantidad'];
             mConceptos.FieldByName('Unidad').AssTRING := VarToStr(ConceptoXML.Attributes['ClaveUnidad'])+' '+VarToStr(ConceptoXML.Attributes['Unidad']);
             mConceptos.FieldByName('Descripcion').AsVariant := ConceptoXML.Attributes['Descripcion'];
@@ -976,6 +994,7 @@ begin
       cxOC.Enabled:=True;
       btnAceptarCPP.Visible:=True;
       zCuentasPorPagar.Edit;
+      grid_comprobantes.Enabled:=False;
 //      zCuentasPorPagar.FieldByName('IdComprobanteFiscal').AsFloat:=frmComprobantesFiscalesD.cxView_Comprobantes.DataController.DataSource.DataSet.FieldByName('IdComprobanteFiscal').AsInteger
     end;
 end;
@@ -1056,18 +1075,40 @@ begin
 
 
 procedure TfrmVisualizaComprobanteFD.cxNuevoDetalleClick(Sender: TObject);
+var
+indice:Integer;
+ AView: TcxGridTableView;
+ ACol, ARec: Integer;
 begin
    if cxPageControl1.ActivePage = cxTabCuentasPorPagar then
     begin
+
+      grid_comprobantes.Enabled:=False;
       cxDiasCredito.Enabled:=True;
       cxProyecto.Enabled:=True;
       cxMonto.Enabled:=True;
       cxCotizacion.Enabled:=True;
       dxLayoutItem38.Enabled:=True;
       cxOC.Enabled:=True;
+
+      cxDiasCredito.EditValue:=0;
+      cxProyecto.EditText:='';
+      cxMonto.EditValue:=0;
+
+      cxCotizacion.EditValue:=0;
+      cxOC.EditValue:=0;
+
       btnAceptarCPP.Visible:=True;
       btnCancelarCPP.Visible:=True;
       zCuentasPorPagar.Append;
+      cxView_Comprobantes.Controller.ClearSelection;
+//      cxView_Comprobantes.DataController.RecordCount := cxView_Comprobantes.DataController.RecordCount + 1;
+//      cxView_Comprobantes.VisibleColumns[0].Focused := True;
+//      cxView_Comprobantes.DataController.FocusedRecordIndex := ARec + 1;
+
+//      indice:=cxView_Comprobantes.DataController.FocusedRecordIndex;
+ //     cxView_Comprobantes.DataController.FocusedRowIndex := indice+1;
+      cxView_Comprobantes.DataController.FocusedRowIndex:=-1;
       if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active) )then
       zCuentasPorPagar.FieldByName('IdComprobanteFiscal').AsFloat:=frmComprobantesFiscalesD.cxView_Comprobantes.DataController.DataSource.DataSet.FieldByName('IdComprobanteFiscal').AsInteger
       else
@@ -1195,6 +1236,8 @@ procedure TfrmVisualizaComprobanteFD.cxProyectoPropertiesChange(
   var
    AValue: Variant;
 begin
+
+
  AValue := TcxLookupComboBox(Sender).EditValue;
 
     if (AValue <> null) then begin
@@ -1203,6 +1246,7 @@ begin
        AsignarSQL(zAnexo_pedidos,'anexo_pedidos_cuentas_pp', pUpdate);
        FiltrarDataSet(zAnexo_pedidos,'Contrato,NumeroOrden',[global_contrato,AValue]);
        zAnexo_pedidos.Open;
+
 
 
 
@@ -1215,6 +1259,8 @@ var
   zIdCompr,zInsert,zActualizar:TUniquery;
   Val:String;
 begin
+
+  cxProyectoPropertiesChange(Sender) ;
   zIdCompr:=tUniquery.create(nil);
   zIdCompr.Connection := connection.uConnection;
 
@@ -1260,6 +1306,7 @@ begin
   end
   else begin
     zInsert.Active:=False;
+
     AsignarSQL(zInsert,'mov_ind_ins_proyecto', pUpdate);
     if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active) )then
     FiltrarDataSet(zInsert,'sNumeroOrden,IdComprobante',[cxProyecto.EditValue,frmComprobantesFiscalesD.cxView_Comprobantes.DataController.DataSource.DataSet.FieldByName('IdComprobanteFiscal').AsInteger])
@@ -1293,24 +1340,68 @@ cxMonto.EditValue:=Resultado;
 cxView_Comprobantes.DataController.FocusedRowIndex;
 end;
 
+procedure TfrmVisualizaComprobanteFD.cxView_ComprobantesCellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+  var
+  rutaArchivo: string;
+  ZCuentasPP : TUniquery;
+begin
+
+
+     ZCuentasPP:=tUniquery.create(nil);
+     ZCuentasPP.Connection := connection.uConnection;
+
+    ZCuentasPP.Active:=False;
+    AsignarSQL(ZCuentasPP, 'comprobantes_cpp', pUpdate);
+    if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active) )then
+    FiltrarDataSet(ZCuentasPP, 'IdComprobanteCPP,IdComprobanteFiscal', [cxView_Comprobantes.DataController.DataSet.FieldByName('IdComprobanteCPP').AsInteger,frmComprobantesFiscalesD.zComprobantes.FieldByName('IdComprobanteFiscal').AsString])
+    else
+    if((assigned(frmBancosMovimientos)) and (frmBancosMovimientos.Active) )then
+    FiltrarDataSet(ZCuentasPP, 'IdComprobanteCPP,IdComprobanteFiscal', [cxView_Comprobantes.DataController.DataSet.FieldByName('IdComprobanteCPP').AsInteger,frmBancosMovimientos.zCfdi.FieldByName('IdComprobanteFiscal').AsString]);
+    ZCuentasPP.Open;
+
+   if not ((ZCuentasPP.FieldByName('Cotizacion').IsNull) or (ZCuentasPP.FieldByName('Cotizacion').AsString = '')) then begin
+     rutaArchivo:=ZCuentasPP.FieldByName('Direccion').AsString;
+     if not FileExists(rutaArchivo) then
+        raise exception.Create('No se encontro el archivo especificado')
+     else
+      ShellExecute(0, Nil, PChar(rutaArchivo), '', '', SW_SHOWNORMAL);
+   end;
+end;
+
 procedure TfrmVisualizaComprobanteFD.FormShow(Sender: TObject);
 var
   indice, iGrid    : integer;
   sumabono,monto : Double;
   iValorNumerico   : LongInt  ;
   Resultado        : Real     ;
+  IdMov:Integer;
 begin
   cxTraslados.EditValue := 0.00;
   cxRetenciones.EditValue := 0.00;
   CargarDatos;
 
+//  zHistorial.Active:=False;
+//  AsignarSQL(zHistorial, 'comprobantes_movimientos', pUpdate);
+//  if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active)) then
+//  FiltrarDataSet(zHistorial, 'IdComprobante', [frmComprobantesFiscalesD.zComprobantes.FieldByName('IdComprobanteFiscal').AsString]);
+//  if((assigned(frmBancosMovimientos)) and (frmBancosMovimientos.Active)) then
+//  FiltrarDataSet(zHistorial, 'IdComprobante', [frmBancosMovimientos.zCfdi.FieldByName('IdComprobanteFiscal').AsString]);
+//  zHistorial.Open;
+//
+//  IdMov:=zHistorial.FieldByName('IdMovimientoB').AsInteger;
+
+  zHistorial.Active:=False;
   AsignarSQL(zHistorial, 'cont_cfdi_detallemovimiento', pUpdate);
    if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active)) then
   FiltrarDataSet(zHistorial, 'IdComprobante,Movimiento', [frmComprobantesFiscalesD.zComprobantes.FieldByName('IdComprobanteFiscal').AsString,-1]);
+//   FiltrarDataSet(zHistorial, 'IdComprobante,Movimiento', [-1,IdMov]);
    if((assigned(frmBancosMovimientos)) and (frmBancosMovimientos.Active)) then
-   FiltrarDataSet(zHistorial, 'IdComprobante,Movimiento', [frmBancosMovimientos.zCfdi.FieldByName('IdComprobanteFiscal').AsString,-1]);
+//   FiltrarDataSet(zHistorial, 'IdComprobante,Movimiento', [-1,IdMov]);
+//   FiltrarDataSet(zHistorial, 'IdComprobante,Movimiento', [frmBancosMovimientos.zCfdi.FieldByName('IdComprobanteFiscal').AsString,IdMov);
 
- // FiltrarDataSet(zHistorial, 'IdComprobante,Movimiento', [-1,frmComprobantesFiscalesD.zComprobantes.FieldByName('Movimiento').AsString]);
+  FiltrarDataSet(zHistorial, 'IdComprobante,Movimiento', [frmBancosMovimientos.zCfdi.FieldByName('IdComprobanteFiscal').AsString,-1]);
   zHistorial.Open;
 
     iValorNumerico:= Trunc(cxView_Historial.DataController.DataSource.DataSet.FieldByName('MontoComp').AsFloat) ;
@@ -1344,9 +1435,11 @@ begin
   zNotaCredito.Active := False;
   AsignarSQL(zNotaCredito, 'comprobantes_notacredito', pUpdate);
    if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active)) then
-  FiltrarDataSet(zNotaCredito, 'FolioRelacionado', [frmComprobantesFiscalesD.zComprobantes.FieldByName('Folio_UUID').AsString]) ;
+   FiltrarDataSet(zNotaCredito, 'FolioRelacionado', [frmComprobantesFiscalesD.zComprobantes.FieldByName('CFDI_Relacionado').AsString]) ;
+//  FiltrarDataSet(zNotaCredito, 'FolioRelacionado', [frmComprobantesFiscalesD.zComprobantes.FieldByName('Folio_UUID').AsString]) ;
    if((assigned(frmBancosMovimientos)) and (frmBancosMovimientos.Active)) then
-  FiltrarDataSet(zNotaCredito, 'FolioRelacionado', [frmBancosMovimientos.zCfdi.FieldByName('Folio_UUID').AsString]) ;
+   FiltrarDataSet(zNotaCredito, 'FolioRelacionado', [frmBancosMovimientos.zCfdi.FieldByName('CFDI_Relacionado').AsString]) ;
+//  FiltrarDataSet(zNotaCredito, 'FolioRelacionado', [frmBancosMovimientos.zCfdi.FieldByName('Folio_UUID').AsString]) ;
   zNotaCredito.open;
 
   if zRelacionado.RecordCount > 0 then

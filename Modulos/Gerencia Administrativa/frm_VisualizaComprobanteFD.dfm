@@ -39,7 +39,7 @@ object frmVisualizaComprobanteFD: TfrmVisualizaComprobanteFD
         Height = 432
         Align = alClient
         TabOrder = 0
-        Properties.ActivePage = cxTabHistorial
+        Properties.ActivePage = cxTabDatosCFDI
         Properties.CustomButtons.Buttons = <>
         OnChange = cxPageControl1Change
         ClientRectBottom = 430
@@ -612,28 +612,33 @@ object frmVisualizaComprobanteFD: TfrmVisualizaComprobanteFD
               OptionsData.Inserting = False
               OptionsView.ColumnAutoWidth = True
               OptionsView.Indicator = True
+              object view_VisualizaCFDColumn6: TcxGridDBColumn
+                Caption = 'Tipo Relacionado'
+                DataBinding.FieldName = 'TipoRelacion'
+                Width = 54
+              end
               object view_VisualizaCFDColumn1: TcxGridDBColumn
                 Caption = 'Cant'
                 DataBinding.FieldName = 'Cantidad'
-                Width = 77
+                Width = 68
               end
               object view_VisualizaCFDColumn2: TcxGridDBColumn
                 DataBinding.FieldName = 'Unidad'
-                Width = 208
+                Width = 184
               end
               object view_VisualizaCFDColumn3: TcxGridDBColumn
                 Caption = 'Descripci'#243'n'
                 DataBinding.FieldName = 'Descripcion'
-                Width = 210
+                Width = 185
               end
               object view_VisualizaCFDColumn4: TcxGridDBColumn
                 Caption = 'Precio Unit'
                 DataBinding.FieldName = 'PrecioUnit'
-                Width = 228
+                Width = 201
               end
               object view_VisualizaCFDColumn5: TcxGridDBColumn
                 DataBinding.FieldName = 'Importe'
-                Width = 191
+                Width = 168
               end
             end
             object cxGridComprobanteLevel1: TcxGridLevel
@@ -1018,6 +1023,10 @@ object frmVisualizaComprobanteFD: TfrmVisualizaComprobanteFD
               object gridView_NotasCreditoSerie: TcxGridDBColumn
                 DataBinding.FieldName = 'Serie'
               end
+              object gridView_NotasCreditoColumn6: TcxGridDBColumn
+                Caption = 'CFDI Relacionado'
+                DataBinding.FieldName = 'CFDI_Relacionado'
+              end
               object gridView_NotasCreditoColumn2: TcxGridDBColumn
                 Caption = 'Tipo Comprobante'
                 DataBinding.FieldName = 'TipoComprobante'
@@ -1282,6 +1291,7 @@ object frmVisualizaComprobanteFD: TfrmVisualizaComprobanteFD
               object cxView_Comprobantes: TcxGridDBTableView
                 Navigator.Buttons.CustomButtons = <>
                 OnCellClick = cxView_ComprobantesCellClick
+                OnCellDblClick = cxView_ComprobantesCellDblClick
                 DataController.DataSource = dsCuentasPorPagar
                 DataController.Filter.Options = [fcoCaseInsensitive]
                 DataController.Filter.TranslateBetween = True
@@ -1307,10 +1317,7 @@ object frmVisualizaComprobanteFD: TfrmVisualizaComprobanteFD
                 FilterRow.InfoText = 'Haga clic aqu'#237' para definir un filtro'
                 FilterRow.Visible = True
                 FilterRow.ApplyChanges = fracImmediately
-                OptionsData.CancelOnExit = False
-                OptionsData.Deleting = False
-                OptionsData.DeletingConfirmation = False
-                OptionsData.Inserting = False
+                OptionsData.Appending = True
                 OptionsSelection.MultiSelect = True
                 OptionsView.ColumnAutoWidth = True
                 OptionsView.GroupByBox = False
@@ -1952,8 +1959,8 @@ object frmVisualizaComprobanteFD: TfrmVisualizaComprobanteFD
   end
   object zTipoComprobante: TUniQuery
     Connection = connection.Uconnection
-    Left = 777
-    Top = 28
+    Left = 769
+    Top = 84
   end
   object dsComprobante: TDataSource
     DataSet = zComprobante
@@ -1993,6 +2000,10 @@ object frmVisualizaComprobanteFD: TfrmVisualizaComprobanteFD
     end
     object mConceptosImporte: TCurrencyField
       FieldName = 'Importe'
+    end
+    object mConceptosTipoRelacion: TStringField
+      FieldName = 'TipoRelacion'
+      Size = 50
     end
   end
   object dsConceptos: TDataSource
