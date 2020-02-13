@@ -731,11 +731,8 @@ var
 nombre, cc : String;
 r : Boolean;
 aux:TUniQuery;
-ArrayFolio: TStringArrayInt;
-begin
-     // Codigo para folio incremental;
-     ArrayFolio := generar_folio_inc('master_configura_mail_destino','IdConfiguraDetalle');
 
+begin
      if cxPageProceso.ActivePage = cxTabValida then
      begin
        zEmpleado.Locate('NombreCompleto',cxEmpleado.Text,[]);
@@ -755,9 +752,8 @@ begin
            end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger := ArrayFolio[1];
+
        if cxCheckotros.Checked = False then
        begin
            //zEmpleado.Locate('NombreCompleto',cxEmpleado.Text,[]);
@@ -818,9 +814,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
        if ckAutoriza.Checked = False then
        begin
@@ -858,9 +852,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckLibera.Checked = False then
        begin
@@ -893,9 +885,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckAsigna.Checked = False then
        begin
@@ -931,9 +921,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckRechaza.Checked = False then
        begin
@@ -966,9 +954,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckCancela.Checked = False then
        begin
@@ -1002,9 +988,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckRechazarMateriales.Checked = False then
        begin
@@ -1038,9 +1022,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckCondicionarMateriales.Checked = False then
        begin
@@ -1074,9 +1056,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckPR.Checked = False then
        begin
@@ -1109,9 +1089,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
      if ckCompra.Checked = False then
        begin
@@ -1145,9 +1123,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
        if ckMateriales.Checked = False then
        begin
@@ -1181,9 +1157,7 @@ begin
          end;
        end;
        zDestino.Append;
-       zDestino.FieldByName('IdConfiguraDetalle').AsInteger :=  ArrayFolio[0];
        zDestino.FieldByName('IdConfiguracion').AsInteger := zqDatos.FieldByName('IdConfiguracion').AsInteger;
-       zDestino.FieldByName('Periodo').AsInteger :=  ArrayFolio[1];
 
        if ckServicio.Checked = False then
        begin

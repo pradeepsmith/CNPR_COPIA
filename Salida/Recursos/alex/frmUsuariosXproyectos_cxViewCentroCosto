@@ -1,0 +1,34 @@
+﻿[Main]
+Version=2
+
+[frmUsuariosXproyectos.cxViewCentroCosto: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="False"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmUsuariosXproyectos.cxViewCentroCosto/cxColumnInfoD31: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=122
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmUsuariosXproyectos.cxViewCentroCosto/cxColumnInfoD32: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=305
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

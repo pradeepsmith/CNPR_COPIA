@@ -256,15 +256,6 @@ type
     procedure cxGridSolicitudCellDblClick(Sender: TcxCustomGridTableView;
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
-    procedure cxGridSolicitudCustomDrawCell(Sender: TcxCustomGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean);
-    procedure cxGridSolicitudCustomDrawColumnHeader(Sender: TcxGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridColumnHeaderViewInfo;
-      var ADone: Boolean);
-    procedure cxGrid2SolicitudDetCustomDrawCell(Sender: TcxCustomGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean);
 
   private
     { Private declarations }
@@ -285,17 +276,9 @@ frm_connection, Func_Genericas, frm_repositorio,frm_agregar_masivoOP,
 {$R *.dfm}
 
 procedure TfrmSolicitudDeMateriales.btnAddClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
 //    try
       zAvisosEmbarque.Append;
-
-    // Codigo para folio incremental;
-      ArrayFolio := generar_folio_inc('alm_solicitud_materiales','IdSolicitudMateriales');
-      zAvisosEmbarque.FieldValues['IdSolicitudMateriales']:= ArrayFolio[0];
-      zAvisosEmbarque.FieldValues['Periodo']:= ArrayFolio[1];
-
     // zAvisosEmbarque.FieldByName('IdSolicitudMateriales').AsInteger := Noil_maximoId(global_contrato, 'alm_solicitud_materiales', 'IdSolicitudMateriales');
       zAvisosEmbarque.FieldByName('sIdUsuario').AsString := Global_Usuario;
       zAvisosEmbarque.FieldByName('sContrato').AsString := global_contrato;
@@ -655,14 +638,6 @@ begin
         end;
      End
 end;
-
-procedure TfrmSolicitudDeMateriales.cxGrid2SolicitudDetCustomDrawCell(
-  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
-begin
-  ACanvas.Brush.Color := $00E1FAA9;
-end;
-
 procedure TfrmSolicitudDeMateriales.cxGridSolicitudCellDblClick(
   Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
   AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
@@ -670,20 +645,6 @@ begin
    AfterScrollSolicitudDetalle;
    Application.CreateForm(TfrmSolicitudDetalle, frmSolicitudDetalle);
    frmSolicitudDetalle.show;
-end;
-
-procedure TfrmSolicitudDeMateriales.cxGridSolicitudCustomDrawCell(
-  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
-begin
-ACanvas.Brush.Color := $00CCFFFF    ;
-end;
-
-procedure TfrmSolicitudDeMateriales.cxGridSolicitudCustomDrawColumnHeader(
-  Sender: TcxGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridColumnHeaderViewInfo; var ADone: Boolean);
-begin
-  ACanvas.Brush.Color := $00DC47B4;
 end;
 
 procedure TfrmSolicitudDeMateriales.cxGuardarDetalleClick(Sender: TObject);
@@ -819,6 +780,8 @@ begin
 end;
 
 procedure TfrmSolicitudDeMateriales.FormShow(Sender: TObject);
+var
+temE:TUniQuery;
 begin
     btnPermisos := global_btnPermisos;
 
@@ -835,9 +798,18 @@ begin
         ;
   end;
 
+    temE := TUniquery.create(nil);
+    temE.Connection := Connection.uConnection;
+    temE.Active:=False;
+    temE.SQL.Text:='Select FK_Titulo from master_empresa';
+    temE.Open;
 
     AsignarSQL(zPlataforma,'plataformas', pUpdate);
     zPlataforma.Open;
+
+    AsignarSQL(zEmbarcacion,'master_embarcaciones', pUpdate);
+    zEmbarcacion.Open;
+
 
 //    AsignarSQL(zMaterial, 'alm_insumos',pUpdate);
 //    FiltrarDataset(zMaterial,'Codigo',[-1]);
@@ -846,8 +818,34 @@ begin
     AsignarSQL(zMedida,'master_medidas',pUpdate);
     zMedida.Open;
 
+    AsignarSql(zSeries, 'almacen_series', pUpdate);
+    FiltrarDataSet(zSeries,'IdSerie',[-1]);
+    zSeries.Open;
+
     AsignarSql(zDepto, 'master_departamento', pUpdate);
     zDepto.Open;
+
+//    zq_tipomovimiento.Active:= False;
+//    AsignarSQL(zq_tipomovimiento,'movimientosdealmacen_salida',pUpdate);
+//    zq_tipomovimiento.Open;
+
+
+//    AsignarSQL(zOrdenCompras,'anexo_pedidos',pUpdate);
+//    FiltrarDataSet(zOrdenCompras,'Contrato',[global_contrato]);
+//    zOrdenCompras.Open;
+
+//    AsignarSQL(zSalidas,'salida_avisoembarque',pUpdate);
+//    FiltrarDataSet(zSalidas,'Contrato,Usuario',[global_contrato,global_usuario]);
+//    zSalidas.Open;
+
+
+//    AsignarSQL(zOrdenesTrabajo,'ordenesdetrabajo_presu_val',pUpdate);
+//    if temE.FieldByName('FK_Titulo').AsString = 'SIANI' then
+//       FiltrarDataSet(zOrdenesTrabajo,'Contrato,Tipo,Status',[global_contrato,'-1','-1'])
+//    else
+//       FiltrarDataSet(zOrdenesTrabajo,'Contrato,Tipo,Estatus',[global_contrato,'PROYECTO','-1']);
+//    zOrdenesTrabajo.Open ;
+
 
     AsignarSQL(zAvisosEmbarque,'alm_solicitud_materiales', pUpdate);
     FiltrarDataSet(zAvisosEmbarque,'Contrato, IdSolicitudMateriales',[global_contrato, -1]);
@@ -872,6 +870,11 @@ begin
     AsignarSQL(zProyecto,'ordenesdetrabajo_req',pUpdate);
     FiltrarDataSet(zProyecto,'Contrato,Tipo',[global_contrato,'PROYECTO']);
     zProyecto.Open;
+
+    Almacen.Active:= False;
+    AsignarSQL(Almacen,'almacenes_salida',pUpdate);
+    FiltrarDataSet(Almacen,'Usuario',[Global_Usuario]);
+    Almacen.Open;
 
     IsOpen := True;
 

@@ -479,17 +479,11 @@ end;
 
 procedure TfrmDiasLaboradosSIANI.btnAddClick(Sender: TObject);
 var SelectIdPersonal:Integer;
-ArrayFolio: TStringArrayInt;
 begin
   frmBarraH11.btnAddClick(Sender);
   PanelDatos.Visible:= True;
   SelectIdPersonal :=  DiasLaboradosM.FieldByName('IdPersonal').AsInteger;
   DiasLaboradosM.Append;
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('rh_verificar_manual','IdVerificarManual');
-  DiasLaboradosM.FieldValues['IdVerificarManual']:= ArrayFolio[0];
-  DiasLaboradosM.FieldValues['Periodo']:= ArrayFolio[1];
-
   cxDBLookupComboBox4.SetFocus;
   DiasLaboradosM.FieldByName('IdProyecto').AsString:=Proyecto.FieldByName('sNumeroOrden').AsString;
   DiasLaboradosM.FieldByName('sIdTurno').AsString:='TD';

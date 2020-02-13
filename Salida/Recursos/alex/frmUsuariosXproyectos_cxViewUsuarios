@@ -1,0 +1,67 @@
+﻿[Main]
+Version=2
+
+[frmUsuariosXproyectos.cxViewUsuarios: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmUsuariosXproyectos.cxViewUsuarios/cxGridDBColumn1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=53
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmUsuariosXproyectos.cxViewUsuarios/cxGridDBColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=241
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmUsuariosXproyectos.cxViewUsuarios/cxViewUsuariosColumn1: TcxGridDBColumn]
+=
+GroupIndex=0
+Width=169
+AlignmentHorz=0
+Index=2
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmUsuariosXproyectos.cxViewUsuarios/cxViewUsuariosColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=113
+AlignmentHorz=0
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmUsuariosXproyectos.cxViewUsuarios/cxViewUsuariosColumn3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=113
+AlignmentHorz=0
+Index=4
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

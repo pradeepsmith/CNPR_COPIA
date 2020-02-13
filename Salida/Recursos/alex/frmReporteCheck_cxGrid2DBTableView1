@@ -1,0 +1,67 @@
+﻿[Main]
+Version=2
+
+[frmReporteCheck.cxGrid2DBTableView1: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmReporteCheck.cxGrid2DBTableView1/cxGrid2DBTableView1Column1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=117
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmReporteCheck.cxGrid2DBTableView1/cxGrid2DBTableView1Column2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=85
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmReporteCheck.cxGrid2DBTableView1/cxGrid2DBTableView1Column3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=105
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmReporteCheck.cxGrid2DBTableView1/cxGrid2DBTableView1Column4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=146
+AlignmentHorz=0
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmReporteCheck.cxGrid2DBTableView1/cxGrid2DBTableView1Column5: TcxGridDBColumn]
+=
+GroupIndex=0
+Width=64
+AlignmentHorz=0
+Index=4
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

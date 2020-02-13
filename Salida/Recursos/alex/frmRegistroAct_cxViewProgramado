@@ -1,0 +1,67 @@
+﻿[Main]
+Version=2
+
+[frmRegistroAct.cxViewProgramado: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmRegistroAct.cxViewProgramado/cxColumnD1: TcxGridDBColumn]
+=
+GroupIndex=0
+Width=64
+AlignmentHorz=0
+Index=0
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroAct.cxViewProgramado/cxColumnD2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=57
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroAct.cxViewProgramado/cxColumnD3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=75
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroAct.cxViewProgramado/cxColumnD4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=63
+AlignmentHorz=0
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroAct.cxViewProgramado/cxColumnD5: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=64
+AlignmentHorz=0
+Index=4
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

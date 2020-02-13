@@ -1286,8 +1286,14 @@ begin
        PanelProgreso.Visible := True;
        while not Movimientos.Eof do
        begin
-         AsignarSQL(Consulta,'antes_elimina_requisicion',pUpdate);
+         if Movimientos.FieldByName('Tabla').AsString = 'op_presupuesto_detalle' then begin
+          AsignarSQL(Consulta,'antes_elimina_op_presupuesto',pUpdate);
+          FiltrarDataSet(Consulta, 'filter_by_code,IdRecurso',[Movimientos.FieldByName('Tabla').AsString, zqInsumos.FieldByName('IdInsumo').AsInteger])
+         end
+         else begin
+          AsignarSQL(Consulta,'antes_elimina_requisicion',pUpdate);
          FiltrarDataSet(Consulta, 'filter_by_code,IdInsumo',[Movimientos.FieldByName('Tabla').AsString, zqInsumos.FieldByName('IdInsumo').AsInteger]);
+         end;
          Consulta.Open;
          if (connection.uContrato.FieldByName('FK_Titulo').AsString='SUBSEA 7') or (connection.uContrato.FieldByName('FK_Titulo').AsString='CMMI') then  begin
            if (Consulta.RecordCount > 0) and (Movimientos.FieldByName('TablaMovimiento').AsString <> 'Stock de Materiales') then

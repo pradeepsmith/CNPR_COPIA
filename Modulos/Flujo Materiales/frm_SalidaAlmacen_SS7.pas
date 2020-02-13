@@ -1653,8 +1653,6 @@ begin
 end;
 
 procedure TfrmSalidaAlmacen_SS7.btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
   pgControl.Visible := True;
   Try
@@ -1667,12 +1665,6 @@ begin
 
     cxAlmacen.SetFocus;
     salida_almacen.Append;
-
-    // Codigo para folio incremental;
-    ArrayFolio := generar_folio_inc('almacen_salida','iFolioSalida');
-    salida_almacen.FieldValues['iFolioSalida']:= ArrayFolio[0];
-    salida_almacen.FieldValues['Periodo']:= ArrayFolio[1];
-
     salida_almacen.FieldByName('iFolioSalida').AsInteger    := 0;
     salida_almacen.FieldByName('sFolioSalida').AsString     := autofolio(salida_almacen,'almacen_salida');
     salida_almacen.FieldByName('dFechaSalida').AsDateTime   := Date;

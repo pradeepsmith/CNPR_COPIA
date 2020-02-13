@@ -206,7 +206,9 @@ uses
   frm_agregar_personal in 'Modulos\Recursos Humanos\frm_agregar_personal.pas' {frmAgregarPersonal},
   FrmAsistenciaMedica in 'Modulos\Recursos Humanos\FrmAsistenciaMedica.pas' {FrmAsistenciaMed},
   frm_materiales_SS7 in 'Modulos\Flujo Materiales\frm_materiales_SS7.pas' {frmMateriales_SS7},
-  frm_Empresas_SSI in 'frm_Empresas_SSI.pas' {frm_Empresa_SSI};
+  frm_Empresas_SSI in 'frm_Empresas_SSI.pas' {frm_Empresa_SSI},
+  frm_listado_personal in 'Modulos\Control EPP\frm_listado_personal.pas' {frmListadoPersonal},
+  frm_SolicitudDetalle in 'Modulos\Flujo Materiales\frm_SolicitudDetalle.pas' {frmSolicitudDetalle};
 
 {$R *.TLB}
 

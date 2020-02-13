@@ -33,6 +33,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
     Height = 35
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 1061
     inline frmBarraH11: TfrmBarraH1
       Left = 285
       Top = 1
@@ -41,7 +42,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
       Align = alRight
       AutoSize = True
       TabOrder = 0
-      ExplicitLeft = 285
+      ExplicitLeft = 498
       ExplicitTop = 1
       ExplicitHeight = 33
       inherited Panel1: TPanel
@@ -104,6 +105,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
       Style.Font.Style = [fsBold]
       Style.TextColor = clHighlight
       Style.IsFontAssigned = True
+      ExplicitWidth = 497
     end
   end
   object Panel2: TPanel
@@ -120,6 +122,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 1061
     object dxLayoutControl1: TdxLayoutControl
       AlignWithMargins = True
       Left = 4
@@ -135,6 +138,8 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
       ParentFont = False
       TabOrder = 0
       LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+      ExplicitWidth = 1053
+      ExplicitHeight = 92
       object cxGDatos: TcxGroupBox
         Left = 12
         Top = 12
@@ -170,6 +175,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
           object cxNombre: TcxDBTextEdit
             Left = 99
             Top = 11
+            Align = alClient
             DataBinding.DataField = 'Nombre'
             DataBinding.DataSource = ds_GerenteDepartamento
             ParentFont = False
@@ -189,6 +195,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
           object cxNumeroPersonal: TcxDBTextEdit
             Left = 450
             Top = 11
+            Align = alClient
             DataBinding.DataField = 'NumeroPersonal'
             DataBinding.DataSource = ds_GerenteDepartamento
             ParentFont = False
@@ -208,6 +215,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
           object cbDepartamento: TcxDBLookupComboBox
             Left = 99
             Top = 40
+            Align = alClient
             DataBinding.DataField = 'IdDepartamento'
             DataBinding.DataSource = ds_GerenteDepartamento
             ParentFont = False
@@ -234,6 +242,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
           object cxCorreo: TcxDBTextEdit
             Left = 450
             Top = 40
+            Align = alClient
             DataBinding.DataField = 'Correo'
             DataBinding.DataSource = ds_GerenteDepartamento
             ParentFont = False
@@ -247,6 +256,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
           object cxPrincipal: TdxDBToggleSwitch
             Left = 684
             Top = 11
+            Align = alRight
             Caption = 'Activo:'
             DataBinding.DataField = 'Activo'
             DataBinding.DataSource = ds_GerenteDepartamento
@@ -272,6 +282,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
           object dxDBToggleSwitch1: TdxDBToggleSwitch
             Left = 674
             Top = 40
+            Align = alRight
             Caption = 'Notifica:'
             DataBinding.DataField = 'lAutoriza'
             DataBinding.DataSource = ds_GerenteDepartamento
@@ -423,6 +434,8 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
       Height = 35
       Align = alBottom
       TabOrder = 1
+      ExplicitTop = 99
+      ExplicitWidth = 1059
       inline frmBarraH21: TfrmBarraH2
         Left = 665
         Top = 1
@@ -430,7 +443,7 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
         Height = 33
         Align = alRight
         TabOrder = 0
-        ExplicitLeft = 665
+        ExplicitLeft = 878
         ExplicitTop = 1
         ExplicitHeight = 33
         inherited Panel1: TPanel
@@ -467,6 +480,8 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
     Height = 6
     AlignSplitter = salTop
     Control = Panel2
+    ExplicitTop = 354
+    ExplicitWidth = 1061
   end
   object grid_almacen: TcxGrid
     Left = 0
@@ -481,6 +496,8 @@ object frmGerentesPorDepartamento: TfrmGerentesPorDepartamento
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    ExplicitWidth = 1061
+    ExplicitHeight = 319
     object grid_almacenDBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = False

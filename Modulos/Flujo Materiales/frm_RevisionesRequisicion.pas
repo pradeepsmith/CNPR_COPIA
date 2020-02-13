@@ -2915,7 +2915,6 @@ procedure TFrmRevisionesRequisiciones.FormShow(Sender: TObject);
 var
 Cursor: TCursor;
   LocIdEmpresa: String;
-  Year, Month, Day : Word;
 begin
 
   btnPermisos := global_btnPermisos;
@@ -3040,8 +3039,8 @@ begin
     zNotasGenerales.Open;
 
     AsignarSQL(zdepC,'master_dep_compra',pUpdate);
-    DecodeDate(date, Year, Month, Day);
-    cxInicioRequerido.Date := StrToDate(intToStr(1).PadLeft(2,'0')+'/'+ intToStr(Month).PadLeft(2,'0')+'/'+intToStr(Year));//StrToDate('01'+copy(DateToStr(date),3,10));
+
+    cxInicioRequerido.Date := StrToDate('01'+copy(DateToStr(date),3,10));
     cxFinRequerido.Date    := date;
 
     //Bloqueo de opciones según estado de la MR(requisición)

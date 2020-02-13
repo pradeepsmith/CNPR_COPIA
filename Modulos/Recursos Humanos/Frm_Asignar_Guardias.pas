@@ -175,8 +175,6 @@ begin
 end;
 
 procedure TFrmAsignarGuardias.btnAddClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
   cxLeyenda.Caption:=titulo + '[Añadiendo]';
   SplitterDown.Visible:=True;
@@ -185,11 +183,6 @@ begin
 
   zGuardias.Append;
   zGuardias.FieldByName('IdGuardia').AsInteger:=0;
-
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('rh_guardias','IdGuardia');
-  zGuardias.FieldValues['IdGuardia']:= ArrayFolio[0];
-  zGuardias.FieldValues['Periodo']:= ArrayFolio[1];
 
   zGuardias.FieldByName('IdEmpresa').AsInteger:=zEmpresa.FieldByName('IdEmpresa').AsInteger;
   zGuardias.FieldByName('Codigo').asString := autofolio(zGuardias, 'rh_guardias');

@@ -332,7 +332,6 @@ var
   IdNomAct, IdNomAnt : Integer;
   I, FechaI, FechaT : TDate;
   ii:String;
-  ArrayFolio: TStringArrayInt;
   begin
   if zNomina.Locate('IdNomina',lcbNomina.EditValue,[]) then
   begin
@@ -370,11 +369,6 @@ var
             if not zDiasL.Locate('IdProyecto;IdPersonal;Fecha;', varArrayOf([zPerAnt.FieldByName('sIdProyecto').AsString,zPerAnt.FieldByName('IdPersonal').AsString,DateToStr(I)]),[]) then
             begin
               zDiasL.Append;
-              // Codigo para folio incremental;
-              ArrayFolio := generar_folio_inc('rh_verificar_manual','IdVerificarManual');
-              zDiasL.FieldValues['IdVerificarManual']:= ArrayFolio[0];
-              zDiasL.FieldValues['Periodo']:= ArrayFolio[1];
-
               zDiasL.FieldByName('IdProyecto').AsString := zPerAnt.FieldByName('sIdProyecto').AsString;
               zDiasL.FieldByName('IdPersonal').AsString := zPerAnt.FieldByName('IdPersonal').AsString;
               zDiasL.FieldByName('IdPlataforma').AsInteger := 1 ;//zPerAnt.FieldByName('sIdProyecto').AsString;

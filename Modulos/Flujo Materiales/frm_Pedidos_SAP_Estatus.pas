@@ -452,7 +452,6 @@ end;
 procedure TfrmPedidos_SAP_Estatus.FormShow(Sender: TObject);
 var x: integer;
  temE:TUniQuery;
- Year, Month, Day : Word;
 begin
   btnPermisos := global_btnPermisos;
   try
@@ -539,8 +538,7 @@ begin
     if temE.FieldByName('FK_Titulo').AsString = 'SIANI' then
       tdCostoNuevo.Properties.DisplayFormat:='$,0.00;-$,0.00';
 
-    DecodeDate(date, Year, Month, Day);
-    cxInicioRequerido.Date := StrToDate(intToStr(1).PadLeft(2,'0')+'/'+ intToStr(Month).PadLeft(2,'0')+'/'+intToStr(Year));//StrToDate('01'+copy(DateToStr(date),3,10));
+    cxInicioRequerido.Date := StrToDate('01'+copy(DateToStr(date),3,10));
     cxFinRequerido.Date    := date;
 
     dbg_OCVista.Columns[5].Visible := False;
@@ -1557,7 +1555,6 @@ procedure TfrmPedidos_SAP_Estatus.cxComprasxProveedorClick(Sender: TObject);
  var
    listaProv : String;
    frxOrdenCompra : TfrxDBDataset;
-   Year, Month, Day : Word;
 begin
     try
       AsignarSQL(frmRepositorio.Reporte,'reporte_comprasxproveedor',pUpdate);

@@ -131,15 +131,11 @@ end;
 
 
 procedure tfrmDeptos.btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
   try
     try
       zDeptos.Append;
-      arrayFolio := generar_folio_inc('master_departamento','IdDepartamento');
-      zDeptos.FieldByName('IdDepartamento').AsInteger := arrayFolio[0];
-      zDeptos.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
+      zDeptos.FieldByName('IdDepartamento').AsInteger := 0;
       zDeptos.FieldByName('IdEmpresa').AsInteger := connection.uContrato.FieldByName('IdEmpresa').AsInteger;
       zDeptos.FieldByName('Activo').AsString := 'Si';
       zDeptos.FieldByName('Codigo').AsString := autoFolio(zDeptos, 'master_departamento');

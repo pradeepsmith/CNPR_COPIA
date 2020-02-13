@@ -362,7 +362,7 @@ begin
    zPOrdenes_Trabajo.Open;
 
 
-    zPOrdenes_Trabajo.Locate('sNumeroOrden', zqDatos.FieldByName('sNumeroOrden').AsString,[]);
+    zPOrdenes_Trabajo.Locate('sNumeroOrden', grid_DatosView.DataController.DataSet.FieldByName('sNumeroOrden').AsString,[]);
 
    zFolios:=tUniquery.create(nil);
    zFolios.Connection := Connection.uConnection;
@@ -394,7 +394,6 @@ var
   lastId,Id:Integer;
   comentario:String;
   zConsulta:TUniquery;
-  arrayFolio : TStringArrayInt;
 begin
    cxLista.Items[iIndiceSeleccionado].Selected := True;
    sTipoMaterial := '';
@@ -465,17 +464,14 @@ begin
                   'sStatus, mComentarios, sPrioridad, IdDepartamento, IdTiporecurso, IdFirma, sPuntoCarga, TelefonoRequisitor, IdSAPSolicitante, '+
                   'TelefonoSAPSolicitante, IdPlanta, ProcurementSpecialist, PreferredSupplier, IdAutorizaManager, IdAutorizaQA, sLugarEntrega, '+
                   'sIdUsuario, UsuarioValido, FechaValido, UsuarioAutorizo, FechaAutorizo, UsuarioRechazo, FechaRechazo, ComentarioStatus, '+
-                  'UsuarioCancelo, UsuarioLibero, FechaLibero, UsuarioAsignoCC, FechaAsignoCC, UsuarioGeneroPR, FechaGeneroPR, UsuarioCompro, FechaCompro, sUsuarioCompra, AplicaLogistica, NotasLogistica, FechaCancelo, Vista, Revision, Periodo) '+
-                  'SELECT sContrato, :iFolioNuevo, :folio, sContratoOT, sNumeroOrden, sNumeroOrdenCentroC, sNumeroOrdenOT, :dIdFecha, :dFechaSolicitado, '+
+                  'UsuarioCancelo, UsuarioLibero, FechaLibero, UsuarioAsignoCC, FechaAsignoCC, UsuarioGeneroPR, FechaGeneroPR, UsuarioCompro, FechaCompro, sUsuarioCompra, AplicaLogistica, NotasLogistica, FechaCancelo, Vista, Revision) '+
+                  'SELECT sContrato, 0, :folio, sContratoOT, sNumeroOrden, sNumeroOrdenCentroC, sNumeroOrdenOT, :dIdFecha, :dFechaSolicitado, '+
                   ':dFechaRequerido, dFechaVigencia, sRequisita, sSolicito, :sStatus, mComentarios, sPrioridad, IdDepartamento, IdTiporecurso, '+
                   'IdFirma, sPuntoCarga, TelefonoRequisitor, IdSAPSolicitante, TelefonoSAPSolicitante, IdPlanta, ProcurementSpecialist, '+
                   'PreferredSupplier, IdAutorizaManager, IdAutorizaQA, sLugarEntrega, sIdUsuario, :UsuarioValido, :FechaValido, :UsuarioAutorizo, '+
                   ':FechaAutorizo, UsuarioRechazo, FechaRechazo, ComentarioStatus, UsuarioCancelo, :UsuarioLibero, :FechaLibero, :UsuarioAsignoCC, '+
-                  ':FechaAsignoCC, UsuarioGeneroPR, FechaGeneroPR, UsuarioCompro, FechaCompro, sUsuarioCompra, AplicaLogistica, NotasLogistica, FechaCancelo, Vista, 0, :Periodo ' +
+                  ':FechaAsignoCC, UsuarioGeneroPR, FechaGeneroPR, UsuarioCompro, FechaCompro, sUsuarioCompra, AplicaLogistica, NotasLogistica, FechaCancelo, Vista, 0 ' +
                   'FROM anexo_requisicion WHERE iFolioRequisicion=:iFolioRequisicion';
-                  arrayFolio := generar_folio_inc('anexo_requisicion','iFolioRequisicion');
-                  zActualizar.ParamByName('iFolioNuevo').AsInteger := arrayFolio[0];
-                  zActualizar.ParamByName('Periodo').AsInteger :=  arrayFolio[1];
                   zActualizar.ParamByName('iFolioRequisicion').AsInteger:=Id;
                   zActualizar.ParamByName('folio').AsString:= cod;
                   zActualizar.ParamByName('UsuarioValido').AsString := '';

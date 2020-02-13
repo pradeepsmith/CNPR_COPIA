@@ -244,6 +244,9 @@ type
       AItem: TcxCustomGridTableItem; var AStyle: TcxStyle);
     procedure btnFormCFDIClick(Sender: TObject);
     procedure CambiaraEstatusVigente1Click(Sender: TObject);
+    procedure cxView_ComprobantesCellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
   private
     { Private declarations }
   public
@@ -1605,6 +1608,15 @@ begin
 
 
   cxView_Comprobantes.DataController.Groups.FullExpand;
+end;
+
+procedure TfrmComprobantesFiscalesD.cxView_ComprobantesCellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+ Application.CreateForm(TfrmVisualizaComprobanteFD, frmVisualizaComprobanteFD);
+ ComF:=true;
+ frmVisualizaComprobanteFD.show;
 end;
 
 procedure TfrmComprobantesFiscalesD.cxView_ComprobantesStylesGetContentStyle(

@@ -661,17 +661,11 @@ begin
 end;
 
 procedure TfrmProveedores.frmBarra1btnAddClick(Sender: TObject);
-var
-  arrayfolio : TStringArrayInt;
 begin
   try
        frmBarraH11.btnAddClick(Sender);
        grid_Proveedores.Enabled:=false;
        Proveedores.Append;
-       //id incrementable
-        arrayfolio := generar_folio_inc('alm_almacenes','IdAlmacen');
-        Proveedores.FieldByName('IdAlmacen').AsInteger := arrayfolio[0];
-        Proveedores.FieldByName('Periodo').AsInteger :=  arrayfolio[1];
        Proveedores.FieldValues['Calle'] := '-';
        Proveedores.FieldValues['Interior'] := '0';
        Proveedores.FieldValues['Exterior'] := '0';
@@ -911,7 +905,6 @@ begin
 end;
 
 procedure TfrmProveedores.btnAddClick(Sender: TObject);
-var arrayfolio : TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     frmBarraH11.btnAddClick(Sender);
@@ -921,11 +914,6 @@ begin
     cxSplitterOpciones.Visible := False;
     PanelDetalle.Visible       := False;
     Proveedores.Append;
-    //id incrementable
-    arrayfolio := generar_folio_inc('master_proveedores','IdProveedor');
-    Proveedores.FieldByName('IdProveedor').AsInteger := arrayfolio[0];
-    Proveedores.FieldByName('Periodo').AsInteger :=  arrayfolio[1];
-
     IF connection.uContrato.FieldByName('FK_Titulo').AsString <> 'SUBSEA 7' THEN
     Proveedores.FieldByName('Codigo').AsString := autoFolio(proveedores, 'master_proveedores');
     cxGiro.DataBinding.DataSource.DataSet.FieldByName('IdGiro').AsInteger := giro.FieldByName('IdGiro').AsInteger;
@@ -1570,7 +1558,6 @@ begin
 end;
 
 procedure TfrmProveedores.cxNuevoDetalleClick(Sender: TObject);
-var arrayfolio : TStringArrayInt;
 begin
    PanelDown.Visible := True;
    cxNuevoDetalle.Enabled := False;
@@ -1579,11 +1566,6 @@ begin
    begin
        cxLeyenda2.Caption:=titulo2 +'[Agregando]';
        productos.Append;
-       //id incrementable
-      arrayfolio := generar_folio_inc('master_proveedor_productos','IdProductoServicio');
-      productos.FieldByName('IdProductoServicio').AsInteger := arrayfolio[0];
-      productos.FieldByName('Periodo').AsInteger :=  arrayfolio[1];
-
        cxProducto.DataBinding.DataSource.DataSet.FieldByName('IdProducto').AsInteger := producto_servicio.FieldByName('IdProducto').AsInteger;
        productos.FieldByName('Activo').AsString := 'Si';
        PanelDown2.Visible := True;
@@ -1598,11 +1580,6 @@ begin
        PanelDown1.Visible := True;
 
        contacto.Append;
-        //id incrementable
-        arrayfolio := generar_folio_inc('master_proveedor_contacto','IdContacto');
-        contacto.FieldByName('IdContacto').AsInteger := arrayfolio[0];
-        contacto.FieldByName('Periodo').AsInteger :=  arrayfolio[1];
-
        contacto.FieldByName('FechaRegistro').AsDateTime := date;
        contacto.FieldByName('Activo').AsString := 'Si';
        cxContacto.SetFocus;
@@ -1633,11 +1610,6 @@ begin
         doctoVP.Open;
 
        doctoVP.Append;
-       //id incrementable
-        arrayfolio := generar_folio_inc('master_docto_proveedor','IdDoctoProveedor');
-        doctoVP.FieldByName('IdDoctoProveedor').AsInteger := arrayfolio[0];
-        doctoVP.FieldByName('Periodo').AsInteger :=  arrayfolio[1];
-
        cxDocumento.DataBinding.DataSource.DataSet.FieldByName('IdDocumento').AsInteger := catalog_docto.fieldByName('IdDocumento').asInteger;
        doctoVP.FieldByName('FechaRegistro').AsDateTime := date;
        doctoVP.FieldByName('Activo').AsString := 'Si';
@@ -1651,11 +1623,6 @@ begin
        PanelDown5.Visible := True;
 
        cuenta_banco.Append;
-       //id incrementable
-        arrayfolio := generar_folio_inc('master_proveedor_bancos','IdProveedorBanco');
-        cuenta_banco.FieldByName('IdProveedorBanco').AsInteger := arrayfolio[0];
-        cuenta_banco.FieldByName('Periodo').AsInteger :=  arrayfolio[1];
-
        cxBanco.DataBinding.DataSource.DataSet.FieldByName('IdBanco').AsInteger := bancos.fieldByName('IdBanco').asInteger;
        cuenta_banco.FieldByName('Activo').AsString := 'Si';
        cxCuenta.SetFocus;

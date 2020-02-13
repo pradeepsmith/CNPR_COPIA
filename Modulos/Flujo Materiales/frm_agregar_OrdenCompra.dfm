@@ -133,6 +133,8 @@ object frmAgregarMasivoOrdenCompra: TfrmAgregarMasivoOrdenCompra
         Font.Style = []
         ParentFont = False
         OnClick = cxActualizaClick
+        ExplicitLeft = 822
+        ExplicitTop = 5
       end
       object dtbCancelar: TcxButton
         Left = 939
@@ -160,6 +162,7 @@ object frmAgregarMasivoOrdenCompra: TfrmAgregarMasivoOrdenCompra
       Height = 303
       Align = alClient
       TabOrder = 2
+      ExplicitHeight = 322
       object Grid_InsumosView: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = False
@@ -285,6 +288,7 @@ object frmAgregarMasivoOrdenCompra: TfrmAgregarMasivoOrdenCompra
         ParentFont = False
         TabOrder = 0
         LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+        ExplicitHeight = 86
         object cxCertificados: TcxTextEdit
           Left = 83
           Top = 11

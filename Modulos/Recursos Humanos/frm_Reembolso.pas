@@ -208,6 +208,13 @@ var
   zUUID : TUniquery;
   Ext, sArchivo : string;
   Archivo, UUID   : string;
+  DatosNomina: IXMLNode;
+  Fichero :String;
+  IndexComplemento, IndexTimbre : Integer;
+  Nodo, SubNodo, SubNodo2,
+  ComprobanteXML,EmisorXML, ReceptorXML, ConceptosXML,ComplementoXML,
+  ImpuestosXML, TimbreFiscal, tfd: IXMLNode;
+  i,j:Integer;
 begin
   try
     Total:=doctoXML.FieldByName('Monto').AsFloat;
@@ -231,7 +238,36 @@ begin
     if ( Ext = '.XML' ) or ( Ext = '.xml' ) then
     begin
 
-      UUID :=  TraerUUID_XML(Archivo,XML);
+      XML.Active := False;
+      XML.FileName := Archivo;
+      XML.Active := True;
+      ComprobanteXML := XML.DocumentElement;
+      TRY
+        for i := 0 to ComprobanteXML.ChildNodes.Count-1 do
+        begin
+            Nodo := ComprobanteXML.ChildNodes[i];
+
+            if pos('cfdi:Complemento',Nodo.XML) > 0 then
+            begin
+              ComplementoXML     := ComprobanteXML.ChildNodes[i];
+              for j := 0 to ComplementoXML.ChildNodes.Count-1 do
+              begin
+                SubNodo := ComplementoXML.ChildNodes[j];
+                if pos('tfd:TimbreFiscalDigital',SubNodo.XML) > 0 then
+                begin
+                  TimbreFiscal := ComplementoXML.ChildNodes[j];
+                  UUID :=  TimbreFiscal.Attributes['UUID'];
+                end;
+              end;
+            end;
+        end;
+
+      except
+        raise Exception.Create('XML no cuenta con UUID, no ha sido timbrado por el SAT.');
+    //    ShowMessage('XML no cuenta con UUID, no ha sido timbrado por el SAT.');
+        UUID := '';
+      end;
+
       zUUID := TUniquery.Create(nil);
       zUUID.Connection := connection.Uconnection;
       zUUID.Active:= False;

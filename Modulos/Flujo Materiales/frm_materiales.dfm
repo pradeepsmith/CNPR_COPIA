@@ -1057,10 +1057,6 @@ object frmMateriales: TfrmMateriales
           object cxPageExistencia: TcxTabSheet
             Caption = 'Existencias'
             ImageIndex = 59
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cxGridExistencia: TcxGrid
               Left = 0
               Top = 0
@@ -1253,10 +1249,6 @@ object frmMateriales: TfrmMateriales
           object cxPageTransitos: TcxTabSheet
             Caption = 'Tr'#225'nsitos'
             ImageIndex = 71
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cxGrid1: TcxGrid
               Left = 0
               Top = 0
@@ -1326,10 +1318,6 @@ object frmMateriales: TfrmMateriales
           object cxPageImagen: TcxTabSheet
             Caption = 'Imagen'
             ImageIndex = 53
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object PanelDown2: TPanel
               Left = 0
               Top = 168
@@ -1542,10 +1530,6 @@ object frmMateriales: TfrmMateriales
           object cxPageCertificados: TcxTabSheet
             Caption = 'Certificados'
             ImageIndex = 61
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cxGridCertificado: TcxGrid
               Left = 0
               Top = 0
@@ -1801,10 +1785,6 @@ object frmMateriales: TfrmMateriales
           object cxPageCostos: TcxTabSheet
             Caption = 'Costos'
             ImageIndex = 27
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cxGridCostos: TcxGrid
               Left = 0
               Top = 0
@@ -2174,10 +2154,6 @@ object frmMateriales: TfrmMateriales
           object cxPageSerie: TcxTabSheet
             Caption = 'No. Serie'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cxGridSerie: TcxGrid
               Left = 0
               Top = 0
@@ -2428,10 +2404,6 @@ object frmMateriales: TfrmMateriales
           object cxPageMovimientos: TcxTabSheet
             Caption = 'Movimientos'
             ImageIndex = 22
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cxGridMovimiento: TcxGrid
               Left = 0
               Top = 0

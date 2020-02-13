@@ -425,7 +425,6 @@ begin
 end;
 
 procedure TfrmAlmacenes.btnAddClick(Sender: TObject);
-var arrayfolio : TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     cxGDatos.Caption:='Añadiendo';
@@ -433,11 +432,6 @@ begin
     panel2.Visible:=True;
     grid_almacen.Enabled:=False;
     zqAlmacen.Append;
-    //id incrementable
-    arrayfolio := generar_folio_inc('alm_almacenes','IdAlmacen');
-    zqAlmacen.FieldByName('IdAlmacen').AsInteger := arrayfolio[0];
-    zqAlmacen.FieldByName('Periodo').AsInteger :=  arrayfolio[1];
-
     zqAlmacen.FieldByName('Codigo').AsString := autofolio(zqAlmacen, 'alm_almacenes');
 
     zqAlmacen.fieldbyName('lCotizaciones').asstring := 'Si';

@@ -138,6 +138,8 @@ object frmCompradores: TfrmCompradores
       ParentFont = False
       TabOrder = 0
       LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+      ExplicitTop = 24
+      ExplicitHeight = 148
       object cxGDatos: TcxGroupBox
         Left = 12
         Top = 12
@@ -164,6 +166,8 @@ object frmCompradores: TfrmCompradores
           Align = alClient
           TabOrder = 0
           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+          ExplicitTop = 16
+          ExplicitHeight = 107
           object cxNombre: TcxDBTextEdit
             Left = 80
             Top = 40
@@ -411,6 +415,7 @@ object frmCompradores: TfrmCompradores
       Height = 35
       Align = alBottom
       TabOrder = 1
+      ExplicitTop = 175
       inline frmBarraH21: TfrmBarraH2
         Left = 878
         Top = 1
@@ -455,6 +460,7 @@ object frmCompradores: TfrmCompradores
     Height = 8
     AlignSplitter = salTop
     Control = Panel2
+    ExplicitTop = 278
   end
   object grid_almacen: TcxGrid
     Left = 0
@@ -469,6 +475,7 @@ object frmCompradores: TfrmCompradores
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    ExplicitHeight = 247
     object grid_almacenDBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = False

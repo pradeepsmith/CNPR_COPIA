@@ -1,0 +1,23 @@
+﻿[Main]
+Version=2
+
+[Frm_EvaluaProveedor.BView_filtro: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="False"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[Frm_EvaluaProveedor.BView_filtro/BView_filtroColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=704
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

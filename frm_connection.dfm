@@ -16796,14 +16796,13 @@ object connection: Tconnection
   object Uconnection: TUniConnection
     ProviderName = 'MySQL'
     Port = 3306
-    Database = 'ss7_erp18_pruebas'
-    Username = 'pruebas_pifo'
+    Username = 'ss7_erp2018'
     Server = '74.208.182.122'
     LoginPrompt = False
     OnConnectionLost = UconnectionConnectionLost
     Left = 464
     Top = 152
-    EncryptedPassword = '8FFF96FF99FF90FFCDFFCFFFCEFFC7FFDCFF'
+    EncryptedPassword = '8CFF8CFFC8FFA0FF9AFF8DFF8FFFA0FFCDFFCFFFCEFFC7FFDCFF'
   end
   object zValidacion: TUniQuery
     Connection = Uconnection
@@ -17083,24 +17082,5 @@ object connection: Tconnection
   object OpenTextFileDialog1: TOpenTextFileDialog
     Left = 624
     Top = 40
-  end
-  object pGenerarFolio: TUniStoredProc
-    StoredProcName = 'folios__generar_sp'
-    SQL.Strings = (
-      'CALL folios__generar_sp(:tabla,:campo)')
-    Connection = Uconnection
-    Left = 448
-    Top = 336
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'tabla'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'campo'
-        Value = nil
-      end>
   end
 end

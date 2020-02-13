@@ -247,7 +247,7 @@ object frmProveedores: TfrmProveedores
           TabOrder = 0
           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
           object cxDGenerales: TcxGroupBox
-            Left = 10
+            Left = -628
             Top = 10
             Caption = 'Datos Generales'
             ParentBackground = False
@@ -472,7 +472,7 @@ object frmProveedores: TfrmProveedores
             end
           end
           object cxGDireccion: TcxGroupBox
-            Left = 10
+            Left = -628
             Top = 150
             Caption = 'Direcci'#243'n'
             ParentBackground = False
@@ -1130,7 +1130,7 @@ object frmProveedores: TfrmProveedores
           ParentShowHint = False
           ShowHint = True
           TabOrder = 2
-          Properties.ActivePage = cxPageProductos
+          Properties.ActivePage = cxPageContacto
           Properties.CustomButtons.Buttons = <>
           Properties.Images = connection.cxIconos16
           OnChange = cxPageDetalleChange

@@ -74,7 +74,7 @@ object frmSolicitudDeMateriales: TfrmSolicitudDeMateriales
         inherited btnDetalle: TcxButton
           Height = 31
           OnClick = btnDetalleClick
-          ExplicitLeft = 481
+          ExplicitLeft = 484
           ExplicitHeight = 31
         end
         inherited btnRefresh: TcxButton
@@ -744,11 +744,12 @@ object frmSolicitudDeMateriales: TfrmSolicitudDeMateriales
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        ExplicitLeft = 2
+        ExplicitTop = 0
         object cxGridSolicitud: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           OnCellClick = cxView_EmbarqueCellClick
           OnCellDblClick = cxGridSolicitudCellDblClick
-          OnCustomDrawCell = cxGridSolicitudCustomDrawCell
           DataController.DataSource = dsAvisosEmbarque
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
@@ -759,7 +760,6 @@ object frmSolicitudDeMateriales: TfrmSolicitudDeMateriales
           OptionsData.Editing = False
           OptionsView.ColumnAutoWidth = True
           OptionsView.Indicator = True
-          OnCustomDrawColumnHeader = cxGridSolicitudCustomDrawColumnHeader
           object cxGridDBColumn1: TcxGridDBColumn
             Caption = 'N'#176' de Solicitud Embarque'
             DataBinding.FieldName = 'Codigo'
@@ -810,7 +810,6 @@ object frmSolicitudDeMateriales: TfrmSolicitudDeMateriales
         end
         object cxGrid2SolicitudDet: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
-          OnCustomDrawCell = cxGrid2SolicitudDetCustomDrawCell
           DataController.DataSource = dsSolicitudComp
           DataController.DetailKeyFieldNames = 'IdSolicitudMateriales'
           DataController.KeyFieldNames = 'IdSolicitudMateriales'
@@ -823,7 +822,6 @@ object frmSolicitudDeMateriales: TfrmSolicitudDeMateriales
           OptionsData.Inserting = False
           OptionsView.ColumnAutoWidth = True
           OptionsView.GroupByBox = False
-          OptionsView.RowSeparatorColor = clNone
           object cxGrid2SolicitudDetColumn1: TcxGridDBColumn
             Caption = 'Num'#233'ro de Solicitud '
             DataBinding.FieldName = 'Codigo'

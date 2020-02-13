@@ -1,0 +1,78 @@
+﻿[Main]
+Version=2
+
+[frmRegistroMantenimiento.cxVoltajeView: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="False"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmRegistroMantenimiento.cxVoltajeView/cxVoltajeViewColumn6: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=110
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxVoltajeView/cxVoltajeViewColumn1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=89
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxVoltajeView/cxVoltajeViewColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=108
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxVoltajeView/cxVoltajeViewColumn3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=139
+AlignmentHorz=0
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxVoltajeView/cxVoltajeViewColumn4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=124
+AlignmentHorz=0
+Index=4
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxVoltajeView/cxVoltajeViewColumn5: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=67
+AlignmentHorz=0
+Index=5
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

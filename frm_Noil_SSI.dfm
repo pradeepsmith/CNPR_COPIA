@@ -8055,6 +8055,7 @@ object frmNoil_SSI: TfrmNoil_SSI
     OnKeyDown = FormKeyDown
     object dxRibbon1Tab1: TdxRibbonTab
       Tag = 1
+      Active = True
       Caption = 'Inicio No'#237'l'
       Groups = <
         item
@@ -8094,7 +8095,6 @@ object frmNoil_SSI: TfrmNoil_SSI
     end
     object noilTabCompras: TdxRibbonTab
       Tag = 10
-      Active = True
       Caption = 'Compras'
       Groups = <
         item

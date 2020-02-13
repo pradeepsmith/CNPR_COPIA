@@ -424,6 +424,10 @@ type
     procedure MoverAlFinal1Click(Sender: TObject);
     procedure cxProyectoPropertiesChange(Sender: TObject);
     procedure btnFormCFDIClick(Sender: TObject);
+    procedure cxGridIndicadorDBTableView1CellDblClick(
+      Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
 
 
   private
@@ -887,7 +891,7 @@ begin
 
      zPedidos.Active := False ;
      AsignarSQL(zPedidos,'anexo_pedidos_indicadores',pUpdate);
-     filtrarDataSet(zPedidos, 'Proveedor',[cxView_Movimiento.DataController.DataSet.FieldByName('IdProveedor').AsString]);
+     //filtrarDataSet(zPedidos, 'Proveedor',[cxView_Movimiento.DataController.DataSet.FieldByName('IdProveedor').AsString]);
      zPedidos.Open;
 
 
@@ -2318,6 +2322,33 @@ begin
 zIndicador.FieldByName('IdPersonal').AsString;
 end;
 
+procedure TfrmBancosMovimientos.cxGridIndicadorDBTableView1CellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+var
+  rutaArchivo: string;
+  ZCuentasPP : TUniquery;
+begin
+     ZCuentasPP:=tUniquery.create(nil);
+     ZCuentasPP.Connection := connection.uConnection;
+     ZCuentasPP.Active:=False;
+     AsignarSQL(ZCuentasPP, 'movimiento_indicadores', pUpdate);
+//    if((assigned(frmComprobantesFiscalesD)) and (frmComprobantesFiscalesD.Active) )then
+//    FiltrarDataSet(ZCuentasPP, 'IdComprobanteCPP,IdComprobanteFiscal', [cxGridIndicadorDBTableView1.DataController.DataSet.FieldByName('IdComprobanteCPP').AsInteger,cxView_Movimiento.DataController.DataSet.FieldByName('IdMovimiento').AsInteger])
+//    else
+//    if((assigned(frmBancosMovimientos)) and (frmBancosMovimientos.Active) )then
+     FiltrarDataSet(ZCuentasPP, 'IdComprobanteCPP, Movimiento', [cxGridIndicadorDBTableView1.DataController.DataSet.FieldByName('IdComprobanteCPP').AsInteger,cxView_Movimiento.DataController.DataSet.FieldByName('IdMovimiento').AsInteger]);
+     ZCuentasPP.Open;
+
+   if not ((ZCuentasPP.FieldByName('Cotizacion').IsNull) or (ZCuentasPP.FieldByName('Cotizacion').AsString = '')) then begin
+     rutaArchivo:=ZCuentasPP.FieldByName('Direccion').AsString;
+     if not FileExists(rutaArchivo) then
+        raise exception.Create('No se encontro el archivo especificado')
+     else
+      ShellExecute(0, Nil, PChar(rutaArchivo), '', '', SW_SHOWNORMAL);
+   end;
+end;
+
 procedure TfrmBancosMovimientos.cxGuardarDetalleClick(Sender: TObject);
 var
 zInsert,zActualizar:TUniquery;
@@ -2497,7 +2528,7 @@ AValue := TcxLookupComboBox(Sender).EditValue;
 
        zPedidos.Active:=False;
        AsignarSQL(zPedidos,'anexo_pedidos_indicadores',pUpdate);
-       filtrarDataSet(zPedidos, 'Contrato,NumeroOrden,Proveedor',[global_contrato,AValue,cxView_Movimiento.DataController.DataSet.FieldByName('IdProveedor').AsString]);
+       filtrarDataSet(zPedidos, 'Contrato,NumeroOrden',[global_contrato,AValue]);
 //       AsignarSQL(zPedidos,'anexo_pedidos_cuentas_pp', pUpdate);
 //       FiltrarDataSet(zPedidos,'Contrato,NumeroOrden',[global_contrato,AValue]);
        zPedidos.Open;

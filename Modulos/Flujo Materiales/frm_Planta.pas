@@ -225,16 +225,11 @@ begin
 end;
 
 procedure TfrmPlanta.frmBarra1btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
   try
        frmBarraH11.btnAddClick(Sender);
        grid_almacen.Enabled:=false;
        zqPlanta.Append ;
-       arrayFolio := generar_folio_inc('master_planta','IdPlanta');
-       zqPlanta.FieldByName('IdPlanta').AsInteger := arrayFolio[0];
-       zqPlanta.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
 //       zqAlmacen.FieldValues['Calle'] := '-';
 //       zqAlmacen.FieldValues['Interior'] := '0';
 //       zqAlmacen.FieldValues['Exterior'] := '0';
@@ -411,7 +406,6 @@ begin
 end;
 
 procedure TfrmPlanta.btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     cxGDatos.Caption:='Añadiendo';
@@ -419,11 +413,6 @@ begin
     panel2.Visible:=True;
     grid_almacen.Enabled:=False;
     zqPlanta.Append;
-    arrayFolio := generar_folio_inc('master_planta','IdPlanta');
-    zqPlanta.FieldByName('IdPlanta').AsInteger := arrayFolio[0];
-    zqPlanta.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
-
 //    zqPlanta.FieldByName('Codigo').AsString := autofolio(zqPlanta, 'alm_almacenes');
 
 //    zqPlanta.fieldbyName('lCotizaciones').asstring := 'Si';

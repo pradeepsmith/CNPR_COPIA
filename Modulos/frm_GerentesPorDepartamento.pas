@@ -236,16 +236,11 @@ begin
 end;
 
 procedure TfrmGerentesPorDepartamento.frmBarra1btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
   try
        frmBarraH11.btnAddClick(Sender);
        grid_almacen.Enabled:=false;
        zqGerenteDepartamento.Append ;
-      arrayFolio := generar_folio_inc('master_departamento_gerente','IdGerente');
-      zqGerenteDepartamento.FieldByName('IdGerente').AsInteger := arrayFolio[0];
-      zqGerenteDepartamento.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
      except
      on e : exception do begin
          UnitExcepciones.manejarExcep(E.Message, E.ClassName, 'Catálogo de Gerentes por Departamento', 'Al agregar registro ', 0);
@@ -389,7 +384,6 @@ begin
 end;
 
 procedure TfrmGerentesPorDepartamento.btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     cxGDatos.Caption:='Añadiendo';
@@ -397,10 +391,6 @@ begin
     panel2.Visible:=True;
     grid_almacen.Enabled:=False;
     zqGerenteDepartamento.Append;
-    arrayFolio := generar_folio_inc('master_departamento_gerente','IdGerente');
-    zqGerenteDepartamento.FieldByName('IdGerente').AsInteger := arrayFolio[0];
-    zqGerenteDepartamento.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
     cbDepartamento.DataBinding.DataSource.DataSet.FieldByName('IdDepartamento').AsInteger := zDepart.FieldByName('IdDepartamento').AsInteger;
     cxNombre.SetFocus;
      cxPrincipal.DataBinding.DataSource.DataSet.FieldByName('Activo').AsVariant:='Si';

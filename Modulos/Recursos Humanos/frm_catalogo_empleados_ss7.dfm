@@ -3002,7 +3002,6 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
                           ParentFont = False
                           TabOrder = 0
                           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
-                          ExplicitWidth = 387
                           object cxCredencialVigencia: TcxDateEdit
                             Left = 97
                             Top = 94
@@ -3183,7 +3182,6 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
                           ParentFont = False
                           TabOrder = 0
                           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
-                          ExplicitWidth = 387
                           object cxCredencialContacto: TcxDBTextEdit
                             Left = 65
                             Top = 10
@@ -15474,7 +15472,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
           object cxNombres: TcxDBTextEdit
             Left = 347
-            Top = 38
+            Top = 18
             DataBinding.DataField = 'Nombre'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -15493,7 +15491,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxApellidoMaterno: TcxDBTextEdit
             Left = 108
-            Top = 65
+            Top = 45
             DataBinding.DataField = 'AMaterno'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -15512,7 +15510,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxApellidoPaterno: TcxDBTextEdit
             Left = 835
-            Top = 38
+            Top = 18
             DataBinding.DataField = 'APaterno'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -15531,7 +15529,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxEstadoCivil: TcxDBComboBox
             Left = 545
-            Top = 65
+            Top = 45
             DataBinding.DataField = 'EstadoCivil'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -15556,7 +15554,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxSexo: TcxDBComboBox
             Left = 347
-            Top = 65
+            Top = 45
             DataBinding.DataField = 'Sexo'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -15578,7 +15576,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxCodigo: TcxDBTextEdit
             Left = 108
-            Top = 38
+            Top = 18
             DataBinding.DataField = 'CodigoPersonal'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -15597,7 +15595,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxCorreo: TcxDBTextEdit
             Left = 589
-            Top = 93
+            Top = 73
             DataBinding.DataField = 'CorreoElectronico'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -15616,7 +15614,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxGroupBox2: TcxGroupBox
             Left = 11
-            Top = 120
+            Top = 100
             Caption = 'Direcci'#243'n'
             ParentBackground = False
             ParentColor = False
@@ -15933,7 +15931,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxGroupBox3: TcxGroupBox
             Left = 11
-            Top = 265
+            Top = 245
             Caption = 'Identificaci'#243'n'
             ParentBackground = False
             ParentColor = False
@@ -16143,7 +16141,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxMovil: TcxDBTextEdit
             Left = 347
-            Top = 93
+            Top = 73
             DataBinding.DataField = 'Movil'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -16162,7 +16160,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxGroupBox4: TcxGroupBox
             Left = 609
-            Top = 265
+            Top = 245
             Caption = 'Credito'
             ParentBackground = False
             ParentColor = False
@@ -16351,7 +16349,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxTelefono: TcxDBTextEdit
             Left = 108
-            Top = 93
+            Top = 73
             DataBinding.DataField = 'Telefono'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -16370,7 +16368,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxFechaNacimiento: TcxDBDateEdit
             Left = 835
-            Top = 65
+            Top = 45
             DataBinding.DataField = 'FechaNacimiento'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -16387,7 +16385,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object dxDBToggleSwitch1: TdxDBToggleSwitch
             Left = 791
-            Top = 11
+            Top = -9
             Caption = 'Activo'
             DataBinding.DataField = 'Activo'
             DataBinding.DataSource = ds_personal
@@ -16410,7 +16408,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object btnCargar: TcxButton
             Left = 1047
-            Top = 151
+            Top = 131
             Width = 73
             Height = 25
             Caption = 'Cargar Foto'
@@ -16419,7 +16417,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object btnVer: TcxButton
             Left = 1047
-            Top = 120
+            Top = 100
             Width = 72
             Height = 25
             Caption = 'Ver Foto'
@@ -16428,7 +16426,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object PanelImg: TPanel
             Left = 884
-            Top = 120
+            Top = 100
             Width = 152
             Height = 111
             Color = 14803425
@@ -16444,7 +16442,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxEdad: TcxDBCalcEdit
             Left = 947
-            Top = 237
+            Top = 217
             DataBinding.DataField = 'Edad'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -16461,7 +16459,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           object cxvalidarActivo: TdxDBToggleSwitch
             Tag = 13
             Left = 634
-            Top = 11
+            Top = -9
             Caption = 'Auto Verifica'
             DataBinding.DataField = 'P_Especial'
             DataBinding.DataSource = ds_personal
@@ -16484,7 +16482,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxFechaRegistro: TcxDBDateEdit
             Left = 1002
-            Top = 11
+            Top = -9
             DataBinding.DataField = 'FechaAlta'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -16500,7 +16498,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxLNac: TcxDBTextEdit
             Left = 1068
-            Top = 65
+            Top = 45
             DataBinding.DataField = 'LugarNacimiento'
             DataBinding.DataSource = ds_personal
             ParentFont = False
@@ -16519,7 +16517,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
           end
           object cxGroupBox8: TcxGroupBox
             Left = 319
-            Top = 265
+            Top = 245
             Caption = 'Equipo de Protecci'#243'n'
             ParentBackground = False
             ParentColor = False
@@ -16542,6 +16540,9 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
               Align = alClient
               TabOrder = 0
               LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+              ExplicitLeft = 6
+              ExplicitTop = -12
+              ExplicitWidth = 176
               object cxTalla: TcxDBTextEdit
                 Left = 78
                 Top = 10
@@ -17416,7 +17417,7 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
         'al and pe.activo = '#39'Si'#39') as Departamento,'
       
         '(select ep.Estado from rh_estatus_personal ep where ep.IdEstatus' +
-        '= p.IdEstatus) as Estatus, p.Periodo '
+        '= p.IdEstatus) as Estatus '
       'from master_personal p'
       
         'left join rh_puesto_empleado as rp on p.IdPersonal = rp.IdPerson' +
@@ -17559,8 +17560,8 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
       'rhu_datosbancariosxpersonal be'
       'where be.IdPersonal =:IdPersonal'
       'order by be.Activo, be.FechadeAplicacion ')
-    Left = 633
-    Top = 117
+    Left = 297
+    Top = 229
     ParamData = <
       item
         DataType = ftUnknown
@@ -35759,8 +35760,8 @@ object frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7
     Connection = connection.Uconnection
     SQL.Strings = (
       'Select * from vacaciones_pedidas')
-    Left = 540
-    Top = 116
+    Left = 484
+    Top = 124
   end
   object uEPP: TUniQuery
     Connection = connection.Uconnection

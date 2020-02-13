@@ -489,16 +489,9 @@ begin
 end;
 
 procedure TfrmGrupos.cxNuevoDetalleClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
   if uCC.RecordCount > 0 then begin
     uCCPerfil.Append;
-    // Codigo para folio incremental;
-    ArrayFolio := generar_folio_inc('centrocostosxgrupo','IdCCPerfil');
-    uCCPerfil.FieldValues['IdCCPerfil']:= ArrayFolio[0];
-    uCCPerfil.FieldValues['Periodo']:= ArrayFolio[1];
-
     uCCPerfil.FieldByName('sIdGrupo').AsString:=grupos.FieldByName('sIdGrupo').AsString;
     uCCPerfil.FieldByName('sContrato').AsString:=GLOBAL_CONTRATO;
     cxSplitter2.Visible:=True;

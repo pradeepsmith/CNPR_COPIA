@@ -437,19 +437,12 @@ begin
 end;
 
 procedure TfrmTiposNomina.btnAddClick(Sender: TObject);
-var
- ArrayFolio: TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     frmBarraH11.btnAddClick(Sender);
     panel2.Visible:=True;
     grid_nominas.Enabled:=False;
     zqNominas.Append;
-    // Codigo para folio incremental;
-    ArrayFolio := generar_folio_inc('rh_tiponomina','IdTipoNomina');
-    zqNominas.FieldValues['IdTipoNomina']:= ArrayFolio[0];
-    zqNominas.FieldValues['Periodo']:= ArrayFolio[1];
-
     if zqEmpresa.RecordCount>0 then
       cxEmpresa.ItemIndex:=0;
     cxTitulo.SetFocus;

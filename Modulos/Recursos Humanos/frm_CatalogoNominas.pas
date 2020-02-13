@@ -239,7 +239,6 @@ procedure TFrmCatalogoNominas.btnAddClick(Sender: TObject);
 var Fi, Ft: TDate;
   d,m,a : Word;
   x: integer ;
-  ArrayFolio: TStringArrayInt;
 begin
   DecodeDate(Now, a, m, d);
 
@@ -265,11 +264,6 @@ begin
   PanelDetalle.Visible := False;
   cxSplitterOpciones.Visible :=False;
   zNomina.Append;
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('nom_nomina','IdNomina');
-  zNomina.FieldValues['IdNomina']:= ArrayFolio[0];
-  zNomina.FieldValues['Periodo']:= ArrayFolio[1];
-
   zNomina.FieldByName('FechaInicioN').AsDateTime:=Fi;
   zNomina.FieldByName('IdTipoNomina').AsInteger:=1;
   zNomina.FieldByName('FechaTerminoN').AsDateTime:=Ft;
@@ -373,8 +367,6 @@ begin
 end;
 
 procedure TFrmCatalogoNominas.cxNuevoDetalleClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
   PanelDown.Visible:=True;
   PanelCentro.Visible:=True;
@@ -383,12 +375,6 @@ begin
   cxEliminarDetalle.Enabled := fALSE;
 
   zNominaDetalle.Append;
-
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('nom_nominapersonal','IdNominaPersonal');
-  zNominaDetalle.FieldValues['IdNominaPersonal']:= ArrayFolio[0];
-  zNominaDetalle.FieldValues['Periodo']:= ArrayFolio[1];
-
   zNominaDetalle.FieldByName('IdNominaPersonal').AsInteger:=0;
   zNominaDetalle.FieldByName('IdNomina').AsInteger := zNomina.FieldByName('IdNomina').AsInteger;
   zNominaDetalle.FieldByName('IdPersonal').AsInteger := zEmpleados.FieldByName('IdPersonal').AsInteger;

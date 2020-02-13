@@ -1,0 +1,122 @@
+﻿[Main]
+Version=2
+
+[frmSalarios.cxViewCatalogos: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn9: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=63
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=119
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=207
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=109
+AlignmentHorz=1
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn8: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=89
+AlignmentHorz=1
+Index=4
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn10: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=98
+AlignmentHorz=0
+Index=5
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=135
+AlignmentHorz=0
+Index=6
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn5: TcxGridDBColumn]
+=
+GroupIndex=1
+Width=116
+AlignmentHorz=0
+Index=7
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn6: TcxGridDBColumn]
+=
+GroupIndex=0
+Width=116
+AlignmentHorz=0
+Index=8
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmSalarios.cxViewCatalogos/cxViewCatalogosColumn7: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=132
+AlignmentHorz=0
+Index=9
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

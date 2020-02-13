@@ -6,7 +6,7 @@
   BorderStyle = bsSingle
   Caption = 'Requisici'#243'n de Materiales'
   ClientHeight = 605
-  ClientWidth = 1410
+  ClientWidth = 1158
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -25,19 +25,19 @@
   object Panel3: TPanel
     Left = 0
     Top = 0
-    Width = 1410
+    Width = 1158
     Height = 35
     Align = alTop
     TabOrder = 0
     inline frmBarraH11: TfrmBarraH1
-      Left = 853
+      Left = 601
       Top = 1
       Width = 556
       Height = 33
       Align = alRight
       AutoSize = True
       TabOrder = 0
-      ExplicitLeft = 853
+      ExplicitLeft = 601
       ExplicitTop = 1
       ExplicitWidth = 556
       ExplicitHeight = 33
@@ -227,21 +227,21 @@
   object PanelPrincipal: TPanel
     Left = 0
     Top = 107
-    Width = 1410
+    Width = 1158
     Height = 498
     Align = alClient
     TabOrder = 1
     object Panel1: TPanel
       Left = 1
       Top = 1
-      Width = 830
+      Width = 578
       Height = 496
       Align = alClient
       TabOrder = 0
       object Panel2: TPanel
         Left = 1
         Top = 141
-        Width = 828
+        Width = 576
         Height = 354
         Align = alBottom
         Font.Charset = DEFAULT_CHARSET
@@ -255,18 +255,18 @@
         object pnlBtn2: TPanel
           Left = 1
           Top = 317
-          Width = 826
+          Width = 574
           Height = 36
           Align = alBottom
           TabOrder = 0
           inline frmBarraH21: TfrmBarraH2
-            Left = 636
+            Left = 384
             Top = 1
             Width = 189
             Height = 34
             Align = alRight
             TabOrder = 0
-            ExplicitLeft = 636
+            ExplicitLeft = 384
             ExplicitTop = 1
             ExplicitWidth = 189
             ExplicitHeight = 34
@@ -305,7 +305,7 @@
         object cxPageControl1: TcxPageControl
           Left = 1
           Top = 1
-          Width = 826
+          Width = 574
           Height = 316
           Align = alClient
           Font.Charset = DEFAULT_CHARSET
@@ -319,7 +319,7 @@
           Properties.CustomButtons.Buttons = <>
           ClientRectBottom = 314
           ClientRectLeft = 2
-          ClientRectRight = 824
+          ClientRectRight = 572
           ClientRectTop = 30
           object cxTabSheet1: TcxTabSheet
             Caption = 'Datos Generales'
@@ -327,7 +327,7 @@
             object dxLayoutControl1: TdxLayoutControl
               Left = 0
               Top = 0
-              Width = 822
+              Width = 570
               Height = 284
               Align = alClient
               TabOrder = 0
@@ -1059,7 +1059,7 @@
       object cxSplitter1: TcxSplitter
         Left = 1
         Top = 129
-        Width = 828
+        Width = 576
         Height = 12
         AlignSplitter = salBottom
         Control = Panel2
@@ -1067,7 +1067,7 @@
       object grid_requsicion: TcxGrid
         Left = 1
         Top = 1
-        Width = 828
+        Width = 576
         Height = 128
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -1213,7 +1213,7 @@
       end
     end
     object cxSplitterOpciones: TcxSplitter
-      Left = 831
+      Left = 579
       Top = 1
       Width = 8
       Height = 496
@@ -1221,7 +1221,7 @@
       Control = Panel1
     end
     object PanelDetalle: TPanel
-      Left = 839
+      Left = 587
       Top = 1
       Width = 570
       Height = 496
@@ -1968,7 +1968,7 @@
   object PanelProgreso: TPanel
     Left = 0
     Top = 35
-    Width = 1410
+    Width = 1158
     Height = 22
     Align = alTop
     TabOrder = 2
@@ -2004,20 +2004,20 @@
       Style.IsFontAssigned = True
       TabOrder = 1
       Visible = False
-      Width = 1312
+      Width = 1060
     end
   end
   object Panel4: TPanel
     Left = 0
     Top = 57
-    Width = 1410
+    Width = 1158
     Height = 50
     Align = alTop
     TabOrder = 3
     object dxLayoutControl7: TdxLayoutControl
       Left = 1
       Top = 1
-      Width = 1408
+      Width = 1156
       Height = 48
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
@@ -2029,7 +2029,7 @@
       TabOrder = 0
       LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
       object btnLimpiarF: TcxButton
-        Left = 1291
+        Left = 1039
         Top = 11
         Width = 106
         Height = 25

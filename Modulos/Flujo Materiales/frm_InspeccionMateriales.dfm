@@ -1474,6 +1474,8 @@ object FrmInspeccionMateriales: TFrmInspeccionMateriales
             ParentFont = False
             TabOrder = 0
             LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+            ExplicitLeft = -23
+            ExplicitTop = -39
             object cxCertificado_det: TcxDBTextEdit
               Left = 104
               Top = 11

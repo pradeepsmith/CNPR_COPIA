@@ -165,7 +165,10 @@ uses
   frm_SalidaAlmacen_SS7 in 'Modulos\Flujo Materiales\frm_SalidaAlmacen_SS7.pas' {frmSalidaAlmacen_SS7},
   frm_EntradaAlmacen_SS7 in 'Modulos\Flujo Materiales\frm_EntradaAlmacen_SS7.pas' {frmEntradaAlmacen_SS7},
   frm_EntregaEquipo in 'Modulos\Control EPP\frm_EntregaEquipo.pas' {frmEntregaEquipo},
-  frm_DevolucionEquipo in 'Modulos\Control EPP\frm_DevolucionEquipo.pas' {frmDevolucionEquipo};
+  frm_DevolucionEquipo in 'Modulos\Control EPP\frm_DevolucionEquipo.pas' {frmDevolucionEquipo},
+  frm_agregar_masivoOP_SSI in 'Modulos\Operaciones\frm_agregar_masivoOP_SSI.pas' {frmAgregarMasivoOP_SSI},
+  frm_EntradaAlmacen_SSI in 'Modulos\Flujo Materiales\frm_EntradaAlmacen_SSI.pas' {frmEntradaAlmacen_SSI},
+  frm_SalidaAlmacen_SSI in 'Modulos\Flujo Materiales\frm_SalidaAlmacen_SSI.pas' {frmSalidaAlmacen_SSI};
 
 {$R *.TLB}
 

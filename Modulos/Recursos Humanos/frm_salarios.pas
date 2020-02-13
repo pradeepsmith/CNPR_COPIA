@@ -468,8 +468,6 @@ begin
 end;
 
 procedure TfrmSalarios.btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
   titulo:=cxLeyenda.Caption;
   cxLeyenda.Caption:=titulo+'[Añadiendo]';
@@ -480,12 +478,6 @@ begin
   frmbarraH11.btnAdd.Enabled:=False;
 
   zqCatalogosGenerales.Append;
-
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('rhu_salario','IdSalario');
-  zqCatalogosGenerales.FieldValues['IdSalario']:= ArrayFolio[0];
-  zqCatalogosGenerales.FieldValues['Periodo']:= ArrayFolio[1];
-
   cxSubCatalogo.DataBinding.DataSource.DataSet.FieldByName('IdEmpresa').AsInteger := zqSubCatalogo.FieldByName('IdEmpresa').AsInteger;
   cxSubCatalogo2.DataBinding.DataSource.DataSet.FieldByName('IdTipoNomina').AsInteger := IdTipoNomina;
   cxCmbMoneda.DataBinding.DataSource.DataSet.FieldByName('IdMoneda').AsInteger := uqMonedas.FieldByName('IdMoneda').AsInteger;

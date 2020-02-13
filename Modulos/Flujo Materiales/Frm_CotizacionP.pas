@@ -545,17 +545,39 @@ begin
 
   if cxPageDetalle.ActivePage = cxTabRecXProv then begin
       if uRecxProv.RecordCount > 0 then begin
-        try
-          uRecxProv.Delete;
-          uRecxProv.ApplyUpdates();
-          uRecxProv.Refresh;
-        except
-          on e: Exception do begin
-            if e.Message.Contains('constraint fails') then begin
-              MessageDlg('No fue posible eliminar el recurso de la cotización.',mtInformation,[mbOk],0);
-              uRecxProv.Refresh;
-            end;
-          end;
+        if MessageDlg('¿Realmente desea eliminar el recurso de la cotización?',mtConfirmation,[mbYes,mbNo],0) = mrYes then begin
+          try
+                  iGrid     := 0;
+                  try
+                    if iGrid<>0 then
+                    indice := view_recXprov.DataController.GetSelectedRowIndex(iGrid);
+                  Except
+                    on e:exception do begin
+                        //nothing to do
+                    end;
+                  end;
+
+                view_recXprov.DataController.FocusedRowIndex := indice;
+
+                with view_recXprov.DataController.DataSource.DataSet do
+                for iGrid := 0 to view_recXprov.DataController.GetSelectedCount - 1 do
+                begin
+                    indice := view_recXprov.DataController.GetSelectedRowIndex(iGrid);
+                    view_recXprov.DataController.FocusedRowIndex := indice;
+
+                    uRecxProv.Delete;
+                    uRecxProv.ApplyUpdates();
+                end;
+               uRecxProv.Refresh;
+
+           except
+              on e: Exception do begin
+                if e.Message.Contains('constraint fails') then begin
+                  MessageDlg('No fue posible eliminar el recurso de la cotización.',mtInformation,[mbOk],0);
+                  uRecxProv.Refresh;
+                end;
+              end;
+           end;
         end;
       end
       else

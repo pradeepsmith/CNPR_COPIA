@@ -225,8 +225,8 @@ object FrmConfBiometrico: TFrmConfBiometrico
     object CZKEM1: TCZKEM
       Left = 540
       Top = 427
-      Width = 120
-      Height = 88
+      Width = 34
+      Height = 22
       TabOrder = 2
       Visible = False
       ControlData = {00090000670C000018090000}
@@ -253,6 +253,7 @@ object FrmConfBiometrico: TFrmConfBiometrico
       Style.TextColor = clHighlight
       Style.IsFontAssigned = True
       Transparent = True
+      ExplicitWidth = 218
     end
     inline frmBarraH11: TfrmBarraH1
       Left = 219

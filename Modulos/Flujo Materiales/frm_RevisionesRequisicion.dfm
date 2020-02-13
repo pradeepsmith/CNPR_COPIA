@@ -352,10 +352,6 @@
           object cxTabSheet1: TcxTabSheet
             Caption = 'Datos Generales'
             ImageIndex = 0
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object dxLayoutControl1: TdxLayoutControl
               Left = 0
               Top = 0
@@ -1484,10 +1480,6 @@
               object cxTabMaterial: TcxTabSheet
                 Caption = 'Materiales'
                 ImageIndex = 61
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 0
-                ExplicitHeight = 0
                 object cxGridMateriales: TcxGrid
                   Left = 0
                   Top = 0
@@ -1593,10 +1585,6 @@
                 Caption = 'Informes'
                 ImageIndex = 31
                 OnShow = tabInformesShow
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitWidth = 0
-                ExplicitHeight = 0
                 object PanelInferiorInforme: TPanel
                   Left = 0
                   Top = 189
@@ -2359,7 +2347,6 @@
       Style.IsFontAssigned = True
       TabOrder = 1
       Visible = False
-      ExplicitHeight = 21
       Width = 1060
     end
   end

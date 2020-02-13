@@ -117,7 +117,7 @@ object FrmCotizacionesP: TFrmCotizacionesP
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      Properties.ActivePage = cxTabRecursos
+      Properties.ActivePage = cxTabRecXProv
       Properties.CustomButtons.Buttons = <>
       Properties.Images = frmrepositorio.IconosTodos16
       OnChange = cxPageDetalleChange
@@ -351,6 +351,9 @@ object FrmCotizacionesP: TFrmCotizacionesP
             OptionsData.DeletingConfirmation = False
             OptionsData.Editing = False
             OptionsData.Inserting = False
+            OptionsSelection.InvertSelect = False
+            OptionsSelection.MultiSelect = True
+            OptionsSelection.CellMultiSelect = True
             OptionsView.ColumnAutoWidth = True
             object cxColumnRP1: TcxGridDBColumn
               Caption = 'Proveedor'

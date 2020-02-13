@@ -348,8 +348,6 @@ uses frm_connection,
 {$R *.dfm}
 
 procedure TFrmInspeccionMateriales.btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     frmBarraH11.btnAddClick(Sender);
@@ -361,11 +359,6 @@ begin
 
     zInspeccionMaterial.AfterScroll := nil;
     zInspeccionMaterial.Append;
-    // Codigo para folio incremental;
-    ArrayFolio := generar_folio_inc('alm_inspeccion_material','IdInspeccion');
-    zInspeccionMaterial.FieldValues['IdInspeccion']:= ArrayFolio[0];
-    zInspeccionMaterial.FieldValues['Periodo']:= ArrayFolio[1];
-
     zInspeccionMaterial.FieldByName('sContrato').AsString:=global_contrato;
     zInspeccionMaterial.FieldByName('Codigo').AsString:=autoFolio(zInspeccionMaterial, 'alm_inspeccion_material');
     zInspeccionMaterial.FieldValues['sIdUsuario']    := Global_Usuario;

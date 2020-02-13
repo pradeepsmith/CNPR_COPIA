@@ -495,8 +495,6 @@ begin
 end;
 
 procedure TfrmUsuariosXproyectos.cxNuevoDetalleClick(Sender: TObject);
-var
- ArrayFolio: TStringArrayInt;
 begin
   IsOpen:=False;
 
@@ -507,12 +505,6 @@ begin
   else
     if cxPageControl.ActivePage = cxTabAlmacenes  then begin
       uDatosDetalle.Append;
-
-      // Codigo para folio incremental;
-      ArrayFolio := generar_folio_inc('alm_almacenesporusuario','iId');
-      uDatosDetalle.FieldValues['iId']:= ArrayFolio[0];
-      uDatosDetalle.FieldValues['Periodo']:= ArrayFolio[1];
-
       uDatosDetalle.FieldByName('sIdUsuario').AsString:=zUsuarios.FieldByName('sIdUsuario').AsString;
       uDatosDetalle.FieldByName('IdAlmacen').AsInteger:=uInfoLook.FieldByName('IdAlmacen').AsInteger;
 
@@ -520,12 +512,6 @@ begin
     else
       if cxPageControl.ActivePage = cxTabCC  then begin
         uDatosCC.Append;
-
-        // Codigo para folio incremental;
-        ArrayFolio := generar_folio_inc('centrosCostoxUsuario','IdCCU');
-        uDatosCC.FieldValues['IdCCU']:= ArrayFolio[0];
-        uDatosCC.FieldValues['Periodo']:= ArrayFolio[1];
-
         uDatosCC.FieldByName('sNumeroOrden').AsString:= uInfoLook.FieldByName('sNumeroOrden').AsString;
         uDatosCC.FieldByName('sIdUsuario').AsString:=zUsuarios.FieldByName('sIdUsuario').AsString;
         uDatosCC.FieldByName('sContrato').AsString := GLOBAL_CONTRATO;
@@ -541,12 +527,6 @@ begin
          btnEliminarDetalle.Enabled := False;
 
         zAutorizaciones.Append;
-
-        // Codigo para folio incremental;
-        ArrayFolio := generar_folio_inc('master_autorizaciones','IdAutorizaciones');
-        zAutorizaciones.FieldValues['IdAutorizaciones']:= ArrayFolio[0];
-        zAutorizaciones.FieldValues['Periodo']:= ArrayFolio[1];
-
         zAutorizaciones.FieldByName('sIdUsuario').AsString:=zUsuarios.FieldByName('sIdUsuario').AsString;
         cxListaClick(Sender);
       end;

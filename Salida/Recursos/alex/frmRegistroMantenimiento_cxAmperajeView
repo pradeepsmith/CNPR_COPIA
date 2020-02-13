@@ -1,0 +1,89 @@
+﻿[Main]
+Version=2
+
+[frmRegistroMantenimiento.cxAmperajeView: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="False"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmRegistroMantenimiento.cxAmperajeView/cxAmperajeViewColumn7: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=92
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxAmperajeView/cxAmperajeViewColumn1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=69
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxAmperajeView/cxAmperajeViewColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=79
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxAmperajeView/cxAmperajeViewColumn3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=91
+AlignmentHorz=0
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxAmperajeView/cxAmperajeViewColumn4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=90
+AlignmentHorz=0
+Index=4
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxAmperajeView/cxAmperajeViewColumn5: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=123
+AlignmentHorz=0
+Index=5
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmRegistroMantenimiento.cxAmperajeView/cxAmperajeViewColumn6: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=93
+AlignmentHorz=0
+Index=6
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

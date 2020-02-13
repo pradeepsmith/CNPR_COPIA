@@ -253,8 +253,6 @@ begin
       zqEServ.Open;
       zqESeg.Open;
       zqEAmb.Open;
-
-
       PermisosBotones(frmEvaluacion, btnPermisos);
     except
     on e : exception do begin
@@ -471,8 +469,6 @@ begin
 end;
 
 procedure TfrmEvaluacion.btnAddClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     frmBarraH11.btnAddClick(Sender);
@@ -482,26 +478,9 @@ begin
 
     zqEvalua.ReadOnly:=False;
     zqEvalua.Append;
-    // Codigo para folio incremental;
-//    ArrayFolio := generar_folio_inc('evalua_servicio_pro','IdServicio');
-//    zqEvalua.FieldValues['IdServicio']:= ArrayFolio[0];
-//    zqEvalua.FieldValues['Periodo']:= ArrayFolio[1];
-
     zqEServ.Append;
-    ArrayFolio := generar_folio_inc('evalua_servicio_pro','IdServicio');
-    zqEServ.FieldValues['IdServicio']:= ArrayFolio[0];
-    zqEServ.FieldValues['Periodo']:= ArrayFolio[1];
-
     zqESeg.Append;
-    ArrayFolio := generar_folio_inc('evalua_seguridad_pro','IdSeguridad');
-    zqESeg.FieldValues['IdSeguridad']:= ArrayFolio[0];
-    zqESeg.FieldValues['Periodo']:= ArrayFolio[1];
-
     zqEAmb.Append;
-    ArrayFolio := generar_folio_inc('evalua_ambiental_pro','IdAmbiental');
-    zqEAmb.FieldValues['IdAmbiental']:= ArrayFolio[0];
-    zqEAmb.FieldValues['Periodo']:= ArrayFolio[1];
-
     cxTResp.SetFocus;
 end;
 

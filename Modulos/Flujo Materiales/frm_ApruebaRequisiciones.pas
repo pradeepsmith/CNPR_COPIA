@@ -440,7 +440,6 @@ end;
 procedure TfrmApruebaRequisiciones.frmBarra2btnAddClick(Sender: TObject);
 var
   dFechaFinal: tDate;
-  arrayFolio : TStringArrayInt;
 begin
   try
 
@@ -451,11 +450,6 @@ begin
     cxSplitter1.Visible := true;
     grid_entradas.Enabled:=False;
     zAprRequisiciones.Append;
-    arrayFolio := generar_folio_inc('alm_aprueba_requisiciones','IdAutorizador');
-    zAprRequisiciones.FieldByName('IdAutorizador').AsInteger := arrayFolio[0];
-    zAprRequisiciones.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
-
   except
     on e: exception do begin
       UnitExcepciones.manejarExcep(E.Message, E.ClassName, 'Aprobación de Requisiciones', 'Al añadir registro', 0);

@@ -978,17 +978,11 @@ begin
 end;
 
 procedure TfrmMateriales_SS7.frmBarra1btnAddClick(Sender: TObject);
-VAR
-  arrayFolio:TStringArrayInt;
 begin
   try
        frmBarraH11.btnAddClick(Sender);
        grid_Materiales.Enabled:=false;
        zqInsumos.Append ;
-       arrayFolio := generar_folio_inc('alm_insumos','IdInsumo');
-       zqInsumos.FieldByName('IdInsumo').AsInteger := arrayFolio[0];
-       zqInsumos.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
        zqInsumos.FieldValues['Calle'] := '-';
        zqInsumos.FieldValues['Interior'] := '0';
        zqInsumos.FieldValues['Exterior'] := '0';
@@ -1242,8 +1236,6 @@ begin
 end;
 
 procedure TfrmMateriales_SS7.btnAddClick(Sender: TObject);
-VAR
-  arrayFolio: TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     frmBarraH11.btnAddClick(Sender);
@@ -1252,10 +1244,6 @@ begin
     grid_Materiales.Enabled:=False;
 
     zqInsumos.Append;
-    arrayFolio := generar_folio_inc('alm_insumos','IdInsumo');
-    zqInsumos.FieldByName('IdInsumo').AsInteger := arrayFolio[0];
-    zqInsumos.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
     zqInsumos.FieldByName('Codigo').AsString := autoFolio(zqInsumos, 'alm_insumos');
     zqInsumos.FieldByName('sContrato').AsString:=global_contrato;
     cxProducto.DataBinding.DataSource.DataSet.FieldByName('IdProducto').AsInteger := zProducto.FieldByName('IdProducto').AsInteger;
@@ -1903,7 +1891,6 @@ end;
 procedure TfrmMateriales_SS7.btnAgregarClick(Sender: TObject);
 var
   size: Real;
-  arrayFolio: TStringArrayInt;
 begin
   sOpcion := 'New';
   bImagen.Picture.Bitmap := nil;
@@ -1919,14 +1906,10 @@ begin
            begin
             bImagen.Picture.LoadFromFile(OpenPicture.FileName);
             zUpImg.Active := False;
-            arrayFolio := generar_folio_inc('alm_insumos_imagen','IdInsumoImg');
-
-            zUpImg.SQL.Text := 'Insert Into alm_insumos_imagen (IdInsumoImg,IdInsumo,FechaRegistro,Imagen,Activo, Periodo) VALUES (:IdInsumoImg, :IdInsumo,:FechaR,:img,:Activo,:Periodo)';
-            zUpImg.ParamByName('IdInsumoImg').AsInteger       :=  arrayFolio[0];
+            zUpImg.SQL.Text := 'Insert Into alm_insumos_imagen (IdInsumo,FechaRegistro,Imagen,Activo) VALUES (:IdInsumo,:FechaR,:img,:Activo)';
             zUpImg.ParamByName('IdInsumo').AsInteger       := zqInsumos.FieldByName('IdInsumo').AsInteger;
             zUpImg.ParamByName('FechaR').AsDateTime       := date;
             zUPImg.ParamByName('img').LoadFromFile(sArc, ftGraphic);
-            zUpImg.ParamByName('Periodo').AsInteger       := arrayFolio[1];
             zUpImg.ParamByName('Activo').AsString:='Si';
             //zImagenes.FieldByName('FechaR').AsDateTime := date;
 //            zUpImg.Params.ParamByName('img').LoadFromFile(sArc, ftGraphic);
@@ -2463,8 +2446,6 @@ begin
 end;
 
 procedure TfrmMateriales_SS7.cxNuevoDetalleClick(Sender: TObject);
-var
-  arrayFolio : TStringArrayInt;
 begin
    PanelDown.Visible := True;
    cxNuevoDetalle.Enabled := False;
@@ -2502,11 +2483,6 @@ begin
        zCertVP.Open;
 
        zCertVP.Append;
-
-       arrayFolio:= generar_folio_inc('alm_insumos_documentos','IdDoctoInsumo');
-       zCertVP.FieldByName('IdDoctoInsumo').AsInteger:= arrayFolio[0];
-       zCertVP.FieldByName('Periodo').AsInteger:= arrayFolio[1];
-
        cxDocumento.DataBinding.DataSource.DataSet.FieldByName('IdDocumento').AsInteger := zCatalogo_docto.fieldByName('IdDocumento').asInteger;
        lcbSerie.DataBinding.DataSource.DataSet.FieldByName('IdSerie').AsInteger  := zSerie.FieldByName('IdSerie').AsInteger;
        zCertVP.FieldByName('FechaRegistro').AsDateTime := date;
@@ -2548,10 +2524,6 @@ begin
        panelDown5.Visible:=True;
        zAlmacen.Open;
        zSerie.Append;
-       arrayFolio := generar_folio_inc('alm_insumos_series','IdSerie');
-       zSerie.FieldByName('IdSerie').AsInteger:= arrayFolio[0];
-       zSerie.FieldByName('Periodo').AsInteger:= arrayFolio[1];
-
        zSerie.FieldByName('IdInsumo').AsInteger:=zqInsumos.FieldByName('IdInsumo').AsInteger;
    end;
 

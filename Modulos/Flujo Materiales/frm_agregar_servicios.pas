@@ -200,7 +200,6 @@ Var
   dCantidad : Currency ;
   zVerificar : TUniQuery;
   rev : Integer;
-  ArrayFolio: TStringArrayInt;
 begin
 
     if (global_frmActivo ='Nuevo_Servicio') and (FrmRevisionesRequisiciones.anexo_requisicion.FieldByName('sStatus').AsString = 'GENERO PR')then
@@ -261,9 +260,6 @@ begin
 //          else
 //             rev := zRevision.FieldByName('maxRevision').AsInteger ;
 
-        // Codigo para folio incremental;
-        ArrayFolio := generar_folio_inc('anexo_prequisicion','IdPRequisicion');
-
         if connection.QryUBusca.RecordCount = 0 then
         begin
             //Try
@@ -273,8 +269,8 @@ begin
             AsignarSQL(Connection.qryUBusca, 'inserta_prequisicion_serv', pUpdate);
             FiltrarDataSet(Connection.qryUBusca, 'IdPRequisicion, sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, '+
             'IdMedida, dFechaRequerimiento, dCantidad, sObservacion, sEstado, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder,  '+
-            'NumeroMaterial, EspecificacionesQA, EspecificacionesQAN, Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision, Periodo',
-            [ArrayFolio[0],Global_Contrato,
+            'NumeroMaterial, EspecificacionesQA, EspecificacionesQAN, Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision',
+             [0,Global_Contrato,
             FrmRevisionesRequisiciones.anexo_requisicion.FieldValues['iFolioRequisicion'],
             materiales.FieldValues['IdInsumo'], 0 , materiales.fieldValues['Insumo'] ,
             materiales.fieldValues['IdMedida'] ,
@@ -282,7 +278,7 @@ begin
             cxCantidad.Value , '', 'PENDIENTE', materiales.FieldByName('IdTipoRecurso').AsInteger,
             materiales.FieldByName('IdGrupoSAP').AsInteger,
             '',materiales.FieldByName('Codigo').AsString,
-            '', '', '',  '',cbEquipos.EditValue,FrmRevisionesRequisiciones.cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsString, ArrayFolio[1]]);
+            '', '', '',  '',cbEquipos.EditValue,FrmRevisionesRequisiciones.cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsString]);
             Connection.QryUBusca.ExecSQL  ;
         //Except
 
@@ -305,8 +301,8 @@ begin
                 AsignarSQL(Connection.QryUBusca2, 'inserta_prequisicion_serv', pUpdate);
                 FiltrarDataSet(Connection.QryUBusca2, 'IdPRequisicion, sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, '+
                 'IdMedida, dFechaRequerimiento, dCantidad, sObservacion, sEstado, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder,  '+
-                'NumeroMaterial, EspecificacionesQA, EspecificacionesQAN, Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision, Periodo',
-                [ArrayFolio[0], Global_Contrato ,
+                'NumeroMaterial, EspecificacionesQA, EspecificacionesQAN, Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision',
+                [0, Global_Contrato ,
                 FrmRevisionesRequisiciones.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
                 materiales.fieldValues['IdInsumo'] ,
                 Connection.qryUBusca.FieldByName('iItem').AsInteger + 1,
@@ -315,7 +311,7 @@ begin
                 cxCantidad.Value , '', 'PENDIENTE',  materiales.FieldByName('IdTipoRecurso').AsInteger,
                 materiales.FieldByName('IdGrupoSAP').AsInteger,
                 '', materiales.FieldByName('Codigo').AsString ,
-                '', '', '', '', cbEquipos.EditValue, FrmRevisionesRequisiciones.cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsString, ArrayFolio[1] ]);
+                '', '', '', '', cbEquipos.EditValue, FrmRevisionesRequisiciones.cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsString ]);
                 Connection.qryUBusca2.ExecSQL  ;
             end
             else
@@ -325,8 +321,8 @@ begin
                 AsignarSQL(Connection.QryUBusca2, 'inserta_prequisicion_serv', pUpdate);
                 FiltrarDataSet(Connection.QryUBusca2, 'IdPRequisicion, sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, '+
                 'IdMedida, dFechaRequerimiento, dCantidad, sObservacion, sEstado, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder,  '+
-                'NumeroMaterial, EspecificacionesQA, EspecificacionesQAN, Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision, periodo',
-                [ArrayFolio[0], Global_Contrato,
+                'NumeroMaterial, EspecificacionesQA, EspecificacionesQAN, Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision',
+                [0, Global_Contrato,
                 FrmRevisionesRequisiciones.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
                 materiales.FieldValues['IdInsumo'] ,
                 Connection.qryUBusca.FieldByName('iItem').AsInteger + 1,
@@ -336,7 +332,7 @@ begin
                 materiales.FieldByName('IdTipoRecurso').AsInteger, '',
                 materiales.FieldByName('IdGrupoSAP').AsInteger,
                 materiales.FieldByName('Codigo').AsString,
-                '', '', '', '', cbEquipos.EditValue, FrmRevisionesRequisiciones.cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsString, ArrayFolio[1] ]);
+                '', '', '', '', cbEquipos.EditValue, FrmRevisionesRequisiciones.cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsString ]);
                 Connection.qryUBusca2.ExecSQL  ;
             end
           end

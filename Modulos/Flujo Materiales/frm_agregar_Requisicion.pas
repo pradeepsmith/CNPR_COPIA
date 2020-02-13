@@ -241,7 +241,6 @@ Var
   dCantidad : Currency ;
   numMaterial, Id, centroc, QA, serv: String;
   zPreq : TUniQuery;
-  ArrayFolio: TStringArrayInt;
 
 begin
     If OpcButton = 'New' then
@@ -301,22 +300,19 @@ begin
          serv := 'NO';
         end;
 
-        // Codigo para folio incremental;
-        ArrayFolio := generar_folio_inc('anexo_prequisicion','IdPRequisicion');
-
         if connection.QryUBusca.RecordCount = 0 then
         begin
             //Try
             //Insertamos el material para la Requisicion,..
             Connection.qryUBusca2.Active := False ;
             AsignarSQL(connection.QryUBusca2,'inserta_prequisicion_002',pUpdate);
-            FiltrarDataSet(connection.QryUBusca2, 'IdPRequisicion, sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, IdMedida,'+
-            'dFechaRequerimiento, ServReciente, dCantidad, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder, NumeroMaterial, EspecificacionesQA, Extraordinario, sIdEquipo, Revision, Periodo',
-            [ArrayFolio[0],Global_Contrato,FrmRequisicionSS7.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
+            FiltrarDataSet(connection.QryUBusca2, 'sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, IdMedida,'+
+            'dFechaRequerimiento, ServReciente, dCantidad, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder, NumeroMaterial, EspecificacionesQA, Extraordinario, sIdEquipo, Revision',
+            [Global_Contrato,FrmRequisicionSS7.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
             materiales.fieldValues['IdInsumo'], 0, materiales.fieldValues['Insumo'],
             materiales.fieldValues['IdMedida'], FechaTimeSQL(FrmRequisicionSS7.anexo_requisicion.FieldValues['dFechaSolicitado']), serv,
             cxCantidad.Value, materiales.FieldByName('IdTipoRecurso').AsInteger, materiales.FieldByName('IdGrupoSAP').AsInteger,
-            centroc, numMaterial, QA, cxExtraordinario.EditingValue, Id, FrmRequisicionSS7.anexo_requisicion.FieldValues['Rev'],ArrayFolio[1] ]);
+            centroc, numMaterial, QA, cxExtraordinario.EditingValue, Id, FrmRequisicionSS7.anexo_requisicion.FieldValues['Rev'] ]);
             connection.QryUBusca2.ExecSQL;
         //Except
 
@@ -336,26 +332,26 @@ begin
             begin
                 Connection.qryUBusca2.Active := False ;
                 AsignarSQL(connection.QryUBusca2,'inserta_prequisicion_002',pUpdate);
-                FiltrarDataSet(connection.QryUBusca2, 'IdPRequisicion,sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, IdMedida,'+
-                'dFechaRequerimiento, ServReciente, dCantidad, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder, NumeroMaterial, EspecificacionesQA, Extraordinario, sIdEquipo, Revision, Periodo',
-                [ArrayFolio[0],Global_Contrato,FrmRequisicionSS7.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
+                FiltrarDataSet(connection.QryUBusca2, 'sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, IdMedida,'+
+                'dFechaRequerimiento, ServReciente, dCantidad, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder, NumeroMaterial, EspecificacionesQA, Extraordinario, sIdEquipo, Revision',
+                [Global_Contrato,FrmRequisicionSS7.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
                 materiales.fieldValues['IdInsumo'],Connection.qryUBusca.FieldByName('iItem').AsInteger + 1,
                 materiales.fieldValues['Insumo'], materiales.fieldValues['IdMedida'], FechaTimeSQL(FrmRequisicionSS7.anexo_requisicion.FieldValues['dFechaSolicitado']),
                 serv, cxCantidad.Value, materiales.FieldByName('IdTipoRecurso').AsInteger, materiales.FieldByName('IdGrupoSAP').AsInteger,
-                centroc, numMaterial, QA, cxExtraordinario.Text, Id, FrmRequisicionSS7.anexo_requisicion.FieldValues['Rev'], ArrayFolio[1] ]);
+                centroc, numMaterial, QA, cxExtraordinario.Text, Id, FrmRequisicionSS7.anexo_requisicion.FieldValues['Rev'] ]);
                 connection.QryUBusca2.ExecSQL;
             end
             else
             begin
                 Connection.qryUBusca2.Active := False ;
                 AsignarSQL(connection.QryUBusca2,'inserta_prequisicion_002',pUpdate);
-                FiltrarDataSet(connection.QryUBusca2, 'IdPRequisicion,sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, IdMedida,'+
-                'dFechaRequerimiento, ServReciente, dCantidad, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder, NumeroMaterial, EspecificacionesQA, Extraordinario, sIdEquipo, Revision, Periodo',
-                [ArrayFolio[0],Global_Contrato,FrmRequisicionSS7.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
+                FiltrarDataSet(connection.QryUBusca2, 'sContrato, iFolioRequisicion, IdInsumo, iItem, mDescripcion, IdMedida,'+
+                'dFechaRequerimiento, ServReciente, dCantidad, IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder, NumeroMaterial, EspecificacionesQA, Extraordinario, sIdEquipo, Revision',
+                [Global_Contrato,FrmRequisicionSS7.anexo_requisicion.FieldValues['iFolioRequisicion'] ,
                 materiales.fieldValues['IdInsumo'],Connection.qryUBusca.FieldByName('iItem').AsInteger + 1,
                 materiales.fieldValues['Insumo'], materiales.fieldValues['IdMedida'], FechaTimeSQL(FrmRequisicionSS7.anexo_requisicion.FieldValues['dFechaSolicitado']),
                 serv, cxCantidad.Value, materiales.FieldByName('IdTipoRecurso').AsInteger, materiales.FieldByName('IdGrupoSAP').AsInteger,
-                centroc, numMaterial, QA, cxExtraordinario.Text, Id, FrmRequisicionSS7.anexo_requisicion.FieldValues['Rev'],ArrayFolio[1] ]);
+                centroc, numMaterial, QA, cxExtraordinario.Text, Id, FrmRequisicionSS7.anexo_requisicion.FieldValues['Rev'] ]);
                 connection.QryUBusca2.ExecSQL;
             end
           end

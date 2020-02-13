@@ -101,6 +101,8 @@ object frmAgregarMasivoServicios: TfrmAgregarMasivoServicios
           Font.Style = []
           ParentFont = False
           OnClick = btnAgregarAccesorioClick
+          ExplicitLeft = 491
+          ExplicitTop = -4
         end
         object btnEditAccesorio: TcxButton
           Tag = 11
@@ -332,7 +334,6 @@ object frmAgregarMasivoServicios: TfrmAgregarMasivoServicios
         Style.Font.Style = []
         Style.IsFontAssigned = True
         TabOrder = 0
-        ExplicitHeight = 21
         Width = 866
       end
       object LabelProceso: TcxLabel

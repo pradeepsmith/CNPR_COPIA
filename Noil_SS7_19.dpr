@@ -189,8 +189,7 @@ uses
   frm_catalogo_empleados_SSI in 'Modulos\Recursos Humanos\frm_catalogo_empleados_SSI.pas' {frmCatalogoEmpleadosSSI},
   frm_listado_personal in 'Modulos\Control EPP\frm_listado_personal.pas' {frmListadoPersonal},
   frm_SolicitudDetalle in 'Modulos\Flujo Materiales\frm_SolicitudDetalle.pas' {frmSolicitudDetalle},
-  frm_catalogo_empleados_ss7 in 'Modulos\Recursos Humanos\frm_catalogo_empleados_ss7.pas' {frmCatalogoEmpleados_ss7},
-  frm_ReporteDiarioTurno2 in 'frm_ReporteDiarioTurno2.pas' {frmDiarioTurno2};
+  frm_catalogo_empleados_ss7 in 'Modulos\Recursos Humanos\frm_catalogo_empleados_ss7.pas' {frmCatalogoEmpleados_ss7};
 
 {$R *.TLB}
 

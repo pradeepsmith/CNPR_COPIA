@@ -816,8 +816,6 @@ begin
 end;
 
 procedure TfrmCentroCosto.cxNuevoClick(Sender: TObject);
-var
-  arrayFolio: TStringArrayInt;
 begin
    labelSeleccion.Caption := 'Añadiendo';
    cxGridMontoDBTable.OptionsData.Appending := True;
@@ -831,10 +829,6 @@ begin
    cxEliminar.Enabled := False;
 
    zMonto.Append;
-   arrayFolio := generar_folio_inc('ordenesdetrabajo_montoscc','IdCentroCosto');
-   zMonto.FieldByName('sContrato').AsInteger := ArrayFolio[0];
-   zMonto.FieldByName('sContrato').AsInteger := ArrayFolio[1];
-
    zMonto.FieldByName('sContrato').AsString := Global_contrato;
    zMonto.FieldByName('sNumeroOrden').AsString := sNumeroOrden.Text;
    zMonto.FieldByName('Monto').AsFloat := 0;

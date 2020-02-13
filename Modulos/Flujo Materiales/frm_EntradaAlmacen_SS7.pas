@@ -550,16 +550,11 @@ begin
 end;
 
 procedure TfrmEntradaAlmacen_SS7.frmBarra2btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
   try
     OpcButton1 := 'New';
 
     almacen_entrada.Append;
-    ArrayFolio := generar_folio_inc('almacen_entrada','iFolioEntrada');
-    almacen_entrada.FieldValues['iFolioEntrada']:= ArrayFolio[0];
-    almacen_entrada.FieldValues['Periodo']:= ArrayFolio[1];
     almacen_entrada.FieldByName('sFolioEntrada').AsString:= autofolio(almacen_entrada, 'almacen_entrada', connection.uContrato.FieldByName('IdEmpresa').AsInteger, 0,0);
     almacen_entrada.FieldByName('IdAlmacen').AsInteger:= Almacen.FieldByName('IdAlmacen').AsInteger;
     if almacen_entrada.FieldByName('IdAlmacen').AsInteger = 0 then

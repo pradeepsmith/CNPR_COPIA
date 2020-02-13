@@ -456,7 +456,7 @@ end;
 procedure TfrmPedidos_SAP.FormShow(Sender: TObject);
 var
   x: integer;
-  Year, Month, Day : Word;
+
 begin
   btnPermisos := global_btnPermisos;
   try
@@ -529,8 +529,7 @@ begin
     cxCreaEntrada.Visible := False;
 
     dbg_OCVista.DataController.Groups.FullExpand;
-    DecodeDate(date, Year, Month, Day);
-    cxInicioRequerido.Date := StrToDate(intToStr(1).PadLeft(2,'0')+'/'+ intToStr(Month).PadLeft(2,'0')+'/'+intToStr(Year));//StrToDate('01'+copy(DateToStr(date),3,10));
+    cxInicioRequerido.Date := StrToDate('01'+copy(DateToStr(date),3,10));
     cxFinRequerido.Date    := date;
 
   except
@@ -729,7 +728,6 @@ var
   dCantidad: Currency;
   conteo: integer;
   indice, iGrid    : integer;
-  ArrayFolio: TStringArrayInt;
 begin
     if tDescuentoMat.Value > (tdCantidad.Value * tdCostoNuevo.Value) then
     begin
@@ -771,17 +769,15 @@ begin
             indice := Grid_InsumosView.DataController.GetSelectedRowIndex(iGrid);
             Grid_InsumosView.DataController.FocusedRowIndex := indice;
 
-            // Codigo para folio incremental;
-            ArrayFolio := generar_folio_inc('anexo_ppedido','IdOrdenCompraDetalle');
-
 //            if Grid_InsumosView.DataController.GetSelectedCount > 0 then
 //               tdCantidad.Value := Grid_insumosView.DataController.DataSet.FieldbyName('dRequisicion').AsFloat;
+
             //Sino existe el registro se inserta
             if not anexo_pocompras.Locate('IdInsumo;iFolioRequisicion; iItemReq',VarArrayOf([Grid_insumosView.DataController.DataSet.FieldByName('IdInsumo').AsInteger,Grid_insumosView.DataController.DataSet.FieldByName('iFolioRequisicion').AsInteger,insumos.FieldByName('iItem').AsInteger]), [loCaseInsensitive]) then
             begin
                 AsignarSQL(connection.qryUBusca,'inserta_ordencompra_det_001', pUpdate);
-                FiltrarDataSet(connection.qryUBusca, 'IdCompraDetalle, Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion,iItemReq,NotaPartida,Periodo',
-                 [ArrayFolio[0], Global_contrato,
+                FiltrarDataSet(connection.qryUBusca, 'Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion,iItemReq,NotaPartida',
+                 [Global_contrato,
                   anexo_ocompras.FieldByName('IdOrdenCompra').AsInteger,
                   Grid_insumosView.DataController.DataSet.FieldValues['IdInsumo'],
                   anexo_pocompras.RecordCount+1,
@@ -791,7 +787,7 @@ begin
                   tdCostoNuevo.Value,
                   Grid_insumosView.DataController.DataSet.FieldByName('iFolioRequisicion').AsInteger,
                   insumos.FieldByName('iItem').AsInteger,
-                  Grid_insumosView.DataController.DataSet.FieldByName('sObservacion').AsString, ArrayFolio[1]]);
+                  Grid_insumosView.DataController.DataSet.FieldByName('sObservacion').AsString]);
                 connection.qryUBusca.Execute;
             end
             else
@@ -813,8 +809,8 @@ begin
 //               if not anexo_pocompras.Locate('IdInsumo;iFolioRequisicion; iItemReq',VarArrayOf([Grid_insumosView.DataController.DataSet.FieldByName('IdInsumo').AsInteger,Grid_insumosView.DataController.DataSet.FieldByName('iFolioRequisicion').AsInteger,insumos.FieldByName('iItem').AsInteger]), [loCaseInsensitive]) then
 //               begin
                 AsignarSQL(connection.qryUBusca,'inserta_ordencompra_det_001', pUpdate);
-                FiltrarDataSet(connection.qryUBusca, 'IdCompraDetalle,Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion,iItemReq,NotaPartida, Periodo',
-                 [ArrayFolio[0],Global_contrato,
+                FiltrarDataSet(connection.qryUBusca, 'Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion,iItemReq,NotaPartida',
+                 [Global_contrato,
                   anexo_ocompras.FieldByName('IdOrdenCompra').AsInteger,
                   Grid_insumosView.DataController.DataSet.FieldValues['IdInsumo'],
                   anexo_pocompras.RecordCount+1,
@@ -824,7 +820,7 @@ begin
                   tdCostoNuevo.Value,
                   Grid_insumosView.DataController.DataSet.FieldByName('iFolioRequisicion').AsInteger,
                   insumos.FieldByName('iItem').AsInteger,
-                  Grid_insumosView.DataController.DataSet.FieldByName('sObservacion').AsString, ArrayFolio[1]]);
+                  Grid_insumosView.DataController.DataSet.FieldByName('sObservacion').AsString]);
                 connection.qryUBusca.Execute;
                end
 //              end;
@@ -1042,7 +1038,6 @@ end;
 procedure TfrmPedidos_SAP.frmBarra2btnAddClick(Sender: TObject);
 var
   dFechaFinal: tDate;
-  ArrayFolio: TStringArrayInt;
 begin
   try
     if not PanelDatos.Visible then
@@ -1069,11 +1064,6 @@ begin
         anexo_ocompras.FieldByName('sPrecios').AsString      :=AnteriorArray[4];
         anexo_ocompras.FieldByName('sVigencia').AsString     :=AnteriorArray[5];
     end;
-
-    ArrayFolio := generar_folio_inc('anexo_pedidos','IdOrdenCompra');
-    anexo_ocompras.FieldValues['IdOrdenCompra']:= ArrayFolio[0];
-    anexo_ocompras.FieldValues['Periodo']:= ArrayFolio[1];
-
 
     anexo_ocompras.FieldByName('sContrato').AsString := global_contrato;
     anexo_ocompras.FieldByName('Codigo').AsString := autofolio(anexo_ocompras,'anexo_pedidos');
@@ -2422,7 +2412,6 @@ var
    IdInspeccion,flcid, Fila,Fila2, x : integer;
    lDetalle,lContinuaAux : boolean;
    sValue2, sValue3, sValue4, sValueAux  : string;
-   ArrayFolio: TStringArrayInt;
 
    CodErr1, CodErr2 : String;
    zSelecInsumo: TUniquery;
@@ -2643,13 +2632,10 @@ begin
 
                           if (connection.QryUBusca2.RecordCount = 0) and (lContinuaAux) then
                           begin
-                              // Codigo para folio incremental;
-                              ArrayFolio := generar_folio_inc('anexo_pedidos','IdOrdenCompra');
-
                               //Inserta datos de la OC(PO)
                               AsignarSQL(connection.qryUBusca,'inserta_ordencompra_001', pUpdate);
-                              FiltrarDataSet(connection.qryUBusca, 'IdOrdenCompra,Contrato,Codigo,Periodo2,Folio,Proveedor,Proyecto,Fecha,FechaEntrega,Elaboro,FormaPago,PeriodoPago,Moneda,LugarEntrega,CondicionesC,Iva,Retencion,TEntrega,Contacto,correo,Usuario,Notas,Fecha,IdPlanta, Periodo',
-                              [ArrayFolio[0],Global_contrato,sFolioOC,FechaSQL(date),0,IdProveedor,sProyecto,FechaSQL(strToDate(dFechaSol)),FechaSQL(StrToDate(dFechaReq)),connection.uUsuario.FieldByName('sNombre').AsString,IdFormaPago,0,IdMoneda,sLugarentrega,'',connection.uContrato.FieldByName('Iva').AsFloat,0,'','','',global_usuario,'',FechaSQL(StrToDate(dFechaReq)),zRequisicion.FieldByName('IdPlanta').AsInteger,ArrayFolio[1]]);
+                              FiltrarDataSet(connection.qryUBusca, 'Contrato,Codigo,Periodo,Folio,Proveedor,Proyecto,Fecha,FechaEntrega,Elaboro,FormaPago,PeriodoPago,Moneda,LugarEntrega,CondicionesC,Iva,Retencion,TEntrega,Contacto,correo,Usuario,Notas,Fecha,IdPlanta',
+                              [Global_contrato,sFolioOC,FechaSQL(date),0,IdProveedor,sProyecto,FechaSQL(strToDate(dFechaSol)),FechaSQL(StrToDate(dFechaReq)),connection.uUsuario.FieldByName('sNombre').AsString,IdFormaPago,0,IdMoneda,sLugarentrega,'',connection.uContrato.FieldByName('Iva').AsFloat,0,'','','',global_usuario,'',FechaSQL(StrToDate(dFechaReq)),zRequisicion.FieldByName('IdPlanta').AsInteger]);
                               connection.qryUBusca.Execute;
 
                               anexo_ocompras.Refresh;
@@ -2714,12 +2700,9 @@ begin
 
                                     if (connection.qryUBusca.RecordCount = 0) and (lContinuaAux) then
                                     begin
-                                        // Codigo para folio incremental;
-                                        ArrayFolio := generar_folio_inc('anexo_ppedido','IdOrdenCompraDetalle');
-
                                         AsignarSQL(connection.qryUBusca,'inserta_ordencompra_det_001', pUpdate);
-                                        FiltrarDataSet(connection.qryUBusca, 'IdCompraDetalle,Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion, Periodo',
-                                        [ArrayFolio[0],Global_contrato,connection.qryUBusca2.FieldByName('IdOrdenCompra').AsInteger,IdInsumo,StrToInt(sItem),sMat,zRequisicion.FieldByName('IdMedida').AsInteger,StrToFloat(dCantidad),dCosto,zRequisicion.FieldByName('iFolioRequisicion').AsInteger,ArrayFolio[1]]);
+                                        FiltrarDataSet(connection.qryUBusca, 'Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion',
+                                        [Global_contrato,connection.qryUBusca2.FieldByName('IdOrdenCompra').AsInteger,IdInsumo,StrToInt(sItem),sMat,zRequisicion.FieldByName('IdMedida').AsInteger,StrToFloat(dCantidad),dCosto,zRequisicion.FieldByName('iFolioRequisicion').AsInteger]);
                                         connection.qryUBusca.Execute;
                                     end;
 
@@ -2827,14 +2810,11 @@ begin
                                     IdProveedor := Proveedores.FieldByName('IdProveedor').AsInteger
                                 else
                                 begin
-                                  // Codigo para folio incremental;
-                                  ArrayFolio := generar_folio_inc('master_proveedores','IdProveedor');
-
                                   connection.zUCommand.Active := False;
                                   connection.zUCommand.SQL.Clear;
                                   AsignarSQL(connection.zUCommand, 'inserta_proveedor', pUpdate);
-                                  FiltrarDataSet(connection.zUCommand, 'IdProveedor, Codigo, Nombre, RazonSocial, Rfc, Calle, Interior, Exterior, Colonia, Periodo',
-                                  [ArrayFolio[0], sCodigoProv, sProveedor, sProveedor, '','','','','', ArrayFolio[1]]);
+                                  FiltrarDataSet(connection.zUCommand, 'Codigo, Nombre, RazonSocial, Rfc, Calle, Interior, Exterior, Colonia',
+                                  [sCodigoProv, sProveedor, sProveedor, '','','','','']);
                                   connection.zUCommand.Execute;
                                   proveedores.Refresh;
 
@@ -2891,13 +2871,10 @@ begin
                                   sFolioOCAux := sFolioOC;
                                   if (connection.QryUBusca2.RecordCount = 0) and  (lContinuaAux) and (sFolioOC <> '') then
                                   begin
-                                      // Codigo para folio incremental;
-                                      ArrayFolio := generar_folio_inc('anexo_pedidos','IdOrdenCompra');
-
                                       //Inserta datos de la OC(PO)
                                       AsignarSQL(connection.qryUBusca,'inserta_ordencompra_001', pUpdate);
-                                      FiltrarDataSet(connection.qryUBusca, 'IdOrdenCompra, Contrato,Codigo,Periodo,Folio,Proveedor,Proyecto,Fecha,FechaEntrega,Elaboro,FormaPago,PeriodoPago,Moneda,LugarEntrega,CondicionesC,Iva,Retencion,TEntrega,Contacto,correo,Usuario,Notas,Fecha,IdPlanta, Periodo',
-                                      [ArrayFolio[0],Global_contrato,sFolioOC,FechaSQL(date),0,IdProveedor,sProyecto,FechaSQL(strToDate(dFechaSol)),FechaSQL(StrToDate(dFechaSol)),connection.uUsuario.FieldByName('sNombre').AsString,8,0,IdMoneda,'','',0,0,'','','',global_usuario,'',FechaSQL(StrToDate(dFechaSol)),zRequisicion.FieldByName('IdPlanta').AsInteger, ArrayFolio[1]]);
+                                      FiltrarDataSet(connection.qryUBusca, 'Contrato,Codigo,Periodo,Folio,Proveedor,Proyecto,Fecha,FechaEntrega,Elaboro,FormaPago,PeriodoPago,Moneda,LugarEntrega,CondicionesC,Iva,Retencion,TEntrega,Contacto,correo,Usuario,Notas,Fecha,IdPlanta',
+                                      [Global_contrato,sFolioOC,FechaSQL(date),0,IdProveedor,sProyecto,FechaSQL(strToDate(dFechaSol)),FechaSQL(StrToDate(dFechaSol)),connection.uUsuario.FieldByName('sNombre').AsString,8,0,IdMoneda,'','',0,0,'','','',global_usuario,'',FechaSQL(StrToDate(dFechaSol)),zRequisicion.FieldByName('IdPlanta').AsInteger]);
                                       connection.qryUBusca.Execute;
 
                                       anexo_ocompras.Refresh;
@@ -2923,12 +2900,9 @@ begin
                                     else begin
                                       if (sFolioOC <>'' )then
                                       begin
-                                        // Codigo para folio incremental;
-                                        ArrayFolio := generar_folio_inc('anexo_ppedido','IdOrdenCompraDetalle');
-
                                         AsignarSQL(connection.qryUBusca,'inserta_ordencompra_det_001', pUpdate);
-                                        FiltrarDataSet(connection.qryUBusca, 'IdCompraDetalle,Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion,Periodo',
-                                        [ArrayFolio[0],Global_contrato,connection.qryUBusca2.FieldByName('IdOrdenCompra').AsInteger,IdInsumo,StrToInt(sItem),zRequisicion.FieldByName('mDescripcion').AsString,zRequisicion.FieldByName('IdMedida').AsInteger,StrToFloat(dCantidad),dCosto,iFolioReq, ArrayFolio[1]]);
+                                        FiltrarDataSet(connection.qryUBusca, 'Contrato,IdCompra,Insumo,item,Descripcion,Medida,Cantidad,Costo,Requisicion',
+                                        [Global_contrato,connection.qryUBusca2.FieldByName('IdOrdenCompra').AsInteger,IdInsumo,StrToInt(sItem),zRequisicion.FieldByName('mDescripcion').AsString,zRequisicion.FieldByName('IdMedida').AsInteger,StrToFloat(dCantidad),dCosto,iFolioReq]);
                                         connection.qryUBusca.Execute;
                                       end;
                                     end;

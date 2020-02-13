@@ -121,19 +121,12 @@ implementation
 {$R *.dfm}
 
 procedure TfrmPersonalProv.btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
   cxGridEmpProv.Enabled:=False;
   PanelInfo.Visible:=True;
   SplitterInfo.Visible:=True;
   frmBarraH11.btnAddClick(Sender);
   uEmpP.Append;
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('master_proveedor_personal','IdPersonalProv');
-  uEmpP.FieldValues['IdPersonalProv']:= ArrayFolio[0];
-  uEmpP.FieldValues['Periodo']:= ArrayFolio[1];
-
   uEmpP.FieldByName('Sexo').AsString:='Hombre';
   uEmpP.FieldByName('FechaNacimiento').AsDateTime:=Date;
   uEmpP.FieldByName('Activo').AsString:='Si';

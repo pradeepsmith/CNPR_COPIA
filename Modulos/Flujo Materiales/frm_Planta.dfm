@@ -52,8 +52,7 @@ object frmPlanta: TfrmPlanta
         inherited btnAdd: TcxButton
           Height = 31
           OnClick = btnAddClick
-          ExplicitLeft = 6
-          ExplicitTop = -3
+          ExplicitLeft = 1
           ExplicitHeight = 31
         end
         inherited btnEdit: TcxButton
@@ -136,6 +135,7 @@ object frmPlanta: TfrmPlanta
       ParentFont = False
       TabOrder = 0
       LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+      ExplicitHeight = 133
       object cxGDatos: TcxGroupBox
         Left = 12
         Top = 12
@@ -168,6 +168,8 @@ object frmPlanta: TfrmPlanta
           ParentFont = False
           TabOrder = 0
           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+          ExplicitWidth = 1023
+          ExplicitHeight = 64
           object cxCodigo: TcxDBTextEdit
             Left = 60
             Top = 11
@@ -206,6 +208,7 @@ object frmPlanta: TfrmPlanta
           object cxPrincipal: TdxDBToggleSwitch
             Left = 897
             Top = 11
+            Align = alClient
             Caption = 'Activo:'
             DataBinding.DataField = 'Activo'
             DataBinding.DataSource = ds_planta
@@ -322,6 +325,7 @@ object frmPlanta: TfrmPlanta
       Height = 35
       Align = alBottom
       TabOrder = 1
+      ExplicitTop = 111
       inline frmBarraH21: TfrmBarraH2
         Left = 878
         Top = 1
@@ -366,6 +370,7 @@ object frmPlanta: TfrmPlanta
     Height = 6
     AlignSplitter = salTop
     Control = Panel2
+    ExplicitTop = 346
   end
   object grid_almacen: TcxGrid
     Left = 0
@@ -380,6 +385,7 @@ object frmPlanta: TfrmPlanta
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    ExplicitHeight = 286
     object grid_almacenDBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = False

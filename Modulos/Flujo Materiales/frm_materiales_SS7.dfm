@@ -1047,7 +1047,7 @@ object frmMateriales_SS7: TfrmMateriales_SS7
           ParentShowHint = False
           ShowHint = True
           TabOrder = 2
-          Properties.ActivePage = cxPageImagen
+          Properties.ActivePage = cxPageCertificados
           Properties.CustomButtons.Buttons = <>
           Properties.Images = connection.cxIconos16
           OnChange = cxPageDetalleChange

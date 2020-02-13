@@ -235,15 +235,11 @@ begin
 end;
 
 procedure TfrmCompradores.frmBarra1btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
   try
        frmBarraH11.btnAddClick(Sender);
        grid_almacen.Enabled:=false;
        zqCompradores.Append ;
-        arrayFolio := generar_folio_inc('alm_compradores','IdComprador');
-        zqCompradores.FieldByName('IdComprador').AsInteger := arrayFolio[0];
-        zqCompradores.FieldByName('Periodo').AsInteger := arrayFolio[1];
      except
      on e : exception do begin
          UnitExcepciones.manejarExcep(E.Message, E.ClassName, 'Catálogo de Compradores', 'Al agregar registro ', 0);
@@ -387,7 +383,6 @@ begin
 end;
 
 procedure TfrmCompradores.btnAddClick(Sender: TObject);
-var ArrayFolio : TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     cxGDatos.Caption:='Añadiendo';
@@ -395,9 +390,7 @@ begin
     panel2.Visible:=True;
     grid_almacen.Enabled:=False;
     zqCompradores.Append;
-    arrayFolio := generar_folio_inc('alm_compradores','IdComprador');
-    zqCompradores.FieldByName('IdComprador').AsInteger := arrayFolio[0];
-    zqCompradores.FieldByName('Periodo').AsInteger := arrayFolio[1];
+
 
 end;
 

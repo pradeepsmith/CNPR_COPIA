@@ -358,9 +358,9 @@ object frmUsuarios: TfrmUsuarios
             Width = 267
             object dxLayoutControl2: TdxLayoutControl
               Left = 3
-              Top = 24
+              Top = 22
               Width = 261
-              Height = 171
+              Height = 173
               Align = alClient
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clWindowText

@@ -602,7 +602,6 @@ end;
 procedure TFrmRequisicionss7.btnAddClick(Sender: TObject);
 var
 zFolios : TUniQuery;
-ArrayFolio: TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     frmBarraH11.btnAddClick(Sender);
@@ -629,12 +628,6 @@ begin
     anexo_requisicion.AfterScroll := nil;
     zDepartamento.Locate('IdDepartamento',connection.uUsuario.FieldByName('idDepartamento').AsInteger,[]);
     anexo_requisicion.Append;
-
-    // Codigo para folio incremental;
-    ArrayFolio := generar_folio_inc('anexo_requisicion','iFolioRequisicion');
-    anexo_requisicion.FieldValues['iFolioRequisicion']:= ArrayFolio[0];
-    anexo_requisicion.FieldValues['Periodo']:= ArrayFolio[1];
-
     anexo_requisicion.FieldValues['IdDepartamento']:= zDepartamento.FieldByName('IdDepartamento').AsInteger;
     anexo_requisicion.FieldValues['sNumFolio']     := autoFolio(anexo_requisicion,'anexo_requisicion',connection.uContrato.FieldByName('IdEmpresa').AsInteger,0,tsDepartamento.DataBinding.DataSource.DataSet.FieldByName('IdDepartamento').AsInteger);
     anexo_requisicion.FieldValues['sContrato']     := global_contrato;
@@ -1606,8 +1599,7 @@ end;
 procedure TFrmRequisicionss7.btnRevisiónClick(Sender: TObject);
 var
   zRegistroReq, zPreq, zRegisPreq, zElimina : TUniquery;
-  id : Integer;
-  ArrayFolio: TStringArrayInt;
+   id : Integer;
 begin
  if (anexo_requisicion.FieldByName('sStatus').AsString = 'GENERO PR') then
  begin
@@ -1627,19 +1619,16 @@ begin
     zElimina:=tUniquery.create(nil);
     zElimina.Connection := Connection.uConnection;
 
-    // autoincrementable
-    ArrayFolio := generar_folio_inc('anexo_requisicion','iFolioRequisicion');
-
     zRegistroReq.Active := False;
     zRegistroReq.SQL.Clear;
     AsignarSQL(zRegistroReq, 'inserta_requisicion', pUpdate);
-    FiltrarDataSet(zRegistroReq, 'IdRequisicion, Contrato,Folio,ContratoOt,Proyecto,CentroCosto,OrdenOT,dIdFecha,FechaSolicitado,' +
-    'FechaRequerido,FechaVigencia,Requisita,Solicita,sStatus,Comentarios,Prioridad,Departamento,Recurso,PuntoCarga,' +
-    'TelefonoReq,SAPSolicitante,TelSAPSolicita,Planta, ProcurementS,PreferredS,AutorizaM,LugarEntrega,sIdUsuario, '+
+    FiltrarDataSet(zRegistroReq, 'Contrato,Folio,ContratoOt,Proyecto,CentroCosto,OrdenOT,dIdFecha,FechaSolicitado,' +
+    'FechaRequerido,FechaVigencia,Requisita,Solicita,sStatus,Comentarios,Prioridad,Departamento,Recurso,Firma,PuntoCarga,' +
+    'TelefonoReq,SAPSolicitante,TelSAPSolicita,Planta, ProcurementS,PreferredS,AutorizaM,AutorizaQA,LugarEntrega,sIdUsuario, '+
     'UValido, FechaValido, UAutorizo, FechaAutorizo, URechazo, FechaRechazo,ComentStatus, '+
     'UCancelo, ULibero, FechaLibero, UAsignoCC,FechaAsignoCC, UGeneroPR, FechaGeneroPR, UCompro, FechaCompro, sUCompra,'+
-    'AplicaLog,NotasLog,FechaCancelo, Vista, TipoMR,Revision, Periodo',
-    [ArrayFolio[0],Global_Contrato, cxView_Requsicion.DataController.DataSet.FieldByName('sNumFolio').AsString,
+    'AplicaLog,NotasLog,FechaCancelo, Vista, TipoMR,Revision',
+    [Global_Contrato, cxView_Requsicion.DataController.DataSet.FieldByName('sNumFolio').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('sContratoOT').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('sNumeroOrden').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('sNumeroOrdenCentroC').AsString,
@@ -1655,6 +1644,7 @@ begin
     cxView_Requsicion.DataController.DataSet.FieldByName('sPrioridad').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('IdDepartamento').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('IdTiporecurso').AsString,
+    cxView_Requsicion.DataController.DataSet.FieldByName('IdFirma').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('sPuntoCarga').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('TelefonoRequisitor').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('IdSAPSolicitante').AsString,
@@ -1663,6 +1653,7 @@ begin
     cxView_Requsicion.DataController.DataSet.FieldByName('ProcurementSpecialist').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('PreferredSupplier').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('IdAutorizaManager').AsString,
+    cxView_Requsicion.DataController.DataSet.FieldByName('IdAutorizaQA').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('sLugarEntrega').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('sIdUsuario').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('UsuarioValido').AsString,
@@ -1687,7 +1678,7 @@ begin
     FechaTimeSQL(cxView_Requsicion.DataController.DataSet.FieldByName('FechaCancelo').AsDateTime),
     cxView_Requsicion.DataController.DataSet.FieldByName('Vista').AsString,
     cxView_Requsicion.DataController.DataSet.FieldByName('TipoMR').AsString,
-    cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsInteger+1, ArrayFolio[1]]);
+    cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsInteger+1]);
     zRegistroReq.Execute;
 
     zPreq:=tUniquery.create(nil);
@@ -1710,17 +1701,14 @@ begin
     zPreq.First;
     while not zPreq.Eof do
     begin
-      // autoincrementable
-      ArrayFolio := generar_folio_inc('anexo_prequisicion','IdPRequisicion');
-
       zRegisPreq.Active := False;
       zRegisPreq.SQL.Clear;
       AsignarSQL(zRegisPreq, 'inserta_prequisicion_serv', pUpdate);
-      FiltrarDataSet(zRegisPreq, 'IdPRequisicion, sContrato, iFolioRequisicion, IdInsumo, '+
+      FiltrarDataSet(zRegisPreq, 'sContrato, iFolioRequisicion, IdInsumo, '+
       'iItem, mDescripcion, IdMedida, dFechaRequerimiento, dCantidad, sObservacion, sEstado, '+
       'IdTipoRecurso, IdGrupo, sNumeroOrden_WorkOrder, NumeroMaterial, EspecificacionesQA, '+
-      'EspecificacionesQAN,  Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision, Periodo',
-      [ ArrayFolio[0], global_contrato, zRegistroReq.FieldByName('iFolioRequisicion').AsString,
+      'EspecificacionesQAN,  Extraordinario, IncluyeCodigoMat, sIdEquipo, Revision',
+      [global_contrato, zRegistroReq.FieldByName('iFolioRequisicion').AsString,
       zPreq.FieldByName('IdInsumo').AsString,
       zPreq.FieldByName('iItem').AsString,
       zPreq.FieldByName('mDescripcion').AsString,
@@ -1738,7 +1726,7 @@ begin
       zPreq.FieldByName('Extraordinario').AsString,
       zPreq.FieldByName('IncluyeCodigoMat').AsString,
       zPreq.FieldByName('sIdEquipo').AsString,
-      cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsInteger + 1,  ArrayFolio[1]]);
+      cxView_Requsicion.DataController.DataSet.FieldByName('Revision').AsInteger + 1]);
       zRegisPreq.Execute;
 
       zPreq.Next;
@@ -2920,8 +2908,6 @@ begin
 end;
 
 procedure TFrmRequisicionss7.FormShow(Sender: TObject);
-var
-  Year, Month, Day : Word;
 begin
     btnPermisos := global_btnPermisos;
 
@@ -2935,8 +2921,7 @@ begin
     cxSplitterOpciones.Visible := False;
     PanelDetalle.Visible       := False;
 
-    DecodeDate(date, Year, Month, Day);
-    cxInicioRequerido.Date := StrToDate(intToStr(1).PadLeft(2,'0')+'/'+ intToStr(Month).PadLeft(2,'0')+'/'+intToStr(Year));//StrToDate('01'+copy(DateToStr(date),3,10));
+    cxInicioRequerido.Date := StrToDate('01'+copy(DateToStr(date),3,10));
     cxFinRequerido.Date    := date;
 
     sEstatus1 := '';

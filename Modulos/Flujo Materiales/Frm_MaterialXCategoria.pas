@@ -77,15 +77,9 @@ implementation
 {$R *.dfm}
 
 procedure TFrmMaterialXCategoria.btnAddClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
-  PanelDatos.Visible:=True;
-  zMatxCat.Append;
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('materialxcatgoria','IdCategoria');
-  zMatxCat.FieldValues['IdCategoria']:= ArrayFolio[0];
-  zMatxCat.FieldValues['Periodo']:= ArrayFolio[1];
+PanelDatos.Visible:=True;
+ zMatxCat.Append;
 end;
 
 procedure TFrmMaterialXCategoria.btnCancelClick(Sender: TObject);

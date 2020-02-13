@@ -80,16 +80,9 @@ implementation
 {$R *.dfm}
 
 procedure TFrmConfBiometrico.btnAddClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
-  PanelDatos.Visible:=true;
-  zConfiguracion.Append;
-
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('configuracion_biometricos','IdBiometrico');
-  zConfiguracion.FieldValues['IdBiometrico']:= ArrayFolio[0];
-  zConfiguracion.FieldValues['Periodo']:= ArrayFolio[1];
+PanelDatos.Visible:=true;
+zConfiguracion.Append;
 end;
 
 procedure TFrmConfBiometrico.btnCancelClick(Sender: TObject);

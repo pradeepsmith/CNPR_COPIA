@@ -71,7 +71,7 @@ object frmCatalogosRHTipos: TfrmCatalogosRHTipos
         end
         object cxDBImage1: TcxDBImage
           Left = 89
-          Top = 103
+          Top = 101
           DataBinding.DataField = 'ImagenP'
           DataBinding.DataSource = ds_catalogos_generales
           Properties.Caption = 'Clic derecho para agregar imagen'
@@ -560,8 +560,6 @@ object frmCatalogosRHTipos: TfrmCatalogosRHTipos
       OptionsImage.LargeImages = frmrepositorio.IconosTodos32
       OptionsImage.SmallImages = connection.cxIconos16
       OptionsView.NavigationPane.ShowActiveGroupCaptionWhenCollapsed = True
-      ExplicitLeft = 3
-      ExplicitTop = 3
       object dxCatalogoNav: TdxNavBarGroup
         Caption = 'Cat'#225'logos RH'
         LargeImageIndex = 11

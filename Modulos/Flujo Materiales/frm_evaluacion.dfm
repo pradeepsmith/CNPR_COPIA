@@ -50,8 +50,7 @@ object frmEvaluacion: TfrmEvaluacion
         inherited btnAdd: TcxButton
           Height = 31
           OnClick = btnAddClick
-          ExplicitLeft = -5
-          ExplicitTop = -3
+          ExplicitLeft = 1
           ExplicitHeight = 31
         end
         inherited btnEdit: TcxButton

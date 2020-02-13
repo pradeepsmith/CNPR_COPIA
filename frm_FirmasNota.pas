@@ -264,8 +264,6 @@ begin
 end;
 
 procedure TfrmFirmasNota.btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
    cxLeyenda.Caption:=titulo + '[Añadiendo]';
    frmBarraH11.btnAddClick(Sender);
@@ -278,11 +276,6 @@ begin
    uModuloReporte.Locate('VistaUsuario',cxModuloReporte.Text,[]);
 
    zFirma2.Append ;
-   // Codigo para folio incremental;
-   ArrayFolio := generar_folio_inc('rd_firmas','idFirma');
-   zFirma2.FieldValues['idFirma']:= ArrayFolio[0];
-   zFirma2.FieldValues['Periodo']:= ArrayFolio[1];
-
    zFirma2.FieldByName('sContrato').AsString := global_contrato;
    zFirma2.FieldByName('IdFirmante1').asInteger := uFirmantes.FieldByName('IdFirmante').AsInteger;
    zFirma2.FieldByName('IdFirmante2').asInteger := uFirmantes.FieldByName('IdFirmante').AsInteger;

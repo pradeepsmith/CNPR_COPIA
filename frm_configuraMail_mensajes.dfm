@@ -101,7 +101,7 @@ object frmConfiguraMail_mensajes: TfrmConfiguraMail_mensajes
       ParentColor = False
       ParentFont = False
       TabOrder = 0
-      Properties.ActivePage = cxTabValida
+      Properties.ActivePage = cxTabRechazar
       Properties.CustomButtons.Buttons = <>
       Properties.Images = frmrepositorio.IconosTodos16
       OnClick = cxPageProcesoClick
@@ -1029,7 +1029,7 @@ object frmConfiguraMail_mensajes: TfrmConfiguraMail_mensajes
                   end
                   object cxButton1: TcxButton
                     Left = 11
-                    Top = 151
+                    Top = 149
                     Width = 155
                     Height = 25
                     Caption = 'Agregar'
@@ -1046,7 +1046,7 @@ object frmConfiguraMail_mensajes: TfrmConfiguraMail_mensajes
                   end
                   object cxButton2: TcxButton
                     Left = 238
-                    Top = 151
+                    Top = 149
                     Width = 155
                     Height = 25
                     Caption = 'Eliminar'

@@ -360,46 +360,64 @@ begin
 end;
 
 procedure TFrmModal.addPrequisicion;
+var
+zExisInsumo : tUniquery;
 begin
+  zExisInsumo:=tUniquery.create(nil);
+  zExisInsumo.Connection := Connection.uConnection;
+
   connection.zCommand.Active:=False;
   connection.zCommand.SQL.Clear;
-  connection.zCommand.SQL.Text:='Select pd.IdInsumo from alm_insumos pd inner join op_presupuesto_detalle as opd on opd.Codigo=pd.Codigo where '+
+  connection.zCommand.SQL.Text:='Select pd.IdInsumo,opd.Descripcion,opd.IdRecurso from alm_insumos pd inner join op_presupuesto_detalle as opd on opd.Codigo=pd.Codigo where '+
   ':sNumeroOrden=opd.sNumeroOrden and :IdTipoRecurso=opd.IdTipoRecurso and :Id=opd.IdPresupuestoDetalle';
   connection.zCommand.ParamByName('sNumeroOrden').AsString:=connection.qryUBusca2.FieldByName('sNumeroOrden').AsString;
   connection.zCommand.ParamByName('IdTipoRecurso').AsInteger:=connection.qryUBusca2.FieldByName('IdTipoRecurso').AsInteger;
   connection.zCommand.ParamByName('Id').AsInteger:=connection.qryUBusca2.FieldByName('IdPresupuestoDetalle').AsInteger;
   connection.zCommand.Open;
 
-  zSub.Active := False ;
-  zSub.SQL.Clear ;
-  zSub.SQL.Add('INSERT INTO anexo_prequisicion ( sContrato, iFolioRequisicion, IdInsumo, IdOrdenCompra, mDescripcion, IdMedida, dFechaRequerimiento, ' +
-                              'dCantidad, dCosto, sNumeroActividad, sWbs, sNumeroOrden, iPeriodo, IdTipoRecurso) '  +
-                              'VALUES (:Contrato, :Folio, :Insumo, 0, :Descripcion, :Medida, :Requerido, :Cantidad, 0.00, :Actividad, ' +
-                              ':Wbs, :Orden, :Periodo, :IdTipoRecurso) ' );
-  zSub.Params.ParamByName('Contrato').DataType     := ftString ;
-  zSub.Params.ParamByName('Contrato').value        := Global_Contrato ;
-  zSub.Params.ParamByName('Folio').DataType        := ftString ;
-  zSub.Params.ParamByName('Folio').value           := last ;
-  zSub.Params.ParamByName('Insumo').DataType       := ftString ;
-  zSub.Params.ParamByName('Insumo').value          := connection.qryUBusca2.FieldValues['IDRecurso'] ;
-  if  zSub.Params.ParamByName('Insumo').value = -1 then
-  zSub.Params.ParamByName('Insumo').value          := connection.zCommand.FieldValues['IdInsumo'] ;
-  zSub.Params.ParamByName('Descripcion').DataType  := ftMemo ;
-  zSub.Params.ParamByName('Descripcion').value     := connection.qryUBusca2.FieldValues['Descripcion'] ;
-  zSub.Params.ParamByName('Medida').DataType       := ftString ;
-  zSub.Params.ParamByName('Medida').value          := connection.qryUBusca2.FieldValues['IdMedida'] ;
-  zSub.Params.ParamByName('Requerido').DataType    := ftDate ;
-  zSub.Params.ParamByName('Requerido').value       := cbFechaInicio.Date;
-  zSub.Params.ParamByName('Cantidad').DataType     := ftFloat ;
-  zSub.Params.ParamByName('Cantidad').value        := connection.qryUBusca2.FieldValues['Cantidad'] ;
-  zSub.Params.ParamByName('Wbs').DataType          := ftString ;
-  zSub.Params.ParamByName('Actividad').value   := 'S/N' ;
-  zSub.Params.ParamByName('Wbs').value         := '' ;
-  zSub.Params.ParamByName('Orden').DataType        := ftString ;
-  zSub.Params.ParamByName('Orden').value           := connection.qryUBusca2.FieldByName('sNumeroOrden').AsString;;
-  zSub.Params.ParamByName('Periodo').AsInteger     := Connection.uconfiguracion.FieldByName('iEjercicio').AsInteger;
-  zSub.Params.ParamByName('IdTipoRecurso').AsInteger     := cbRecurso.EditValue;
-  zSub.ExecSQL ;
+  zExisInsumo.Active := False ;
+  AsignarSQL(zExisInsumo,'ex_alm_insumos_id', pUpdate);
+  FiltrarDataSet(zExisInsumo, 'Insumo',[connection.qryUBusca2.FieldValues['Descripcion']]);
+  zExisInsumo.Open;
+
+
+
+  if zExisInsumo.FieldByName('Existe').AsInteger>0 then begin
+
+    zSub.Active := False ;
+    zSub.SQL.Clear ;
+    zSub.SQL.Add('INSERT INTO anexo_prequisicion ( sContrato, iFolioRequisicion, IdInsumo, IdOrdenCompra, mDescripcion, IdMedida, dFechaRequerimiento, ' +
+                                'dCantidad, dCosto, sNumeroActividad, sWbs, sNumeroOrden, iPeriodo, IdTipoRecurso) '  +
+                                'VALUES (:Contrato, :Folio, :Insumo, 0, :Descripcion, :Medida, :Requerido, :Cantidad, 0.00, :Actividad, ' +
+                                ':Wbs, :Orden, :Periodo, :IdTipoRecurso) ' );
+    zSub.Params.ParamByName('Contrato').DataType     := ftString ;
+    zSub.Params.ParamByName('Contrato').value        := Global_Contrato ;
+    zSub.Params.ParamByName('Folio').DataType        := ftString ;
+    zSub.Params.ParamByName('Folio').value           := last ;
+    zSub.Params.ParamByName('Insumo').DataType       := ftString ;
+    zSub.Params.ParamByName('Insumo').value          := connection.qryUBusca2.FieldValues['IDRecurso'] ;
+    if  zSub.Params.ParamByName('Insumo').value = -1 then
+    zSub.Params.ParamByName('Insumo').value          := connection.zCommand.FieldValues['IdInsumo'] ;
+    zSub.Params.ParamByName('Descripcion').DataType  := ftMemo ;
+  //  zSub.Params.ParamByName('Descripcion').value     := connection.zCommand.FieldValues['Descripcion'] ;
+    zSub.Params.ParamByName('Descripcion').value     := connection.qryUBusca2.FieldValues['Descripcion'] ;
+    zSub.Params.ParamByName('Medida').DataType       := ftString ;
+    zSub.Params.ParamByName('Medida').value          := connection.qryUBusca2.FieldValues['IdMedida'] ;
+    zSub.Params.ParamByName('Requerido').DataType    := ftDate ;
+    zSub.Params.ParamByName('Requerido').value       := cbFechaInicio.Date;
+    zSub.Params.ParamByName('Cantidad').DataType     := ftFloat ;
+    zSub.Params.ParamByName('Cantidad').value        := connection.qryUBusca2.FieldValues['Cantidad'] ;
+    zSub.Params.ParamByName('Wbs').DataType          := ftString ;
+    zSub.Params.ParamByName('Actividad').value   := 'S/N' ;
+    zSub.Params.ParamByName('Wbs').value         := '' ;
+    zSub.Params.ParamByName('Orden').DataType        := ftString ;
+    zSub.Params.ParamByName('Orden').value           := connection.qryUBusca2.FieldByName('sNumeroOrden').AsString;;
+    zSub.Params.ParamByName('Periodo').AsInteger     := Connection.uconfiguracion.FieldByName('iEjercicio').AsInteger;
+    zSub.Params.ParamByName('IdTipoRecurso').AsInteger     := cbRecurso.EditValue;
+    zSub.ExecSQL ;
+
+  end;
+
 end;
 
 procedure TFrmModal.addPsolicita;
@@ -527,39 +545,24 @@ begin
 end;
 
 procedure TFrmModal.btnAceptaClick(Sender: TObject);
-var
- ArrayFolio: TStringArrayInt;
 begin
-
-   // Codigo para folio incremental;
-   ArrayFolio := generar_folio_inc('rd_firmas_firmantes','IdFirmante');
-
    zSub.Active := False ;
    zSub.SQL.Clear ;
-   zSub.SQL.Text:=('INSERT INTO rd_firmas_firmantes (IdFirmante, NombreFirmante, IdEmpleado, Periodo)'  +
-                   'VALUES (:IdFirmante, :Personal, -1, :Periodo)' );
-   zSub.ParamByName('IdFirmante').AsInteger:= ArrayFolio[0];
+   zSub.SQL.Text:=('INSERT INTO rd_firmas_firmantes (NombreFirmante, IdEmpleado)'  +
+                   'VALUES (:Personal, -1)' );
    zSub.ParamByName('Personal').AsString:= cxPersonal.Text;
-   zSub.ParamByName('Periodo').AsInteger:= ArrayFolio[1];
    zSub.ExecSQL ;
    frmFirmasNota.uFirmantes.Refresh;
    Close;
 end;
 
 procedure TFrmModal.btnAceptarClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
-   // Codigo para folio incremental;
-   ArrayFolio := generar_folio_inc('rd_firmas_puestos','IdPuestoFirmante');
-
    zSub.Active := False ;
    zSub.SQL.Clear ;
-   zSub.SQL.Text:=('INSERT INTO rd_firmas_puestos (IdPuestoFirmante, Descripcion, IdPuesto, Periodo)'  +
-                   'VALUES (:IdPuestoFirmante, :Puesto, -1, :Periodo)' );
-   zSub.ParamByName('IdPuestoFirmante').AsInteger:=  ArrayFolio[0];
+   zSub.SQL.Text:=('INSERT INTO rd_firmas_puestos (Descripcion, IdPuesto)'  +
+                   'VALUES (:Puesto, -1)' );
    zSub.ParamByName('Puesto').AsString:= cxPuesto.Text;
-   zSub.ParamByName('Periodo').AsInteger:=  ArrayFolio[1];
    zSub.ExecSQL ;
    frmFirmasNota.uPuestos.Refresh;
    Close;
@@ -654,13 +657,16 @@ begin
      if(assigned(frmBancosMovimientos) and (frmBancosMovimientos.btnCotiz)) then begin
 
         frmBancosMovimientos.zIndicador.Edit;
-        frmBancosMovimientos.zIndicador.FieldByName('FolioCotizacion').AsString:=cxFolioCotizacion.EditValue;
-//        frmBancosMovimientos.FolioCotizacion:= cxFolioCotizacion.EditValue;
-        frmBancosMovimientos.zIndicador.FieldByName('NombreDocto').AsString:=NombreDocto;
-        frmBancosMovimientos.zIndicador.FieldByName('Direccion').AsString:=Direccion;
-        frmBancosMovimientos.btnCotiz:=False;
-        close;
-
+        if cxFolioCotizacion.EditValue = null then
+          MessageDlg('Campo Folio Cotización Vacio.',mtInformation, [mbOk],0)
+         else begin
+          frmBancosMovimientos.zIndicador.FieldByName('FolioCotizacion').AsString:=cxFolioCotizacion.EditValue;
+  //        frmBancosMovimientos.FolioCotizacion:= cxFolioCotizacion.EditValue;
+          frmBancosMovimientos.zIndicador.FieldByName('NombreDocto').AsString:=NombreDocto;
+          frmBancosMovimientos.zIndicador.FieldByName('Direccion').AsString:=Direccion;
+          frmBancosMovimientos.btnCotiz:=False;
+          close;
+        end;
      end
      else
         MessageDlg('Para agregar cotización, seleccione un registro del grid.',mtInformation, [mbOk],0);
@@ -760,8 +766,8 @@ begin
 
 
     NombreDocto := ExtractFileName(Archivo);
+    //cxFolioCotizacion.EditValue:=NombreDocto;
     Direccion := ExtractFilePath(Archivo) + ExtractFileName(Archivo);
-
 
   except
     on e:exception do
@@ -1034,7 +1040,11 @@ procedure TFrmModal.cxBtnAcepta2Click(Sender: TObject);
 var
   iGrid, indice, idCot,contFounds: Integer;
   mensaje : String;
+  zExisInsumo : tUniquery;
 begin
+
+  zExisInsumo:=tUniquery.create(nil);
+  zExisInsumo.Connection := Connection.uConnection;
   mensaje:='¡Seleccione un material a cotizar!';
   contFounds:=0;
   //primero verifico que haya seleccionado un material
@@ -1074,14 +1084,25 @@ begin
             //busco el material en todas las cotizaciones ya creadas
             if not zSub.Locate('IdPresupuestoDetalle',frmCostoPresupuesto.cxView_Costos.DataController.DataSet.FieldByName('IdPresupuestoDetalle').AsInteger,[]) then begin
               //si no lo encuentra, ingresamos el registro en la cotizacion
-              zDatos.Active:=False;
-              zDatos.SQL.Clear;
-              zDatos.SQL.Text:='INSERT INTO op_cotizacion_presupuesto_detalle (IdCotizacion,IdPresupuestoDetalle,FechaCotizado,Costo) VALUES (:Cotizacion,:Recurso,:Fecha,:Costo)';
-              zDatos.ParamByName('Cotizacion').AsInteger:=idCot;
-              zDatos.ParamByName('Recurso').AsInteger:=frmCostoPresupuesto.cxView_Costos.DataController.DataSet.FieldByName('IdPresupuestoDetalle').AsInteger;
-              zDatos.ParamByName('Fecha').AsDateTime:=Now;
-              zDatos.ParamByName('Costo').AsFloat:=0.0;
-              zDatos.ExecSQL;
+              zExisInsumo.Active := False ;
+              AsignarSQL(zExisInsumo,'ex_alm_insumos_id', pUpdate);
+              FiltrarDataSet(zExisInsumo, 'Insumo',[frmCostoPresupuesto.cxView_Costos.DataController.DataSet.FieldByName('Descripcion').AsString]);
+              zExisInsumo.Open;
+
+
+              if zExisInsumo.FieldByName('Existe').AsInteger>0 then
+              begin
+                zDatos.Active:=False;
+                zDatos.SQL.Clear;
+                zDatos.SQL.Text:='INSERT INTO op_cotizacion_presupuesto_detalle (IdCotizacion,IdPresupuestoDetalle,FechaCotizado,Costo) VALUES (:Cotizacion,:Recurso,:Fecha,:Costo)';
+                zDatos.ParamByName('Cotizacion').AsInteger:=idCot;
+                zDatos.ParamByName('Recurso').AsInteger:=frmCostoPresupuesto.cxView_Costos.DataController.DataSet.FieldByName('IdPresupuestoDetalle').AsInteger;
+                zDatos.ParamByName('Fecha').AsDateTime:=Now;
+                zDatos.ParamByName('Costo').AsFloat:=0.0;
+                zDatos.ExecSQL;
+
+
+              end;
 
             end
             else

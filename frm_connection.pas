@@ -123,7 +123,6 @@ type
     cxStyleRechazaMat: TcxStyle;
     cxStySolicitado: TcxStyle;
     cxStyleEdicion: TcxStyle;
-    pGenerarFolio: TUniStoredProc;
     procedure rDiarioGetValue(const VarName: string; var Value: Variant);
     procedure frxReport1GetValue(const VarName: string; var Value: Variant);
     procedure zConnectionAfterConnect(Sender: TObject);

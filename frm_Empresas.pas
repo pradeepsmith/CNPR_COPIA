@@ -349,18 +349,10 @@ end;
 
 
 procedure Tfrm_Empresa.btnAddClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
   try
     try
       zEmpresa.Append;
-
-      // Codigo para folio incremental;
-      ArrayFolio := generar_folio_inc('master_empresa','IdEmpresa');
-      zEmpresa.FieldValues['IdEmpresa']:= ArrayFolio[0];
-      zEmpresa.FieldValues['Periodo']:= ArrayFolio[1];
-
       ZeMPRESA.FieldByName('IdPadre').AsInteger := -5;
 
     finally

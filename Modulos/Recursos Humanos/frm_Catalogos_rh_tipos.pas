@@ -1676,8 +1676,6 @@ begin
 end;
 
 procedure TfrmCatalogosRHTipos.btnAddClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
   titulo:=cxLeyenda.Caption;
   cxLeyenda.Caption:=titulo+'[Añadiendo]';
@@ -1698,36 +1696,18 @@ begin
 
   case seleccion.ToInteger(seleccion) of
       1: begin
-
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rh_horariolaboral','Idhorario');
-          zqCatalogosGenerales.FieldByName('Idhorario').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item2.Enabled:=False;
           dxNavBar1Item3.Enabled:=False;
           dxNavBar1Item16.Enabled:=False;
           dxNavBar1Item17.Enabled:=False;
       end;
       2:  begin
-
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rh_diasdescanso','iIdDiasdescanso');
-          zqCatalogosGenerales.FieldByName('iIdDiasdescanso').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item1.Enabled:=False;
           dxNavBar1Item3.Enabled:=False;
           dxNavBar1Item16.Enabled:=False;
           dxNavBar1Item17.Enabled:=False;
       end;
       3: begin
-
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rh_estatus_personal','IdEstatus');
-          zqCatalogosGenerales.FieldByName('IdEstatus').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'rh_estatus_personal');
           dxNavBar1Item1.Enabled:=False;
           dxNavBar1Item2.Enabled:=False;
@@ -1735,78 +1715,38 @@ begin
           dxNavBar1Item17.Enabled:=False;
       end;
       16: begin
-
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_empleado_checklist_conf','IdCheck');
-          zqCatalogosGenerales.FieldByName('IdCheck').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item1.Enabled:=False;
           dxNavBar1Item2.Enabled:=False;
           dxNavBar1Item3.Enabled:=False;
           dxNavBar1Item17.Enabled:=False;
       end;
       17: begin
-
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_formato_doctos','IdFormato');
-          zqCatalogosGenerales.FieldByName('IdFormato').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item1.Enabled:=False;
           dxNavBar1Item2.Enabled:=False;
           dxNavBar1Item3.Enabled:=False;
           dxNavBar1Item16.Enabled:=False;
       end;
       4: begin
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_pais','IdPais');
-          zqCatalogosGenerales.FieldByName('IdPais').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item5.Enabled:=False;
           dxNavBar1Item6.Enabled:=False;
           dxNavBar1Item14.Enabled:=False;
       end;
       5: begin
-
-       // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_estado','IdEstado');
-          zqCatalogosGenerales.FieldByName('IdEstado').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item4.Enabled:=False;
           dxNavBar1Item6.Enabled:=False;
           dxNavBar1Item14.Enabled:=False;
       end;
       6: begin
-
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_ciudad','IdCiudad');
-          zqCatalogosGenerales.FieldByName('IdCiudad').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item4.Enabled:=False;
           dxNavBar1Item5.Enabled:=False;
           dxNavBar1Item14.Enabled:=False;
       end;
       14: begin
-
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_codigo_postal','IdCodigoPostal');
-          zqCatalogosGenerales.FieldByName('IdCodigoPostal').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item4.Enabled:=False;
           dxNavBar1Item5.Enabled:=False;
           dxNavBar1Item6.Enabled:=False;
       end;
       7: begin
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_moneda','IdMoneda');
-
-          zqCatalogosGenerales.FieldByName('IdMoneda').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
           dxNavBar1Item8.Enabled:=False;
           dxNavBar1Item9.Enabled:=False;
           dxNavBar1Item10.Enabled:=False;
@@ -1828,11 +1768,6 @@ begin
           dxNavBar1Item18.Enabled:=False;
       end;
       9: begin
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rhu_bancos','IdBanco');
-          zqCatalogosGenerales.FieldByName('IdBanco').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Clave').AsString:=autofolio(zqCatalogosGenerales,'rhu_bancos');
           dxNavBar1Item7.Enabled:=False;
           dxNavBar1Item8.Enabled:=False;
@@ -1844,11 +1779,6 @@ begin
           dxNavBar1Item18.Enabled:=False;
       end;
       10: begin
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rhu_diasfestivos','idDiasFestivos');
-          zqCatalogosGenerales.FieldByName('idDiasFestivos').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item7.Enabled:=False;
           dxNavBar1Item8.Enabled:=False;
           dxNavBar1Item9.Enabled:=False;
@@ -1865,11 +1795,6 @@ begin
              showMessage('Autofolio sin configur, por favor configure el autofolio para poder continual ');
            end;
 
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_puesto','IdPuesto');
-          zqCatalogosGenerales.FieldByName('IdPuesto').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('IdTipoNomina').AsInteger:=zqSubCatalogo.FieldByName('IdTipoNomina').AsInteger;
           zqCatalogosGenerales.FieldByName('IdEmpresa').AsInteger:=zqSubCatalogo2.FieldByName('IdEmpresa').AsInteger;
           dxNavBar1Item7.Enabled:=False;
@@ -1882,11 +1807,6 @@ begin
           dxNavBar1Item18.Enabled:=False;
       end;
       12: begin
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rh_profesiones','IdProfesion');
-          zqCatalogosGenerales.FieldByName('IdProfesion').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'rh_profesiones');
           dxNavBar1Item7.Enabled:=False;
           dxNavBar1Item8.Enabled:=False;
@@ -1898,12 +1818,6 @@ begin
           dxNavBar1Item18.Enabled:=False;
       end;
       13: begin
-
-        // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rh_nivel_firmante','IdNivelFirma');
-          zqCatalogosGenerales.FieldByName('IdNivelFirma').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           dxNavBar1Item7.Enabled:=False;
           dxNavBar1Item8.Enabled:=False;
           dxNavBar1Item9.Enabled:=False;
@@ -1914,12 +1828,6 @@ begin
           dxNavBar1Item18.Enabled:=False;
       end;
       15: begin
-
-       // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rhu_documento','IdDocumento');
-          zqCatalogosGenerales.FieldByName('IdDocumento').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'rhu_documento');
           zqCatalogosGenerales.FieldByName('IdDocumento').AsInteger :=  0;
           zqCatalogosGenerales.FieldByName('Activo').AsString:='Si';
@@ -1933,11 +1841,6 @@ begin
           dxNavBar1Item18.Enabled:=False;
       end;
       18: begin
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('rhu_documento','IdDocumento');
-          zqCatalogosGenerales.FieldByName('IdDocumento').AsInteger:= ArrayFolio[0];
-          zqCatalogosGenerales.FieldByName('Periodo').AsInteger:= ArrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'segmentos_clases');
           dxNavBar1Item7.Enabled:=False;
           dxNavBar1Item8.Enabled:=False;

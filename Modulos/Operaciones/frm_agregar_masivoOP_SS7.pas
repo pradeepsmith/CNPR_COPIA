@@ -669,7 +669,6 @@ var
   PosInsumo :TBookmark;
   lContinua : boolean;
   zActualiza : tUniQuery;
-  ArrayFolio: TStringArrayInt;
 begin
    zActualiza := tUniQuery.Create(Self);
    zActualiza.Connection := connection.uConnection;
@@ -803,19 +802,16 @@ begin
         sumCant := CantidadAnterior + edtCantidad.Value ;
           zActualiza.Active := False;
 
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('bitacoradeentrada','IdBitacoraEntrada');
-
           AsignarSQL(zActualiza,'insertar_bitacora_entrada',pUpdate);
           if (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('CodigoEntrada').AsString = 'EINI') or (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('Proviene').AsString = 'N/A') or (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('Proviene').AsString = ' S / R ')  then
           begin
-            FiltrarDataSet(zActualiza,'IdBitacoraEntrada,Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,FolioReq,sNumeroOrden, Periodo',
-            [ArrayFolio[0],frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsVariant,
+            FiltrarDataSet(zActualiza,'Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,FolioReq,sNumeroOrden',
+            [frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsVariant,
             0,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('iFolioEntrada').AsInteger,
             materiales.FieldByName('IdInsumo').AsInteger,
             FechaSQL(frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['dFechaEntrega']),edtCantidad.Value,
             CantidadAnterior,sumCant,
-            frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,'',0,clCentroC.EditValue, ArrayFolio[1]])
+            frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,'',0,clCentroC.EditValue])
           end
           else begin
 //            if ((Connection.uContrato.FieldByName('sMascara').AsString = 'SUBSEA 7') then
@@ -827,11 +823,11 @@ begin
 //                CantidadAnterior,sumCant,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,
 //                '',materiales.FieldByName('iFolioRequisicion').AsInteger])
 //              else
-                FiltrarDataSet(zActualiza,'IdBitacoraEntrada,Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario, FolioReq,Periodo',
-                [ArrayFolio[0],frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,materiales.FieldByName('iItem').AsInteger,frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
+                FiltrarDataSet(zActualiza,'Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario, FolioReq',
+                [frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,materiales.FieldByName('iItem').AsInteger,frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
                 materiales.FieldByName('IdInsumo').AsInteger,FechaSQL(frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['dFechaEntrega']),edtCantidad.Value,
                 CantidadAnterior,sumCant,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,
-                '', materiales.FieldByName('iFolioRequisicion').AsInteger, ArrayFolio[1]]);
+                '', materiales.FieldByName('iFolioRequisicion').AsInteger]);
 //            end
 //            else
 //                FiltrarDataSet(zActualiza,'Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,FolioReq',
@@ -866,27 +862,24 @@ begin
            lContinua := True;
         end
         else begin
-
-               // Codigo para folio incremental;
-               ArrayFolio := generar_folio_inc('bitacoradeentrada','IdBitacoraEntrada');
 //           if Connection.uContrato.FieldByName('sMascara').AsString = 'SUBSEA 7' then begin
                AsignarSQL(zActualiza,'insertar_bitacora_entrada',pUpdate);
 
                if (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('CodigoEntrada').AsString = 'EINI') or (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('Proviene').AsString = 'N/A') or (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('Proviene').AsString = ' S / R ')  then
                begin
-                 FiltrarDataSet(zActualiza,'IdBitacoraEntrada,Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario, sNumeroOrden,Periodo',
-                 [ArrayFolio[0],frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,materiales.FieldByName('iItem').AsInteger,frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
+                 FiltrarDataSet(zActualiza,'Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario, sNumeroOrden',
+                 [frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,materiales.FieldByName('iItem').AsInteger,frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
                  materiales.FieldByName('IdInsumo').AsInteger,FechaSQL(frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['dFechaEntrega']),edtCantidad.Value,
                  CantidadAnterior,sumCant,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,
-                 '', clCentroC.EditValue, ArrayFolio[1]]);
+                 '', clCentroC.EditValue]);
                end
                else
                begin
-                 FiltrarDataSet(zActualiza,'IdBiracoraEntrada,Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,Periodo',
-                 [ArrayFolio[0],frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,materiales.FieldByName('iItem').AsInteger,frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
+                 FiltrarDataSet(zActualiza,'Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario',
+                 [frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,materiales.FieldByName('iItem').AsInteger,frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
                  materiales.FieldByName('IdInsumo').AsInteger,FechaSQL(frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['dFechaEntrega']),edtCantidad.Value,
                  CantidadAnterior,sumCant,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,
-                 '', ArrayFolio[1]]);
+                 '']);
                end;
 
                zActualiza.ExecSQL;
@@ -1029,8 +1022,7 @@ var
   CantidadAnterior, CantidadPosterior, sumCantidades: double;
   PosInsumo :TBookmark;
   lContinua : boolean;
-  ArrayFolio: TStringArrayInt;
-  zActualiza : tUniQuery;
+    zActualiza : tUniQuery;
 begin
     zActualiza := tUniQuery.Create(Self);
     zActualiza.Connection := connection.uConnection;
@@ -1088,18 +1080,16 @@ begin
           sumCant := CantidadAnterior + edtCantidad.Value ;
           zActualiza.Active := False;
 
-         ArrayFolio := generar_folio_inc('bitacoradeentrada','IdBitacoraEntrada');
-
           AsignarSQL(zActualiza,'insertar_bitacora_entrada',pUpdate);
           if (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('CodigoEntrada').AsString = 'EINI') or (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('Proviene').AsString = 'N/A') or (frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('Proviene').AsString = ' S / R ')  then
           begin
-            FiltrarDataSet(zActualiza,'IdBitacoraEntrada,Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,FolioReq,Periodo',
-            [ArrayFolio[0],frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsVariant,
+            FiltrarDataSet(zActualiza,'Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,FolioReq',
+            [frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsVariant,
             0,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('iFolioEntrada').AsInteger,
             materiales.FieldByName('IdInsumo').AsInteger,
             FechaSQL(frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['dFechaEntrega']),materiales.FieldByName('dCantidadPendiente').AsFloat,
             materiales.FieldByName('dCantidadRecibida').AsFloat,materiales.FieldByName('dCantidad').AsFloat,
-            frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,'',0, ArrayFolio[1]])
+            frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,'',0])
           end
           else
           begin
@@ -1110,11 +1100,11 @@ begin
 //              materiales.FieldByName('dCantidad').AsFloat,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,
 //              ''])
 //            else
-              FiltrarDataSet(zActualiza,'IdBitacoraEntrada,Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,FolioReq, Periodo',
-              [ArrayFolio[0],frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,'0',frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
+              FiltrarDataSet(zActualiza,'Contrato,Item,Folio,Insumo,FechaE,Cantidad,CantidadAnterior,CantidadTotal,IdAlmacen,Comentario,FolioReq',
+              [frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('sContrato').AsString,'0',frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['iFolioEntrada'],
               materiales.FieldByName('IdInsumo').AsInteger,FechaSQL(frmEntradaAlmacen_SS7.almacen_entrada.FieldValues['dFechaEntrega']),materiales.FieldByName('dCantidadPendiente').AsFloat,
               materiales.FieldByName('dCantidadRecibida').AsFloat,materiales.FieldByName('dCantidad').AsFloat,frmEntradaAlmacen_SS7.almacen_entrada.FieldByName('IdAlmacen').AsInteger,
-              '',materiales.FieldByName('iFolioRequisicion').AsInteger, ArrayFolio[1]]);
+              '',materiales.FieldByName('iFolioRequisicion').AsInteger]);
           end;
 
           zActualiza.ExecSQL;
@@ -1459,7 +1449,6 @@ var
  dActExistencia:Extended;
  personalGrid,tipo,folio : String;
  contPerGrid, j,iGrid,indice : Integer;
- ArrayFolio: TStringArrayInt;
 begin
   dActExistencia:=0;
 
@@ -1504,15 +1493,12 @@ begin
 
 //    if connection.qryUBusca2.RecordCount = 0 then
 //    begin
-        // Codigo para folio incremental;
-        ArrayFolio := generar_folio_inc('alm_aviso_embarque_detalle','IdAvisoEmbarqueDet');
 
         connection.zUCommand.Active := False ;
         connection.zUCommand.SQL.Clear ;
         connection.zUCommand.SQL.Add ( 'INSERT INTO alm_aviso_embarque_detalle'+
-                                      ' ( IdAvisoEmbarqueDet,IdAvisoEmbarque, IdMaterial, IdAlmacen, IdMedida, Cantidad, IdSerie, Factura,sStatus, Periodo ) ' +
-                                      'VALUES (:IdAvisoEmbarqueDet,:Folio,:Insumo, :Almacen, :medida, :cantidad,:serie,:factura, :sStatus, :Periodo)') ;
-        connection.zUCommand.Params.ParamByName('IdAvisoEmbarqueDet').AsInteger   := ArrayFolio[0] ;
+                                      ' ( IdAvisoEmbarque, IdMaterial, IdAlmacen, IdMedida, Cantidad, IdSerie, Factura,sStatus ) ' +
+                                      'VALUES (:Folio,:Insumo, :Almacen, :medida, :cantidad,:serie,:factura, :sStatus)') ;
         connection.zUCommand.Params.ParamByName('Folio').AsInteger   := frmAvisoEmbarque.zAvisosEmbarque.FieldValues['IdAvisoEmbarque'] ;
         connection.zUCommand.Params.ParamByName('Insumo').AsInteger  := materiales.FieldValues['IdInsumo'];
         connection.zUCommand.Params.ParamByName('Almacen').AsInteger  := frmAvisoEmbarque.zAvisosEmbarque.FieldValues['IdAlmacen'];
@@ -1527,7 +1513,6 @@ begin
         connection.zUCommand.Params.ParamByName('serie').AsInteger   := 0;
         connection.zUCommand.Params.ParamByName('factura').AsString  := frmAvisoEmbarque.edFactura.Text;
         connection.zUCommand.Params.ParamByName('sStatus').AsString  :='Pendiente';
-        connection.zUCommand.Params.ParamByName('Periodo').AsInteger   :=  ArrayFolio[1];
         connection.zUCommand.ExecSQL;
 
        frmAvisoEmbarque.zDetalleMaterial.Refresh;
@@ -1564,7 +1549,6 @@ end;
 procedure TfrmAgregarMasivoOP_SS7.addSalidaSolicitudMateriales;
 var
   dActExistencia:Extended;
-  ArrayFolio: TStringArrayInt;
 begin
   dActExistencia:=0;
 
@@ -1604,21 +1588,17 @@ begin
 
     if connection.qryUBusca2.RecordCount = 0 then
     begin
-
-        // Codigo para folio incremental;
-        ArrayFolio := generar_folio_inc('alm_solicitud_materiales_detalle','IdSolicitudMaterialesDet');
-
         connection.zUCommand.Active := False ;
         connection.zUCommand.SQL.Clear ;
         AsignarSQL(connection.zUCommand, 'inserta_solicitud_detalle', pUpdate);
-        FiltrarDataSet(connection.zUCommand, 'Id,IdSolicitud,Insumo,Almacen,medida,iItem, Recurso, cantidad, NumeroMaterial,Factura,sIdPlataformaOrigen,sIdPlataformaDestino, Periodo',
-        [ArrayFolio[0], frmSolicitudDeMateriales.zAvisosEmbarque.FieldByName('IdSolicitudMateriales').AsString,
+        FiltrarDataSet(connection.zUCommand, 'Id,IdSolicitud,Insumo,Almacen,medida,iItem, Recurso, cantidad, NumeroMaterial,Factura,sIdPlataformaOrigen,sIdPlataformaDestino',
+        [0, frmSolicitudDeMateriales.zAvisosEmbarque.FieldByName('IdSolicitudMateriales').AsString,
          materiales.FieldByName('IdInsumo').AsString, materiales.FieldByName('IdAlmacen').AsString,
          materiales.FieldByName('IdMedida').AsString, frmSolicitudDeMateriales.zDetalleMaterial.RecordCount + 1,
          materiales.FieldByName('IdTipoRecurso').AsString,  edtCantidad.Value,
          materiales.FieldByName('NumeroMaterial').AsString, materiales.FieldByName('Factura').AsString,
          frmSolicitudDeMateriales.zAvisosEmbarque.FieldByName('sIdPlataformaOrigen').AsString,
-         frmSolicitudDeMateriales.zAvisosEmbarque.FieldByName('sIdPlataformaDestino').AsString, ArrayFolio[1] ]);
+         frmSolicitudDeMateriales.zAvisosEmbarque.FieldByName('sIdPlataformaDestino').AsString ]);
         connection.zUCommand.Execute;
 
     end
@@ -1746,7 +1726,6 @@ procedure TfrmAgregarMasivoOP_SS7.addSalida;
 var
   dActExistencia:Extended;
   zDatos :TUniQuery;
-  ArrayFolio: TStringArrayInt;
 begin
   if (Materiales.FieldByName('Estado').AsString <> 'FUERA DE OPERACIÓN') and (Materiales.FieldByName('Estado').AsString <> 'MANTENIMIENTO') then
   begin
@@ -1806,29 +1785,22 @@ begin
 
         if connection.qryUBusca2.RecordCount = 0 then
         begin
-
-            // Codigo para folio incremental;
-            ArrayFolio := generar_folio_inc('bitacoradesalida','IdBitacoraSalida');
-
             connection.zUCommand.Active := False ;
             connection.zUCommand.SQL.Clear ;
             if (connection.uContrato.FieldByName('FK_Titulo').AsString='CMMI') OR (connection.uContrato.FieldByName('FK_Titulo').AsString='SUBSEA 7') or (connection.uContrato.FieldByName('FK_Titulo').AsString='SIANI')  then
             BEGIN
-                connection.zUCommand.SQL.Add ( 'INSERT INTO bitacoradesalida (IdBitacoraSalida, sContrato, iFolioSalida, dFechaSalida,IdInsumo, dCantidad,IdAlmacen, sStatus, Periodo ) ' +
-                                              'VALUES (:IdBitacoraSalida, :Contrato, :Folio, :FechaS,:Insumo, :Cantidad,:Almacen,'+ QuotedStr('Pendiente')+', :Periodo)') ;
-                connection.zUCommand.Params.ParamByName('IdBitacoraSalida').AsInteger := ArrayFolio[0];
+                connection.zUCommand.SQL.Add ( 'INSERT INTO bitacoradesalida ( sContrato, iFolioSalida, dFechaSalida,IdInsumo, dCantidad,IdAlmacen, sStatus ) ' +
+                                              'VALUES (:Contrato, :Folio, :FechaS,:Insumo, :Cantidad,:Almacen,'+ QuotedStr('Pendiente')+')') ;
                 connection.zUCommand.Params.ParamByName('Contrato').AsString := frmSalidaAlmacen_SS7.salida_almacen.FieldByName('sContrato').AsString ;
                 connection.zUCommand.Params.ParamByName('Folio').AsInteger   := frmSalidaAlmacen_SS7.salida_almacen.FieldValues['iFolioSalida'] ;
                 connection.zUCommand.Params.ParamByName('FechaS').AsDate     := frmSalidaAlmacen_SS7.salida_almacen.FieldValues['dFechaSalida'];
                 connection.zUCommand.Params.ParamByName('Insumo').AsInteger  := materiales.FieldValues['IdInsumo'];
                 connection.zUCommand.Params.ParamByName('Cantidad').AsFloat  := edtCantidad.Value ;
                 connection.zUCommand.Params.ParamByName('Almacen').AsInteger:=frmSalidaAlmacen_SS7.salida_almacen.FieldByName('IdAlmacen').AsInteger;
-                connection.zUCommand.Params.ParamByName('Periodo').AsInteger  := ArrayFolio[1] ;
             END
             else begin
-                connection.zUCommand.SQL.Add ( 'INSERT INTO bitacoradesalida (IdBitacoraSalida, sContrato, iFolioSalida, dFechaSalida,iFolioRequisicion,IdInsumo, dCantidad,IdAlmacen, sStatus, Periodo ) ' +
-                                              'VALUES (:IdBitacoraSalida, :Contrato, :Folio, :FechaS, :FolioReq,:Insumo, :Cantidad,:Almacen,'+ QuotedStr('Pendiente')+', :Periodo)') ;
-                connection.zUCommand.Params.ParamByName('IdBitacoraSalida').AsInteger := ArrayFolio[0];
+                connection.zUCommand.SQL.Add ( 'INSERT INTO bitacoradesalida ( sContrato, iFolioSalida, dFechaSalida,iFolioRequisicion,IdInsumo, dCantidad,IdAlmacen, sStatus ) ' +
+                                              'VALUES (:Contrato, :Folio, :FechaS, :FolioReq,:Insumo, :Cantidad,:Almacen,'+ QuotedStr('Pendiente')+')') ;
                 connection.zUCommand.Params.ParamByName('Contrato').AsString := frmSalidaAlmacen_SS7.salida_almacen.FieldByName('sContrato').AsString ;
                 connection.zUCommand.Params.ParamByName('Folio').AsInteger   := frmSalidaAlmacen_SS7.salida_almacen.FieldValues['iFolioSalida'] ;
                 connection.zUCommand.Params.ParamByName('FechaS').AsDate     := frmSalidaAlmacen_SS7.salida_almacen.FieldValues['dFechaSalida'];
@@ -1839,7 +1811,6 @@ begin
                 connection.zUCommand.Params.ParamByName('Insumo').AsInteger  := materiales.FieldValues['IdInsumo'];
                 connection.zUCommand.Params.ParamByName('Cantidad').AsFloat  := edtCantidad.Value ;
                 connection.zUCommand.Params.ParamByName('Almacen').AsInteger:=frmSalidaAlmacen_SS7.salida_almacen.FieldByName('IdAlmacen').AsInteger;
-                connection.zUCommand.Params.ParamByName('Periodo').AsInteger := ArrayFolio[1];
             end;
             connection.zUCommand.ExecSQL;
             dActExistencia:=edtCantidad.Value;

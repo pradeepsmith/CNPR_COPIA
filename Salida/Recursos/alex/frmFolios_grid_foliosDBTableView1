@@ -1,0 +1,122 @@
+﻿[Main]
+Version=2
+
+[frmFolios.grid_foliosDBTableView1: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=153
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=93
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=116
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=134
+AlignmentHorz=1
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column9: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=98
+AlignmentHorz=0
+Index=4
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column5: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=82
+AlignmentHorz=1
+Index=5
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column6: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=91
+AlignmentHorz=1
+Index=6
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column8: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=102
+AlignmentHorz=0
+Index=7
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column10: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=117
+AlignmentHorz=0
+Index=8
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmFolios.grid_foliosDBTableView1/grid_foliosDBTableView1Column7: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=61
+AlignmentHorz=0
+Index=9
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

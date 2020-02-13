@@ -1338,8 +1338,6 @@ object frmSalidaAlmacen_SS7: TfrmSalidaAlmacen_SS7
               Caption = 'Asignacion'
               ImageIndex = 1
               TabVisible = False
-              ExplicitWidth = 157
-              ExplicitHeight = 221
               object dxLayoutControl4: TdxLayoutControl
                 Left = 0
                 Top = 0
@@ -1348,8 +1346,6 @@ object frmSalidaAlmacen_SS7: TfrmSalidaAlmacen_SS7
                 Align = alClient
                 TabOrder = 0
                 LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
-                ExplicitWidth = 157
-                ExplicitHeight = 221
                 object cbEmpleados: TcxDBLookupComboBox
                   Left = 135
                   Top = 11

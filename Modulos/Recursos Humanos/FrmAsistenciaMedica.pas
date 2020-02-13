@@ -315,6 +315,18 @@ end;
 procedure TFrmAsistenciaMed.btnEditClick(Sender: TObject);
 begin
   TimerData.Enabled:=False;
+  if not (zPersonal.FieldByName('Usuario').AsString = '') then
+  begin
+   if application.MessageBox (pchar('EL empleado ya esta siendo atendido, desea Continuar?'),
+      pchar('Confirmar'), (MB_YESNO + MB_ICONQUESTION)) <> IDYES then
+   begin
+    TimerData.Enabled:=True;
+    exit;
+   end;
+  end;
+
+
+
   zPersonal.Edit;
   zPersonal.FieldByName('Usuario').AsString:=global_usuario;
   zPersonal.Post;

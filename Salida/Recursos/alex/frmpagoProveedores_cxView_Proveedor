@@ -1,0 +1,67 @@
+﻿[Main]
+Version=2
+
+[frmpagoProveedores.cxView_Proveedor: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmpagoProveedores.cxView_Proveedor/cxView_ProveedorColumn1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=75
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmpagoProveedores.cxView_Proveedor/cxView_ProveedorColumn4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=136
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmpagoProveedores.cxView_Proveedor/cxView_ProveedorColumn3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=73
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmpagoProveedores.cxView_Proveedor/cxView_ProveedorColumn6: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=47
+AlignmentHorz=0
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmpagoProveedores.cxView_Proveedor/cxView_ProveedorColumn8: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=142
+AlignmentHorz=0
+Index=4
+Visible="False"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

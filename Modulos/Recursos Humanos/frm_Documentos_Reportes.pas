@@ -95,8 +95,6 @@ implementation
 {$R *.dfm}
 
 procedure TFrmDocumentos_Reportes.btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
 
    cxLeyenda.Caption:=titulo + '[Añadiendo]';
@@ -106,12 +104,6 @@ begin
    cxSplitterDown.Visible:=true;
 
  zDocumentos.Append;
-
- // Codigo para folio incremental;
- ArrayFolio := generar_folio_inc('rh_documento_reportes','IdDoctoReporte');
- ZDocumentos.FieldValues['IdDoctoReporte']:= ArrayFolio[0];
- ZDocumentos.FieldValues['Periodo']:= ArrayFolio[1];
-
  ZDocumentos.FieldByName('Codigo').AsString := autofolio(zDocumentos, 'rh_documento_reportes');
  zDocumentos.FieldByName('Activo').AsString:='Si';
 end;

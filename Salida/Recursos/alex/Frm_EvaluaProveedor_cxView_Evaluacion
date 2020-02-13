@@ -1,0 +1,78 @@
+﻿[Main]
+Version=2
+
+[Frm_EvaluaProveedor.cxView_Evaluacion: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[Frm_EvaluaProveedor.cxView_Evaluacion/cxView_EvaluacionColumn1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=95
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[Frm_EvaluaProveedor.cxView_Evaluacion/cxView_EvaluacionColumn3: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=115
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[Frm_EvaluaProveedor.cxView_Evaluacion/cxView_EvaluacionColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=49
+AlignmentHorz=1
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[Frm_EvaluaProveedor.cxView_Evaluacion/cxView_EvaluacionColumn8: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=87
+AlignmentHorz=0
+Index=3
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[Frm_EvaluaProveedor.cxView_Evaluacion/cxView_EvaluacionColumn4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=63
+AlignmentHorz=0
+Index=4
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[Frm_EvaluaProveedor.cxView_Evaluacion/cxView_EvaluacionColumn5: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=58
+AlignmentHorz=0
+Index=5
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

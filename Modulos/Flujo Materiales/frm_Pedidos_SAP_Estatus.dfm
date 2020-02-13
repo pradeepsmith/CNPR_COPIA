@@ -204,6 +204,7 @@ object frmPedidos_SAP_Estatus: TfrmPedidos_SAP_Estatus
       OptionsImage.ImageIndex = 3
       OptionsImage.Images = frmrepositorio.IconosBarra
       TabOrder = 7
+      OnClick = cxButton2Click
     end
   end
   object PanelPrincipal: TPanel

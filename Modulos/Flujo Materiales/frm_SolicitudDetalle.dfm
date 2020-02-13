@@ -14,7 +14,6 @@ object frmSolicitudDetalle: TfrmSolicitudDetalle
   FormStyle = fsMDIForm
   OldCreateOrder = False
   Position = poMainFormCenter
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel3: TPanel
@@ -31,7 +30,7 @@ object frmSolicitudDetalle: TfrmSolicitudDetalle
       Left = 1
       Top = 1
       Align = alClient
-      Caption = 'Solicitud de Embarque y Embalaje '
+      Caption = 'Solicitud de Embarque Detalle'
       ParentFont = False
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clHighlight
@@ -167,8 +166,7 @@ object frmSolicitudDetalle: TfrmSolicitudDetalle
         Width = 50
       end
       object cxGridSolicitudDetalleColumn10: TcxGridDBColumn
-        Caption = 'Factura'
-        DataBinding.FieldName = 'FacturaR'
+        DataBinding.FieldName = 'Factura'
         Options.Editing = False
         Width = 50
       end
@@ -182,7 +180,6 @@ object frmSolicitudDetalle: TfrmSolicitudDetalle
             FieldName = 'sDescripcion'
           end>
         Properties.ListSource = frmSolicitudDeMateriales.dsPlataforma
-        Options.Editing = False
         Width = 60
       end
       object cxGridSolicitudDetalleColumn12: TcxGridDBColumn
@@ -195,93 +192,24 @@ object frmSolicitudDetalle: TfrmSolicitudDetalle
             FieldName = 'sDescripcion'
           end>
         Properties.ListSource = frmSolicitudDeMateriales.dsPlataforma
-        Options.Editing = False
         Width = 60
       end
       object cxGridSolicitudDetalleColumn13: TcxGridDBColumn
         DataBinding.FieldName = 'Comentarios'
-        Options.Editing = False
         Width = 100
       end
       object cxGridSolicitudDetalleColumn14: TcxGridDBColumn
         Caption = 'L'#243'gistica'
-        DataBinding.FieldName = 'IdLogistica'
-        PropertiesClassName = 'TcxLookupComboBoxProperties'
-        Properties.KeyFieldNames = 'IdLogEmb'
-        Properties.ListColumns = <
-          item
-            FieldName = 'Descripcion'
-          end>
-        Properties.ListSource = ds_Logistica
-        Options.Editing = False
+        DataBinding.FieldName = 'Logistica'
         Width = 60
-      end
-      object cxGridSolicitudDetalleColumn18: TcxGridDBColumn
-        Caption = 'L'#243'gistica'
-        PropertiesClassName = 'TcxTextEditProperties'
-        Properties.ReadOnly = False
-        Visible = False
       end
       object cxGridSolicitudDetalleColumn15: TcxGridDBColumn
-        Caption = 'Embalaje'
-        DataBinding.FieldName = 'IdEmbaje'
-        PropertiesClassName = 'TcxLookupComboBoxProperties'
-        Properties.KeyFieldNames = 'IdLogEmb'
-        Properties.ListColumns = <
-          item
-            FieldName = 'Descripcion'
-          end>
-        Properties.ListSource = dsEmbalaje
-        Options.Editing = False
-        Width = 60
-      end
-      object cxGridSolicitudDetalleColumn16: TcxGridDBColumn
-        Caption = 'Estado'
-        DataBinding.FieldName = 'sStatus'
-        PropertiesClassName = 'TcxComboBoxProperties'
-        Properties.Items.Strings = (
-          'PENDIENTE'
-          'GENERAR MANIFIESTO DE EMBARQUE')
-        HeaderHint = 'Estado del Embarque'
-        Options.Editing = False
-        Width = 60
-      end
-      object cxGridSolicitudDetalleColumn17: TcxGridDBColumn
-        DataBinding.FieldName = 'Manifiesto'
-        HeaderHint = 'Manifiesto del Embarque'
-        Options.Editing = False
+        DataBinding.FieldName = 'Embalaje'
         Width = 60
       end
     end
     object cxGrid1Level1: TcxGridLevel
       GridView = cxGridSolicitudDetalle
     end
-  end
-  object zLogistica: TUniQuery
-    Left = 360
-    Top = 128
-  end
-  object zEmbalaje: TUniQuery
-    Left = 488
-    Top = 128
-  end
-  object ds_Logistica: TDataSource
-    DataSet = zLogistica
-    Left = 384
-    Top = 184
-  end
-  object dsEmbalaje: TDataSource
-    DataSet = zEmbalaje
-    Left = 504
-    Top = 192
-  end
-  object zUsuarios: TUniQuery
-    Left = 712
-    Top = 184
-  end
-  object dsUduarios: TDataSource
-    DataSet = zUsuarios
-    Left = 632
-    Top = 120
   end
 end

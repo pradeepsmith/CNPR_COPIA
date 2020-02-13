@@ -522,6 +522,7 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
           Navigator.InfoPanel.DisplayMask = '[RecordIndex] de [RecordCount]'
           Navigator.InfoPanel.Visible = True
           Navigator.Visible = True
+          OnCellDblClick = cxView_ComprobantesCellDblClick
           DataController.DataSource = ds_comprobantes
           DataController.Filter.Options = [fcoCaseInsensitive]
           DataController.Filter.TranslateBetween = True
@@ -561,33 +562,34 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
           object cxView_CFDFecha: TcxGridDBColumn
             Caption = 'Fecha'
             DataBinding.FieldName = 'FechaFactura'
-            Width = 65
+            Width = 45
           end
           object cxView_ComprobantesFEntrega: TcxGridDBColumn
             Caption = 'Fecha Entrega'
             DataBinding.FieldName = 'FechaEntrega'
+            Width = 48
           end
           object cxView_CFDSerie: TcxGridDBColumn
             DataBinding.FieldName = 'Serie'
-            Width = 50
+            Width = 39
           end
           object cxView_CFDFolio: TcxGridDBColumn
             DataBinding.FieldName = 'Folio'
-            Width = 50
+            Width = 38
           end
           object cxView_CFDIFolioUUID: TcxGridDBColumn
             Caption = 'UUID'
             DataBinding.FieldName = 'Folio_UUID'
-            Width = 61
+            Width = 46
           end
           object cxView_CFDRFC: TcxGridDBColumn
             DataBinding.FieldName = 'RFC'
-            Width = 105
+            Width = 80
           end
           object cxView_CFDRazonSocial: TcxGridDBColumn
             Caption = 'Raz'#243'n Social'
             DataBinding.FieldName = 'RazonSocial_Emisor'
-            Width = 124
+            Width = 95
           end
           object cxView_CFDITipoCambio: TcxGridDBColumn
             Caption = 'Tipo Cambio'
@@ -595,6 +597,7 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
             PropertiesClassName = 'TcxCurrencyEditProperties'
             Properties.DecimalPlaces = 4
             Properties.DisplayFormat = ',0.0000;-,0.0000'
+            Width = 49
           end
           object cxView_CFDTotal: TcxGridDBColumn
             AlternateCaption = 'Total'
@@ -603,7 +606,7 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
             Properties.Alignment.Horz = taRightJustify
             Properties.DecimalPlaces = 2
             Properties.DisplayFormat = ',0.00;-,0.00'
-            Width = 99
+            Width = 75
           end
           object cxView_CFDIConversion: TcxGridDBColumn
             Caption = 'Conversi'#243'n'
@@ -611,6 +614,7 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
             PropertiesClassName = 'TcxCurrencyEditProperties'
             Properties.DecimalPlaces = 2
             Properties.DisplayFormat = ',0.00;-,0.00'
+            Width = 49
           end
           object cxView_CFDDescuento: TcxGridDBColumn
             Caption = 'Descuento'
@@ -619,11 +623,12 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
             Properties.Alignment.Horz = taRightJustify
             Properties.DecimalPlaces = 2
             Properties.DisplayFormat = ',0.00;-,0.00'
-            Width = 100
+            Width = 76
           end
           object cxView_ComprobantesDebito: TcxGridDBColumn
             Caption = 'D'#233'bito'
             DataBinding.FieldName = 'Debito'
+            Width = 49
           end
           object cxView_CFDNetoPorPagar: TcxGridDBColumn
             Caption = 'Neto Por Pagar'
@@ -632,7 +637,7 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
             Properties.Alignment.Horz = taRightJustify
             Properties.DecimalPlaces = 2
             Properties.DisplayFormat = ',0.00;-,0.00'
-            Width = 93
+            Width = 71
           end
           object cxView_CFDSaldo: TcxGridDBColumn
             DataBinding.FieldName = 'Saldo'
@@ -640,7 +645,7 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
             Properties.Alignment.Horz = taRightJustify
             Properties.DecimalPlaces = 2
             Properties.DisplayFormat = ',0.00;-,0.00'
-            Width = 80
+            Width = 59
           end
           object cxView_CFDIEstado: TcxGridDBColumn
             Caption = 'Estado'
@@ -5369,7 +5374,7 @@ object frmComprobantesFiscalesD: TfrmComprobantesFiscalesD
   end
   object zTipoComprobante: TUniQuery
     Connection = connection.Uconnection
-    Left = 888
+    Left = 968
     Top = 218
   end
   object dsTipoComprobante: TDataSource

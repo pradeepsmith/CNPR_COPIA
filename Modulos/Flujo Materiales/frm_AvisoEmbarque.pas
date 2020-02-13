@@ -236,16 +236,9 @@ frm_connection, Func_Genericas, frm_repositorio,frm_agregar_masivoOP,
 {$R *.dfm}
 
 procedure TfrmAvisoEmbarque.btnAddClick(Sender: TObject);
-var
- ArrayFolio: TStringArrayInt;
 begin
 //    try
       zAvisosEmbarque.Append;
-
-      ArrayFolio := generar_folio_inc('alm_aviso_embarque','IdAvisoEmbarque');
-      zAvisosEmbarque.FieldValues['IdAvisoEmbarque']:= ArrayFolio[0];
-      zAvisosEmbarque.FieldValues['Periodo']:= ArrayFolio[1];
-
       zAvisosEmbarque.FieldByName('sIdUsuario').AsString := Global_Usuario;
       zAvisosEmbarque.FieldByName('sStatus').AsString   := 'PENDIENTE';
       if connection.uContrato.FieldByName('FK_Titulo').AsString = 'SUBSEA 7' then

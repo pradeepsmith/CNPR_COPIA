@@ -877,7 +877,6 @@ var
   LastCodeInserted: String;
   OpcButton1    : String ;
   frmCatalogoEmpleados_ss7: TfrmCatalogoEmpleados_ss7;
-
   sFirma_PEP, sPuesto_PEP, sFirma_Contratista, sPuesto_Contratista: string;
   fechaAntes: tDate;
   local_global_pernocta, local_tipo, sTipoGenerador, sTipoMoneda : string;
@@ -915,14 +914,8 @@ begin
 end;
 
 procedure TfrmCatalogoEmpleados_ss7.lcbFirmaEnter(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
   zGuardaFirma.Append;
-
-  arrayFolio := generar_folio_inc('master_modulos_rh','IdModuloRH');
-  zGuardaFirma.FieldByName('IdModuloRH').AsInteger := arrayFolio[0];
-  zGuardaFirma.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
   zGuardaFirma.FieldByName('IdFirma').AsInteger := zFirma.FieldByName('IdFirma').AsInteger;
   zGuardaFirma.FieldByName('NombreForm').AsString := frmCatalogoEmpleados_ss7.Caption;
   zGuardaFirma.FieldByName('Boton').AsString := btnSoldadores.Caption;
@@ -1256,7 +1249,6 @@ begin
   ciudad.Open;
 
   documentos.Active := False;
-
   documentos.Open;
   IsOpen := False;
   personal.Active := False;
@@ -1424,7 +1416,6 @@ procedure TfrmCatalogoEmpleados_ss7.ActualizarPersonal(IdPersonal: String;
 var
  registro,name:Integer;
  sparametro:String;
- arrayFolio:TStringArrayInt;
 begin
       zActualizar.Active:=False;
       zActualizar.ParamByName('Id').AsString:=IdPersonal;
@@ -1464,11 +1455,7 @@ begin
           if (zActualizar.fields[registro - 1].DisplayName =zActualizar.fields[name - 1].DisplayName) then
           begin
               if (zActualizar.fields[registro - 1].DisplayName = 'IdPersonal')then
-              begin
-                arrayFolio := generar_folio_inc('master_personal','IdPersonal');
-                connection.zUCommand.Params.parambyname(sparametro).value := arrayFolio[0];
-                connection.zUCommand.Params.parambyname('param'+IntToStr(zActualizar.fieldcount)).value := arrayFolio[1];
-              end
+                connection.zUCommand.Params.parambyname(sparametro).value := 0
               else
                 if (zActualizar.fields[registro - 1].DisplayName = 'IdEmpresa')then
                   connection.zUCommand.Params.parambyname(sparametro).value := IdEmpresa
@@ -1486,7 +1473,6 @@ end;
 
 
 procedure TfrmCatalogoEmpleados_ss7.btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
    frmBarraH11.btnAddClick(Sender);
    btnCargar.Visible:=True;
@@ -1494,11 +1480,6 @@ begin
    PanelActa.Visible := True;
 
    personal.Append;
-
-   arrayFolio := generar_folio_inc('master_personal','IdPersonal');
-   personal.FieldByName('IdPersonal').AsInteger := arrayFolio[0];
-   personal.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
    personal.FieldByName('CodigoPersonal').AsString := autoFolio(personal, 'master_personal',zEmpresa.FieldByName('IdEmpresa').AsInteger);
    personal.FieldByName('Activo').AsString := 'Si';
    personal.FieldByName('FechaAlta').AsDateTime := date;
@@ -1957,7 +1938,6 @@ end;
 procedure TfrmCatalogoEmpleados_ss7.cxAgregaListaClick(Sender: TObject);
 var
     Id  : integer;
-    arrayFolio : TStringArrayInt;
 begin
    mListaCredenciales.Append;
    mListaCredenciales.FieldByName('FieldId').AsInteger:=cantidadLista;
@@ -1992,12 +1972,6 @@ begin
       Proveedor_personal.Cancel;
 
    Proveedor_personal.Append;
-
-   arrayFolio := generar_folio_inc('master_proveedor_personal','IdPersonalProv');
-   Proveedor_personal.FieldByName('IdPersonalProv').AsInteger := arrayFolio[0];
-   Proveedor_personal.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
-
    cxProveedor.DataBinding.DataSource.DataSet.FieldByName('IdProveedor').AsInteger := Id;
    Proveedor_personal.FieldByName('Sexo').AsString := 'Hombre';
    Proveedor_personal.FieldByName('FechaNacimiento').AsDateTime := Date;
@@ -2245,7 +2219,6 @@ var fecha:TDateTime;
     fDate1,fDate2,fecha1,fecha2:String;
     temp2, temp:TUniQuery;
     ban1,ban2,ban3:boolean;
-    arrayFolio : TStringArrayInt;
 begin
    if zEmpresa.FieldByName('FK_titulo').AsString  = 'TYPHOON' then
   begin
@@ -2329,11 +2302,6 @@ begin
                 fecha:=Now;
                 zVacaciones.Open;
                 zVacaciones.Append;
-
-                arrayFolio := generar_folio_inc('vacaciones_pedidas', 'IdVacaciones');
-                zVacaciones.FieldByName('IdVacaciones').AsInteger:= arrayFolio[0];
-                zVacaciones.FieldByName('Periodo').AsInteger:= arrayFolio[1] ;
-
                 zVacaciones.FieldByName('IdPersonal').AsInteger:=personal.FieldByName('IdPersonal').AsInteger;
                 zVacaciones.FieldByName('FechaInicio').Value:=FechaSQl(cbFInicio.Date);
                 zVacaciones.FieldByName('FechaFin').Value:=FechaSQl(cbFTermino.Date);
@@ -3411,7 +3379,6 @@ end;
 procedure TfrmCatalogoEmpleados_ss7.cxNuevoDetalleClick(Sender: TObject);
 var i:Integer;
     dato:String;
-    arrayFolio : TStringArrayInt;
 begin;
    {se deshabilitan los botones principales}
    frmBarraH11.btnAddClick(Sender);
@@ -3436,11 +3403,6 @@ begin;
 
        cxLeyenda2.Caption:=titulo2 +'[Agregando]';
        doctoVP.Append;
-
-       arrayFolio:= generar_folio_inc('rhu_docxpersonal','IdDocxpersonal');
-       doctoVP.FieldByName('IdDocxpersonal').AsInteger := arrayFolio[0];
-       doctoVP.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
        cxDocumento.DataBinding.DataSource.DataSet.FieldByName('IdDocumento').AsInteger := documentos.FieldByName('IdDocumento').AsInteger;
        doctoVP.FieldByName('Fechaexpedicion').AsDateTime := date;
        doctoVP.FieldByName('Fechavigencia').AsDateTime   := GeneraPeriodoDocto(date,documentos.FieldByName('IdDocumento').AsInteger);
@@ -3465,11 +3427,6 @@ begin;
            dxLayoutItem47.Visible:=False;
          end;
        puesto_empleado.Append;
-
-       arrayFolio:= generar_folio_inc('rh_puesto_empleado','IdPuestoEmpleado');
-       puesto_empleado.FieldByName('IdPuestoEmpleado').AsInteger := arrayFolio[0];
-       puesto_empleado.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
        cxPuesto.DataBinding.DataSource.DataSet.FieldByName('IdPuesto').AsInteger       := puesto.FieldByName('IdPuesto').AsInteger;
 //       cxPuestoEspecialidad.DataBinding.DataSource.DataSet.FieldByName('IdEspecialidad').AsInteger := especialidad.FieldByName('IdEspecialidad').AsInteger;
 //       cxPuestoSalario.DataBinding.DataSource.DataSet.FieldByName('IdSalario').AsInteger           := salario.FieldByName('IdSalario').AsInteger;
@@ -3486,11 +3443,6 @@ begin;
        PanelDown3.Visible := True;
 
        contacto.Append;
-
-       arrayFolio := generar_folio_inc('rh_contacto_personal','IdContactoPersonal');
-       contacto.FieldByName('IdContactoPersonal').AsInteger := arrayFolio[0];
-       contacto.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
        contacto.FieldByName('Porcentaje').AsFloat := 0;
        contacto.FieldByName('Fechanacimiento').AsDateTime := date;
        contacto.FieldByName('Activo').AsString := 'Si';
@@ -3510,11 +3462,6 @@ begin;
        end;
 
        banco_empleado.Append;
-
-       arrayFolio := generar_folio_inc('rhu_datosbancariosxpersonal','IdDatosBancoxPersonal');
-       banco_empleado.FieldByName('IdDatosBancoxPersonal').AsInteger := arrayFolio[0];
-       banco_empleado.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
        cxBancos.DataBinding.DataSource.DataSet.FieldByName('IdBanco').AsInteger := bancos.FieldByName('IdBanco').AsInteger;
        banco_empleado.FieldByName('Fechadeaplicacion').AsDateTime := date;
        banco_empleado.FieldByName('Sucursal').AsString := 'N/A';
@@ -3567,11 +3514,6 @@ begin;
      begin
         dxLayoutControl10.Visible:=True;
         Contratos.Append;
-
-        arrayFolio := generar_folio_inc('rh_contratos','IdContrato');
-        Contratos.FieldByName('IdContrato').AsInteger := arrayFolio[0];
-        Contratos.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
         Contratos.FieldByName('IdPuestoEmpleado').AsInteger:=puesto_empleado.FieldByName('IdPuesto').AsInteger;
         Contratos.FieldByName('IdSalario').AsInteger:=uSalarios.FieldByName('IdSalario').AsInteger;
         Contratos.FieldByName('sNumeroOrden').AsString:=uProyectos.FieldByName('sNumeroOrden').AsString;
@@ -3584,11 +3526,6 @@ begin;
    if cxPageDetalle.ActivePage = cxTabIMSS  then begin
      cxLeyenda2.Caption:=titulo2+'[Añadiendo]';
      uMovimientosIMSS.Append;
-
-     arrayFolio := generar_folio_inc('rh_master_movimientosIMSS','IdMov');
-     uMovimientosIMSS.FieldByName('IdMov').AsInteger := arrayFolio[0];
-     uMovimientosIMSS.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
      uMovimientosIMSS.FieldByName('TipoMovimiento').AsString:='Alta';
      uMovimientosIMSS.FieldByName('FechaInicio').AsDateTime:=Date;
      uMovimientosIMSS.FieldByName('FechaFinal').AsDateTime:=Date;
@@ -3601,11 +3538,6 @@ begin;
    if cxPageDetalle.ActivePage = cxTabComentarios then begin
      cxLeyenda2.Caption:=titulo2+'[Añadiendo]';
      uComentarios.Append;
-
-     arrayFolio := generar_folio_inc('master_personal_comentarios','IdComentario');
-     uComentarios.FieldByName('IdComentario').AsInteger := arrayFolio[0];
-     uComentarios.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
      uComentarios.FieldByName('Fecha').AsDateTime:=Date;
      uComentarios.FieldByName('IdPersonal').AsInteger:=personal.FieldByName('IdPersonal').AsInteger;
      uComentarios.FieldByName('Comentario').AsString:='';
@@ -3617,11 +3549,6 @@ begin;
     PanelCursos.Visible:=True;
     cxLeyenda2.Caption:=titulo2+'[Añadiendo]';
     Cursos.Append;
-
-    arrayFolio := generar_folio_inc('rh_cursos','IdCurso');
-    Cursos.FieldByName('IdCurso').AsInteger := arrayFolio[0];
-    Cursos.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
     Cursos.FieldByName('Estado').Asstring:='PENDIENTE';
     Cursos.FieldByName('FechaInicio').AsDateTime:=now;
     Cursos.FieldByName('FechaFin').AsDateTime:=Now+1;
@@ -3676,7 +3603,6 @@ end;
 procedure TfrmCatalogoEmpleados_ss7.cxPageControlFormatosChange(Sender: TObject);
 var
   tempo_table:TUniQuery;
-  arrayFolio : TStringArrayInt;
 begin
     if cxPageControlFormatos.ActivePage  = Credenciales then
     begin
@@ -3690,11 +3616,6 @@ begin
         Proveedor_personal.Open;
 
         Proveedor_personal.Append;
-
-        arrayFolio := generar_folio_inc('master_proveedor_personal','IdPersonalProv');
-        Proveedor_personal.FieldByName('IdPersonalProv').AsInteger := arrayFolio[0];
-        Proveedor_personal.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
         cxProveedor.DataBinding.DataSource.DataSet.FieldByName('IdProveedor').AsInteger := proveedores.FieldByName('IdProveedor').AsInteger;
         Proveedor_personal.FieldByName('Sexo').AsString := 'Hombre';
         Proveedor_personal.FieldByName('FechaNacimiento').AsDateTime := Date;

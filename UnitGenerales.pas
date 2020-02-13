@@ -20,7 +20,7 @@ interface
 
   type
    TStringArray = array of string;
-   TStringArrayInt = array of integer;
+
     TVarGlobal = Class
       sNombre: String;
       sTipo: String;
@@ -112,7 +112,7 @@ interface
   function TraerRS(ArchivoXLM:String;XML:TXMLDocument):String;
   Function EnviarMensaje(sUsuario, sClave, sServidor, sAdjunto, sAsunto, sDestino, sMensaje: String; iPort:Integer; aplicaTLS:String): String;
   Function fReemplazaFiltroSQL(sParamSQL : WideString ; sParamFiltro, sParamVar1, sParamVar2, sParamVar3, sParamVar4, sParamVar5, sParamVar6 :string):WideString;
-  function generar_folio_inc(sTabla : String; sCampo: String): TStringArrayInt;
+
 
   {$REGION 'Procedimientos Control de obra}
   procedure CargarProgramadeTrabajo(sParamContrato, sParamFolio, sParamConvenio, sParamTipo, sParamWbsAnt, sParamWbs,
@@ -5229,31 +5229,6 @@ begin
   cxGridView.StoreToIniFile(dir+'\'+form.Name+'_'+cxGridView.Name);
 end;
 
-function generar_folio_inc(sTabla : String; sCampo: String) : TStringArrayInt;
-var
-  zSqlFol: TUniquery;
-begin
-  try
-    SetLength(result, 2);
-    connection.pGenerarFolio.Active := False;
-    connection.pGenerarFolio.ParamByName('tabla').AsString := sTabla;
-    connection.pGenerarFolio.ParamByName('campo').AsString := sCampo;
-    connection.pGenerarFolio.Execute;
-    result[0] := connection.pGenerarFolio.FieldByName('folio').AsInteger;
-    result[1] := connection.pGenerarFolio.FieldByName('Periodo').AsInteger;
-  except
-  on e : exception do
-  begin
-    result[0] := 0;
-    result[1] := 0;
-    raise Exception.Create('Error al generar los folios: ' + e.Message);
-
-  end;
-
-  end;
-
-
-end;
 
 function autoFolio(var gDataset: TUniquery; sTabla :string;IdEmpresa:Integer=0;IdEmbarcacion:Integer=0;IdDepartamento:Integer=0): String;
 var

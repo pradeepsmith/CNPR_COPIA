@@ -533,7 +533,6 @@ procedure TfrmAgregarMasivoAccesorios.addAccesorios;
 var
     zActualiza, zCompanias : tUniquery;
     indice, iGrid, i    : integer;
-    ArrayFolio: TStringArrayInt;
 begin
    if (FrmRequisicionss7.anexo_prequisicion.FieldByName('sIdEquipo').AsString = '') or
       (FrmRequisicionss7.anexo_prequisicion.FieldByName('sIdEquipo').AsString = null) then
@@ -572,20 +571,17 @@ begin
 
             if connection.QryUBusca.RecordCount = 0 then
             begin
-                // Codigo para folio incremental;
-                ArrayFolio := generar_folio_inc('anexo_prequisicion_acc','IdAccesorio');
-
                 //Insertamos la partida
                 AsignarSQL(zActualiza,'inserta_accesorio', pUpdate);
-                FiltrarDataSet(zActualiza, 'IdAccesorio, sIdEquipo,EquipoDetalle,FolioReq,ReqDetalle,iItem,Medida,Descripcion,Cantidad, Revision, Periodo',
-                [ArrayFolio[0],FrmRequisicionss7.anexo_prequisicion.FieldByName('sIdEquipo').AsString,
+                FiltrarDataSet(zActualiza, 'sIdEquipo,EquipoDetalle,FolioReq,ReqDetalle,iItem,Medida,Descripcion,Cantidad, Revision',
+                [FrmRequisicionss7.anexo_prequisicion.FieldByName('sIdEquipo').AsString,
                 View_Grid_Accesorios.DataController.DataSet.FieldByName('IdEquipoDetalle').AsString ,
                 FrmRequisicionss7.anexo_prequisicion.FieldByName('iFolioRequisicion').AsString,
                 FrmRequisicionss7.anexo_prequisicion.FieldByName('IdPRequisicion').AsInteger,
                 FrmRequisicionss7.anexo_prequisicion.FieldByName('iItem').AsInteger,
                 View_Grid_Accesorios.DataController.DataSet.FieldByName('Medida').AsString ,
                 View_Grid_Accesorios.DataController.DataSet.FieldByName('Descripcion').AsString, '',
-                FrmRequisicionss7.cxView_Materiales.DataController.DataSet.FieldByName('Revision').AsString, ArrayFolio[1]]);
+                FrmRequisicionss7.cxView_Materiales.DataController.DataSet.FieldByName('Revision').AsString]);
                 zActualiza.Execute;
                 inc(i);
 

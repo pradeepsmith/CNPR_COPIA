@@ -249,7 +249,6 @@ end;
 procedure TFrmConfGuardias.btnAddClick(Sender: TObject);
 var
    IdJornada, IdTipoContrato, IdTipoRegimen : integer;
-   ArrayFolio: TStringArrayInt;
 begin
   frmBarraH11.btnAddClick(Sender);
   cxLeyenda.Caption:=titulo + '[Añadiendo]';
@@ -268,10 +267,6 @@ begin
 
   zTipoNomina.LocateEx('Titulo','CATORCENAL',[]);
   zGuardiasDetalle.Append;
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('rh_guardia_detalle','IdGuardiaDetalle');
-  zGuardiasDetalle.FieldValues['IdGuardiaDetalle']:= ArrayFolio[0];
-  zGuardiasDetalle.FieldValues['Periodo']:= ArrayFolio[1];
   cxTipoNomina.DataBinding.DataSource.DataSet.FieldByName('IdTipoNomina').AsInteger := zTipoNomina.FieldByName('IdTipoNomina').AsInteger;
   zGuardiasDetalle.FieldByName('FechaInicio').AsDateTime := date;
   zGuardiasDetalle.FieldByName('FechaFinal').AsDateTime  := date +  zTipoNomina.FieldByName('DiasTrabajados').AsInteger;

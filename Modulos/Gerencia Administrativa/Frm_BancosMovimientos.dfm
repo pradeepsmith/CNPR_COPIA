@@ -1869,7 +1869,7 @@ object frmBancosMovimientos: TfrmBancosMovimientos
       Height = 522
       Align = alClient
       TabOrder = 0
-      Properties.ActivePage = cxTabCFDI
+      Properties.ActivePage = cxTabIndicadores
       Properties.CustomButtons.Buttons = <>
       OnClick = cxPageControl1Click
       ClientRectBottom = 520
@@ -2030,6 +2030,7 @@ object frmBancosMovimientos: TfrmBancosMovimientos
           TabOrder = 0
           object cxGridIndicadorDBTableView1: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
+            OnCellDblClick = cxGridIndicadorDBTableView1CellDblClick
             DataController.DataSource = dsIndicador
             DataController.Summary.DefaultGroupSummaryItems = <>
             DataController.Summary.FooterSummaryItems = <>

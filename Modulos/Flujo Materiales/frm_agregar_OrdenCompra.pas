@@ -166,7 +166,6 @@ var
   dCantidad: Currency;
   conteo, indice, IdDetalleOC: integer;
   nombres, cadenas : TStringList;
-  ArrayFolio: TStringArrayInt;
 begin
     nombres:=TStringList.Create;
     cadenas:=TStringList.Create;
@@ -207,13 +206,10 @@ begin
         //Sino existe el registro se inserta
         if not frmInspeccionMateriales.zInspeccionDetalle.Locate('IdInspeccion;IdInsumo;iItem',vararrayof([frmInspeccionMateriales.insumos.FieldByName('IdInspeccion').AsInteger,frmInspeccionMateriales.insumos.FieldByName('IdInsumo').AsInteger, frmInspeccionMateriales.insumos.FieldByName('iItem').AsInteger]) , [loCaseInsensitive]) then
         begin
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('alm_inspeccion_material_det','IdInspeccionDetalle');
-
           AsignarSQL(Connection.QryUBusca,'inserta_inspeccion_material_det',pUpdate);
-          FiltrarDataSet(Connection.QryUBusca,'IdInspeccionDetalle,IdInspeccion,Fecha,FechaLiberacion,NumeroMaterial, dCantidad, iItem, IdInsumo, NumeroFactura,Certificados,Complemento,LoteColada,Parametros,Serie,sStatus, Periodo',
-          [ArrayFolio[0],frmInspeccionMateriales.zInspeccionMaterial.FieldByName('IdInspeccion').AsInteger,FechaSQL(cxFecha.EditValue),FechaSQL(cxFecha.EditValue),frmInspeccionMateriales.insumos.FieldByName('NumeroMaterial').AsString,
-          tdCantidad.Value,frmInspeccionMateriales.insumos.FieldValues['iItem'],frmInspeccionMateriales.insumos.FieldValues['IdInsumo'],cxNFactura.EditValue,cxCertificados.EditValue,cxComplemento.EditValue,cxColada.Text,cxParametro.Text,cxSerie.Text,cxResultado.Text, ArrayFolio[1] ]);
+          FiltrarDataSet(Connection.QryUBusca,'IdInspeccion,Fecha,FechaLiberacion,NumeroMaterial, dCantidad, iItem, IdInsumo, NumeroFactura,Certificados,Complemento,LoteColada,Parametros,Serie,sStatus',
+          [frmInspeccionMateriales.zInspeccionMaterial.FieldByName('IdInspeccion').AsInteger,FechaSQL(cxFecha.EditValue),FechaSQL(cxFecha.EditValue),frmInspeccionMateriales.insumos.FieldByName('NumeroMaterial').AsString,
+          tdCantidad.Value,frmInspeccionMateriales.insumos.FieldValues['iItem'],frmInspeccionMateriales.insumos.FieldValues['IdInsumo'],cxNFactura.EditValue,cxCertificados.EditValue,cxComplemento.EditValue,cxColada.Text,cxParametro.Text,cxSerie.Text,cxResultado.Text ]);
           Connection.QryUBusca.ExecSQL;
 
           //Ahora se actualiza sino existe la PO, Planta, Requisicion...

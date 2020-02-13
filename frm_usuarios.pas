@@ -630,7 +630,6 @@ Var
   nombres, cadenas: TStringList;
   backPass, backPassEsp, user: String;
   actualizaPass: tzquery;
-  ArrayFolio: TStringArrayInt;
 begin
   if cxPageUsuarios.ActivePageIndex = 0 then
   begin
@@ -705,10 +704,6 @@ begin
         else
         begin
           zUsuPermisos.Append;
-          // Codigo para folio incremental;
-          ArrayFolio := generar_folio_inc('master_modulos','IdModulo');
-          zUsuPermisos.FieldValues['IdModulo']:= ArrayFolio[0];
-          zUsuPermisos.FieldValues['Periodo']:= ArrayFolio[1];
           zUsuPermisos.FieldByName('NombreForm_Programa').AsString := mModulos.FieldByName('NombrePrograma').AsString;
           zUsuPermisos.FieldByName('Acceder').AsString  := mModulos.FieldByName('acceder').AsString;
           zUsuPermisos.FieldByName('Insertar').AsString := mModulos.FieldByName('insertar').AsString;
@@ -741,10 +736,6 @@ begin
       end
       else begin
         uPermisosDetalle.Append;
-        // Codigo para folio incremental;
-        ArrayFolio := generar_folio_inc('master_modulos_detalles','IdModuloDetalle');
-        uPermisosDetalle.FieldValues['IdModuloDetalle']:= ArrayFolio[0];
-        uPermisosDetalle.FieldValues['Periodo']:= ArrayFolio[1];
         uPermisosDetalle.FieldByName('Usuario').AsString      := mSubModulos.FieldByName('Usuario').AsString;
         uPermisosDetalle.FieldByName('Clase').AsString        := mSubModulos.FieldByName('Modulo').AsString;
         uPermisosDetalle.FieldByName('ComponenteDetalle').AsString  := mSubModulos.FieldByName('FieldSubModulo').AsString;

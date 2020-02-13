@@ -1182,6 +1182,14 @@
             <Form>frm_Empresa_SSI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Modulos\Control EPP\frm_listado_personal.pas">
+            <Form>frmListadoPersonal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Modulos\Flujo Materiales\frm_SolicitudDetalle.pas">
+            <Form>frmSolicitudDetalle</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

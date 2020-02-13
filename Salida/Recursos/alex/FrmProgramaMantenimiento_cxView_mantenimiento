@@ -1,0 +1,67 @@
+﻿[Main]
+Version=2
+
+[FrmProgramaMantenimiento.cxView_mantenimiento: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[FrmProgramaMantenimiento.cxView_mantenimiento/cxView_mantenimientoColumn4: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=79
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[FrmProgramaMantenimiento.cxView_mantenimiento/cxView_mantenimientoColumn1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=79
+AlignmentHorz=0
+Index=1
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[FrmProgramaMantenimiento.cxView_mantenimiento/cxView_mantenimientoColumn2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=79
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[FrmProgramaMantenimiento.cxView_mantenimiento/cxView_mantenimientoColumn6: TcxGridDBColumn]
+=
+GroupIndex=1
+Width=1404
+AlignmentHorz=0
+Index=3
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[FrmProgramaMantenimiento.cxView_mantenimiento/cxView_mantenimientoColumn9: TcxGridDBColumn]
+=
+GroupIndex=0
+Width=704
+AlignmentHorz=0
+Index=4
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

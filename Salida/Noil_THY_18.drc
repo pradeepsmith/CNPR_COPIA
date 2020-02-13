@@ -8250,248 +8250,249 @@ END
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxExportHTML.dfm */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxRichEditor.DFM */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxDMPExport.dfm */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxConst.RES */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxOffice11.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinInfo.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxLookAndFeelPainters.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxControls.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxShadowWindow.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarNameEd.DFM */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarPopupMenuEd.DFM */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarItemEd.DFM */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarAddGroupItemsEd.DFM */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarCustomCustomizationForm.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarCustForm.DFM */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBar.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxRibbonSkins.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxStatusBar.res */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxConst.RES */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxOffice11.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinInfo.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxLookAndFeelPainters.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxControls.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxShadowWindow.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarNameEd.DFM */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarPopupMenuEd.DFM */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarItemEd.DFM */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarAddGroupItemsEd.DFM */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarCustomCustomizationForm.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarCustForm.DFM */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBar.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxRibbonSkins.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxStatusBar.res */
 /* C:\Program Files (x86)\Devart\UniDAC for RAD Studio 10.1\Lib\Win32\DBAccess.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxEdit.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxScrollCursors.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxEdit.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxScrollCursors.res */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\Vcl.DBLogDlg.dfm */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\Vcl.DBPWDlg.dfm */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\DBCtrls.res */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\ExtDlgs.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxCameraDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxImage.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxLayoutEditForm.DFM */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxLayoutCustomizeForm.DFM */
-/* D:\ERP_SIANI\frm_connection.dfm */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxCtrls.RES */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxPickDate.RES */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxToolEdit.RES */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxCameraDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxImage.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxLayoutEditForm.DFM */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxLayoutCustomizeForm.DFM */
+/* C:\DSAI\ERP_siani\frm_connection.dfm */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxCtrls.RES */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxPickDate.RES */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxToolEdit.RES */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\DBGrids.res */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxCalc.RES */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxCurrEdit.RES */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxDBCtrl.RES */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\firtercontrolicons.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGrid.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxFilterDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxFilterControlDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridViewLayoutCustomizationForm.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridLayoutViewCustomizationForm.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridTableViewInplaceEditFormCustomizationForm.dfm */
-/* D:\ERP_SIANI\frm_repositorio.dfm */
-/* D:\ERP_SIANI\frm_CifraIni.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinBlack.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinBlue.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinBlueprint.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinCaramel.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinCoffee.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDarkRoom.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDarkSide.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDevExpressDarkStyle.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDevExpressStyle.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinFoggy.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinGlassOceans.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinHighContrast.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkiniMaginary.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinLilian.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinLiquidSky.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinLondonLiquidSky.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMcSkin.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMoneyTwins.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Black.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Blue.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Green.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Pink.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Silver.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2010Black.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2010Blue.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2010Silver.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2013White.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinPumpkin.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSeven.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSevenClassic.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSharp.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSharpPlus.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSilver.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSpringTime.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinStardust.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSummer2008.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinTheAsphaltWorld.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinsDefaultPainters.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinValentine.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVS2010.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinWhiteprint.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinXmas2008Blue.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMetropolis.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMetropolisDark.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2013DarkGray.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2013LightGray.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2016Colorful.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2016Dark.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVisualStudio2013Blue.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVisualStudio2013Dark.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVisualStudio2013Light.res */
-/* D:\ERP_SIANI\frm_barra.dfm */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxSpin.RES */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxCalc.RES */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxCurrEdit.RES */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxDBCtrl.RES */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\firtercontrolicons.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGrid.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxFilterDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxFilterControlDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridViewLayoutCustomizationForm.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridLayoutViewCustomizationForm.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridTableViewInplaceEditFormCustomizationForm.dfm */
+/* C:\DSAI\ERP_siani\frm_repositorio.dfm */
+/* C:\DSAI\ERP_siani\frm_CifraIni.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinBlack.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinBlue.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinBlueprint.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinCaramel.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinCoffee.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDarkRoom.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDarkSide.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDevExpressDarkStyle.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinDevExpressStyle.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinFoggy.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinGlassOceans.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinHighContrast.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkiniMaginary.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinLilian.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinLiquidSky.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinLondonLiquidSky.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMcSkin.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMoneyTwins.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Black.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Blue.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Green.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Pink.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2007Silver.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2010Black.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2010Blue.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2010Silver.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2013White.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinPumpkin.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSeven.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSevenClassic.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSharp.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSharpPlus.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSilver.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSpringTime.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinStardust.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinSummer2008.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinTheAsphaltWorld.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinsDefaultPainters.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinValentine.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVS2010.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinWhiteprint.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinXmas2008Blue.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMetropolis.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinMetropolisDark.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2013DarkGray.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2013LightGray.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2016Colorful.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinOffice2016Dark.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVisualStudio2013Blue.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVisualStudio2013Dark.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSkinVisualStudio2013Light.res */
+/* C:\DSAI\ERP_siani\frm_barra.dfm */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxSpin.RES */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\Vcl.CustomizeDlg.DFM */
-/* D:\ERP_SIANI\frm_barraH2.dfm */
-/* D:\ERP_SIANI\frm_setup.dfm */
-/* D:\ERP_SIANI\frm_barraH1.dfm */
-/* D:\ERP_SIANI\frm_turnos.dfm */
-/* D:\ERP_SIANI\frm_gruposxprograma.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetConditionalFormattingIconSet.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFormatODSReader.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFormatXLSXReader.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxColorDialogForm.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxFontNameComboBox.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFormatCellsDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetContainerCustomizationDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetUnhideSheetDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetEditHyperlinkDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetPopupMenu.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetCellsModificationDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFindAndReplaceDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheet.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridChartView.res */
+/* C:\DSAI\ERP_siani\frm_barraH2.dfm */
+/* C:\DSAI\ERP_siani\frm_setup.dfm */
+/* C:\DSAI\ERP_siani\frm_barraH1.dfm */
+/* C:\DSAI\ERP_siani\frm_turnos.dfm */
+/* C:\DSAI\ERP_siani\frm_gruposxprograma.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetConditionalFormattingIconSet.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFormatODSReader.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFormatXLSXReader.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxColorDialogForm.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxFontNameComboBox.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFormatCellsDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetContainerCustomizationDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetUnhideSheetDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetEditHyperlinkDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetPopupMenu.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetCellsModificationDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheetFindAndReplaceDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxSpreadSheet.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridChartView.res */
 /* C:\Program Files (x86)\Devart\UniDAC for RAD Studio 10.1\Lib\Win32\UniConnectForm.dfm */
-/* D:\ERP_SIANI\frm_GruposUsuarios.dfm */
-/* D:\ERP_SIANI\frm_activos.dfm */
-/* D:\ERP_SIANI\frm_PopUpImportacion.dfm */
-/* D:\ERP_SIANI\frm_PopUpImportacionC.dfm */
-/* D:\ERP_SIANI\Frm_PopUpImportacionPP.dfm */
-/* D:\ERP_SIANI\frm_importaciondedatos.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarCustomization.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarOffice12Views.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarVistaViews.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBar.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarDBNav.res */
-/* D:\ERP_SIANI\frm_programas.dfm */
-/* D:\ERP_SIANI\frm_Kardex.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxDockStyleVS2005.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxTL.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxRibbonCustomizationForm.dfm */
-/* D:\ERP_SIANI\frm_acerca.dfm */
-/* D:\ERP_SIANI\frm_seleccion2.dfm */
-/* D:\ERP_SIANI\frm_AltaServidor.dfm */
-/* D:\ERP_SIANI\frm_acceso.dfm */
-/* D:\ERP_SIANI\frm_firmantes.dfm */
-/* D:\ERP_SIANI\frm_ConfiguraMail.dfm */
-/* D:\ERP_SIANI\fmr_AsignarAlmacen.dfm */
-/* D:\ERP_SIANI\frm_usuarios_proyectos.dfm */
-/* D:\ERP_SIANI\frm_usuarios.dfm */
-/* D:\ERP_SIANI\frm_residencias.dfm */
-/* D:\ERP_SIANI\frm_contratos.dfm */
-/* D:\ERP_SIANI\frm_Modulosxusuario.dfm */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxCombos.RES */
-/* D:\ERP_SIANI\frm_tiposdeMovimiento.dfm */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\AdvMenuResources.res */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\CustomizerBtnU.dfm */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\CustomizerU.dfm */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\ADVTOOLBAR.RES */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\ADVTOOLBARDB.RES */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\ADVGLOWBUTTONDB.RES */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\AdvGroupBox.res */
-/* D:\COMPONENTES_XE_BERLIN\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\AdvOfficeButtons.res */
+/* C:\DSAI\ERP_siani\frm_GruposUsuarios.dfm */
+/* C:\DSAI\ERP_siani\frm_activos.dfm */
+/* C:\DSAI\ERP_siani\frm_PopUpImportacion.dfm */
+/* C:\DSAI\ERP_siani\frm_PopUpImportacionC.dfm */
+/* C:\DSAI\ERP_siani\Frm_PopUpImportacionPP.dfm */
+/* C:\DSAI\ERP_siani\frm_importaciondedatos.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarCustomization.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarOffice12Views.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarVistaViews.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBar.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxBarDBNav.res */
+/* C:\DSAI\ERP_siani\frm_programas.dfm */
+/* C:\DSAI\ERP_siani\frm_Kardex.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxDockStyleVS2005.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxTL.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxRibbonCustomizationForm.dfm */
+/* C:\DSAI\ERP_siani\frm_acerca.dfm */
+/* C:\DSAI\ERP_siani\frm_seleccion2.dfm */
+/* C:\DSAI\ERP_siani\frm_AltaServidor.dfm */
+/* C:\DSAI\ERP_siani\frm_acceso.dfm */
+/* C:\DSAI\ERP_siani\frm_firmantes.dfm */
+/* C:\DSAI\ERP_siani\frm_ConfiguraMail.dfm */
+/* C:\DSAI\ERP_siani\fmr_AsignarAlmacen.dfm */
+/* C:\DSAI\ERP_siani\frm_usuarios_proyectos.dfm */
+/* C:\DSAI\ERP_siani\frm_usuarios.dfm */
+/* C:\DSAI\ERP_siani\frm_residencias.dfm */
+/* C:\DSAI\ERP_siani\frm_contratos.dfm */
+/* C:\DSAI\ERP_siani\frm_Modulosxusuario.dfm */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxCombos.RES */
+/* C:\DSAI\ERP_siani\frm_tiposdeMovimiento.dfm */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\AdvMenuResources.res */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\CustomizerBtnU.dfm */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\CustomizerU.dfm */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\ADVTOOLBAR.RES */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\ADVTOOLBARDB.RES */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\ADVGLOWBUTTONDB.RES */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\AdvGroupBox.res */
+/* C:\DSAI\TMS Component Pack 8.3.4.0 untuk Delphi7-Delphi 10.1 Berlin\AdvOfficeButtons.res */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxExportMail.dfm */
-/* D:\ERP_SIANI\frm_VerPDF.dfm */
+/* C:\DSAI\ERP_siani\frm_VerPDF.dfm */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\WinXCtrls.res */
-/* D:\ERP_SIANI\Ufrm_Loading.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridMenuOperations.res */
-/* D:\COMPONENTES_XE_BERLIN\unrxlib_275_u_1_0_18\units\RxSbSetup.DFM */
-/* D:\ERP_SIANI\frm_deptos.dfm */
-/* D:\ERP_SIANI\frm_Noil.dfm */
-/* D:\ERP_SIANI\Form_Esperando.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_verificar.dfm */
-/* D:\ERP_SIANI\Unit1.DFM */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_reportesRH.dfm */
-/* D:\ERP_SIANI\Frm_FechaVigencia.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_rangoSalarios.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_salarios.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_catalogo_empleados.dfm */
-/* D:\ERP_SIANI\Modulos\Operaciones\frm_catalogos_Operaciones.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxScheduler.res */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerRecurrenceSelectionDialog.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerEventEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerRecurrenceEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerReminderWindow.DFM */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxShellBrowser.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerHolidaysEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerHolidaysLocationHolidayEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerHolidaysLocationEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerTaskDependencyEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerRecurrenceHolidayEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerResourcesLayoutEditor.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerGoToDateDialog.dfm */
-/* D:\ERP_SIANI\Modulos\Renta Diaria\Frm_ImportaExportaActiv.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_SalidaAlmacen.dfm */
-/* D:\ERP_SIANI\frm_ReporteDiarioTurno.dfm */
-/* D:\ERP_SIANI\UFrmConfigCorreo.dfm */
-/* D:\ERP_SIANI\UfrmBuscaCorreo.dfm */
-/* D:\ERP_SIANI\frm_configuraMail_mensajes.dfm */
+/* C:\DSAI\ERP_siani\Ufrm_Loading.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxGridMenuOperations.res */
+/* C:\DSAI\unrxlib_275_u_1_0_18\units\RxSbSetup.DFM */
+/* C:\DSAI\ERP_siani\frm_deptos.dfm */
+/* C:\DSAI\ERP_siani\frm_Noil.dfm */
+/* C:\DSAI\ERP_siani\Form_Esperando.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_verificar.dfm */
+/* C:\DSAI\ERP_siani\Unit1.DFM */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_reportesRH.dfm */
+/* C:\DSAI\ERP_siani\Frm_FechaVigencia.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_rangoSalarios.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_salarios.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_catalogo_empleados.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\frm_catalogos_Operaciones.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxScheduler.res */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerRecurrenceSelectionDialog.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerEventEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerRecurrenceEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerReminderWindow.DFM */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxShellBrowser.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerHolidaysEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerHolidaysLocationHolidayEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerHolidaysLocationEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerTaskDependencyEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerRecurrenceHolidayEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerResourcesLayoutEditor.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\cxSchedulerGoToDateDialog.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Renta Diaria\Frm_ImportaExportaActiv.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_SalidaAlmacen.dfm */
+/* C:\DSAI\ERP_siani\frm_ReporteDiarioTurno.dfm */
+/* C:\DSAI\ERP_siani\UFrmConfigCorreo.dfm */
+/* C:\DSAI\ERP_siani\UfrmBuscaCorreo.dfm */
+/* C:\DSAI\ERP_siani\frm_configuraMail_mensajes.dfm */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxOfficeOpen.res */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxExportDOCX.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_InspeccionMateriales.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_InspeccionMateriales.dfm */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxExportDBF.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_CargaMaterial.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_agregar_Requisicion.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\Frm_CotizacionP.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_GridFM.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_requisicion_ss7.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_agregar_OrdenCompra.dfm */
-/* D:\ERP_SIANI\Frm_Comentarios.dfm */
-/* D:\ERP_SIANI\frm_abrereporte.dfm */
-/* D:\ERP_SIANI\UFrmEnviarCorreo.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_VerDetalle_MR.dfm */
-/* D:\ERP_SIANI\frm_valida.dfm */
-/* D:\ERP_SIANI\frm_Empresas.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_AprobacionPagos.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_Pedidos_SAP_Estatus.dfm */
-/* D:\ERP_SIANI\Frm_Modal.dfm */
-/* D:\ERP_SIANI\UFrmCopiarPartidas.dfm */
-/* D:\ERP_SIANI\Modulos\Operaciones\Frm_CostoPresupuesto.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_AvisoEmbarque.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_Existencia.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\Frm_SolicitudMaterial.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_SolicitudDeMateriales.dfm */
-/* D:\ERP_SIANI\Modulos\Operaciones\frm_agregar_masivoOP.dfm */
-/* D:\ERP_SIANI\Modulos\Presupuesto\frm_Buscar.dfm */
-/* D:\ERP_SIANI\Modulos\Gerencia Administrativa\frm_VisualizaComprobanteFD.dfm */
-/* D:\ERP_SIANI\Modulos\Gerencia Administrativa\frm_ComprobantesFiscalesD.dfm */
-/* D:\ERP_SIANI\Modulos\Gerencia Administrativa\Frm_BancosMovimientos.dfm */
-/* D:\ERP_SIANI\Modulos\Gerencia Administrativa\frm_clientes.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_Catalogos_rh_tipos.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_materiales.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_catalogos_almacen.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_proveedores.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_Pedidos.dfm */
-/* D:\ERP_SIANI\frm_plataformas.dfm */
-/* D:\ERP_SIANI\Frm_Embarcacion.dfm */
-/* D:\ERP_SIANI\Modulos\Operaciones\frm_Presupuesto.dfm */
-/* D:\ERP_SIANI\frm_Pernoctan.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\Frm_RequisicionMaterial.dfm */
-/* D:\ERP_SIANI\frm_FirmasNota.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_almacenamiento.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_EntradaAlmacen.dfm */
-/* D:\ERP_SIANI\frm_ordenes.dfm */
-/* D:\ERP_SIANI\frm_nuc_organizacion.dfm */
-/* D:\ERP_SIANI\UTFrmDepartamentos.dfm */
-/* D:\ERP_SIANI\Modulos\Renta Diaria\frm_admonCatalogos.dfm */
-/* D:\ERP_SIANI\Modulos\Renta Diaria\frm_embarcaciones.dfm */
-/* D:\ERP_SIANI\frm_ReporteDiarioTurno2.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_CargaMaterial.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_agregar_Requisicion.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\Frm_CotizacionP.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_GridFM.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_requisicion_ss7.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_agregar_OrdenCompra.dfm */
+/* C:\DSAI\ERP_siani\Frm_Comentarios.dfm */
+/* C:\DSAI\ERP_siani\frm_abrereporte.dfm */
+/* C:\DSAI\ERP_siani\UFrmEnviarCorreo.dfm */
+/* C:\DSAI\ERP_siani\frm_valida_ss7.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_VerDetalle_MR.dfm */
+/* C:\DSAI\ERP_siani\frm_valida.dfm */
+/* C:\DSAI\ERP_siani\frm_Empresas.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_AprobacionPagos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_Pedidos_SAP_Estatus.dfm */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\TeeFonts.res */
+/* C:\DSAI\ERP_siani\Modulos\Gerencia Administrativa\frm_VisualizaComprobanteFD.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Gerencia Administrativa\frm_ComprobantesFiscalesD.dfm */
+/* C:\DSAI\ERP_siani\Frm_Modal.dfm */
+/* C:\DSAI\ERP_siani\UFrmCopiarPartidas.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\Frm_CostoPresupuesto.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_AvisoEmbarque.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_Existencia.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\Frm_SolicitudMaterial.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_SolicitudDeMateriales.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\frm_agregar_masivoOP.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Presupuesto\frm_Buscar.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Gerencia Administrativa\Frm_BancosMovimientos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Gerencia Administrativa\frm_clientes.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_Catalogos_rh_tipos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_materiales.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_catalogos_almacen.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_proveedores.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_Pedidos.dfm */
+/* C:\DSAI\ERP_siani\frm_plataformas.dfm */
+/* C:\DSAI\ERP_siani\Frm_Embarcacion.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\frm_Presupuesto.dfm */
+/* C:\DSAI\ERP_siani\frm_Pernoctan.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\Frm_RequisicionMaterial.dfm */
+/* C:\DSAI\ERP_siani\frm_FirmasNota.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_almacenamiento.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_EntradaAlmacen.dfm */
+/* C:\DSAI\ERP_siani\frm_ordenes.dfm */
+/* C:\DSAI\ERP_siani\frm_nuc_organizacion.dfm */
+/* C:\DSAI\ERP_siani\UTFrmDepartamentos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Renta Diaria\frm_admonCatalogos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Renta Diaria\frm_embarcaciones.dfm */
+/* C:\DSAI\ERP_siani\frm_ReporteDiarioTurno2.dfm */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\TeeResou.res */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\VCLTee.TeeEdiGrad.DFM */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\VCLTee.TeeBrushDlg.DFM */
@@ -8500,85 +8501,89 @@ END
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\TeeBmps.res */
 /* c:\program files (x86)\embarcadero\studio\18.0\lib\Win32\release\VCLTee.TeeGalleryAlternate.DFM */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxChartEditor.DFM */
-/* D:\ERP_SIANI\Modulos\Renta Diaria\frm_ReportePeriodo.dfm */
-/* D:\ERP_SIANI\frm_contratosxusuario.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_tipos_nomina.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_diaslaborados.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_asistencias.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_agregar_masivo.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_rptEvaluaProv.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\UFrm_EvaluaProveedorCMMI.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_almacenes.dfm */
-/* D:\ERP_SIANI\frm_cambiapassword.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_almacenesporusuario.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_almacenesporcontrato.dfm */
-/* D:\ERP_SIANI\frm_NuevoIdioma.dfm */
-/* D:\ERP_SIANI\frm_catalogomodulos.dfm */
-/* D:\ERP_SIANI\frm_catalogoerrores.dfm */
-/* D:\ERP_SIANI\frm_Periodos.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_SetupAlm.dfm */
-/* D:\ERP_SIANI\frm_GruposPersonal.dfm */
-/* D:\ERP_SIANI\frm_montarespaldo.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_SeguroVida.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_evaluacion.dfm */
-/* D:\ERP_SIANI\Frm_ProgramarHorarios.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_diaslaboradosSIANI.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\Frm_Asignar_Guardias.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\Frm_ConfGuardias.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\UFrmNotificaciones.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\Frm_Justificar.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_Documentos_Reportes.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_EvaluaCompetencias.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\Frm_Nomina.dfm */
-/* D:\ERP_SIANI\frm_registro_actividades.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_personal_prov.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_CatalogoNominas.dfm */
-/* D:\COMPONENTES_XE_BERLIN\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarOfficeNavigationBarCustomizationDlg.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_comentarios_nomina.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\Frm_PreNomina.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_controlComisiones.dfm */
-/* D:\ERP_SIANI\frm_folios.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\Frm_CostoAlmacen.dfm */
-/* D:\ERP_SIANI\Modulos\Operaciones\frm_Proyectos.dfm */
-/* D:\ERP_SIANI\frm_Estatus_Requisiciones.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_cotizacionCMMI.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_CentroCosto.dfm */
-/* D:\ERP_SIANI\frm_opc_firmantes.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_ApruebaRequisiciones.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\Frm_RequerimientosControlCalidad.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\UFrmIndicadores.dfm */
-/* D:\ERP_SIANI\frm_Noil_CMMI.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_contratar_masivo.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_bajar_masivo.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_guardias.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\UFrm_EvaluaProveedor.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Renta Diaria\frm_ReportePeriodo.dfm */
+/* C:\DSAI\ERP_siani\frm_contratosxusuario.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_tipos_nomina.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_diaslaborados.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_asistencias.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_agregar_masivo.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_rptEvaluaProv.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\UFrm_EvaluaProveedorCMMI.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_almacenes.dfm */
+/* C:\DSAI\ERP_siani\frm_cambiapassword.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_almacenesporusuario.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_almacenesporcontrato.dfm */
+/* C:\DSAI\ERP_siani\frm_NuevoIdioma.dfm */
+/* C:\DSAI\ERP_siani\frm_catalogomodulos.dfm */
+/* C:\DSAI\ERP_siani\frm_catalogoerrores.dfm */
+/* C:\DSAI\ERP_siani\frm_Periodos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_SetupAlm.dfm */
+/* C:\DSAI\ERP_siani\frm_GruposPersonal.dfm */
+/* C:\DSAI\ERP_siani\frm_montarespaldo.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_SeguroVida.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_evaluacion.dfm */
+/* C:\DSAI\ERP_siani\Frm_ProgramarHorarios.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_diaslaboradosSIANI.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\Frm_Asignar_Guardias.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\Frm_ConfGuardias.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\UFrmNotificaciones.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\Frm_Justificar.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_Documentos_Reportes.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_EvaluaCompetencias.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\Frm_Nomina.dfm */
+/* C:\DSAI\ERP_siani\frm_registro_actividades.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_personal_prov.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_CatalogoNominas.dfm */
+/* C:\DSAI\Componentes XE10 1\DevExpress VCL 15.2.2 Full Source XE10.1\Library\RAD Studio 10.1\dxNavBarOfficeNavigationBarCustomizationDlg.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_comentarios_nomina.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\Frm_PreNomina.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_controlComisiones.dfm */
+/* C:\DSAI\ERP_siani\frm_folios.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\Frm_CostoAlmacen.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\frm_Proyectos.dfm */
+/* C:\DSAI\ERP_siani\frm_Estatus_Requisiciones.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_cotizacionCMMI.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_CentroCosto.dfm */
+/* C:\DSAI\ERP_siani\frm_opc_firmantes.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_ApruebaRequisiciones.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\Frm_RequerimientosControlCalidad.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\UFrmIndicadores.dfm */
+/* C:\DSAI\ERP_siani\frm_Noil_CMMI.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_contratar_masivo.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_bajar_masivo.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_guardias.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\UFrm_EvaluaProveedor.dfm */
 /* C:\Program Files (x86)\FastReport 5 VCL Standard\LIBD24\frxCrossEditor.DFM */
-/* D:\ERP_SIANI\frm_compara2.dfm */
-/* D:\ERP_SIANI\frm_comparativo.dfm */
-/* D:\ERP_SIANI\frm_Fases.dfm */
-/* D:\ERP_SIANI\frm_Anexos.dfm */
-/* D:\ERP_SIANI\frm_CatalogoAnexos.dfm */
-/* D:\ERP_SIANI\frm_respaldo.dfm */
-/* D:\ERP_SIANI\Modulos\Renta Diaria\frm_centro_proceso.dfm */
-/* D:\ERP_SIANI\Modulos\Renta Diaria\frm_ordenes_compra.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\Frm_Asignacion.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_Reembolso.dfm */
-/* D:\ERP_SIANI\frm_Noil_THY.dfm */
-/* D:\ERP_SIANI\Modulos\Presupuesto\frm_herramientas.dfm */
-/* D:\ERP_SIANI\Modulos\Presupuesto\frm_indirectos.dfm */
-/* D:\ERP_SIANI\Modulos\Presupuesto\frm_ActividadesAnexoPU.dfm */
-/* D:\ERP_SIANI\Modulos\Presupuesto\frm_basicos.dfm */
-/* D:\ERP_SIANI\Modulos\Presupuesto\frm_equipos.dfm */
-/* D:\ERP_SIANI\Modulos\Presupuesto\frm_personal.dfm */
-/* D:\ERP_SIANI\Modulos\Mantenimiento\frm_Reportecheck.dfm */
-/* D:\ERP_SIANI\Modulos\Mantenimiento\frm_Mantenimiento.dfm */
-/* D:\ERP_SIANI\Modulos\Mantenimiento\frm_ProgramaMantenimiento.dfm */
-/* D:\ERP_SIANI\Modulos\Mantenimiento\frm_RegistroMantenimiento.dfm */
-/* D:\ERP_SIANI\Modulos\Gerencia Administrativa\frm_pagoProveedores.dfm */
-/* D:\ERP_SIANI\Modulos\Operaciones\frm_adicional_pres.dfm */
-/* D:\ERP_SIANI\Modulos\Recursos Humanos\frm_ReporteControl.dfm */
-/* D:\ERP_SIANI\Modulos\Flujo Materiales\frm_EstatusEquipos.dfm */
-/* D:\ERP_SIANI\Modulos\Operaciones\frm_ProgramaPresupuesto.dfm */
-/* D:\ERP_SIANI\Noil_THY_18.TLB */
-/* D:\ERP_SIANI\Noil_THY_18.res */
-/* D:\ERP_SIANI\Noil_THY_18.drf */
+/* C:\DSAI\ERP_siani\frm_compara2.dfm */
+/* C:\DSAI\ERP_siani\frm_comparativo.dfm */
+/* C:\DSAI\ERP_siani\frm_Fases.dfm */
+/* C:\DSAI\ERP_siani\frm_Anexos.dfm */
+/* C:\DSAI\ERP_siani\frm_CatalogoAnexos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_SalidaAlmacen_THY.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_AvisoEmbarque_THY.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\frm_agregar_masivoOP_THY.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_EntradaAlmacen_THY.dfm */
+/* C:\DSAI\ERP_siani\frm_respaldo.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Renta Diaria\frm_centro_proceso.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Renta Diaria\frm_ordenes_compra.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\Frm_Asignacion.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_Reembolso.dfm */
+/* C:\DSAI\ERP_siani\frm_Noil_THY.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Presupuesto\frm_herramientas.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Presupuesto\frm_indirectos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Presupuesto\frm_ActividadesAnexoPU.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Presupuesto\frm_basicos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Presupuesto\frm_equipos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Presupuesto\frm_personal.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Mantenimiento\frm_Reportecheck.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Mantenimiento\frm_Mantenimiento.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Mantenimiento\frm_ProgramaMantenimiento.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Mantenimiento\frm_RegistroMantenimiento.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Gerencia Administrativa\frm_pagoProveedores.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\frm_adicional_pres.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Recursos Humanos\frm_ReporteControl.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Flujo Materiales\frm_EstatusEquipos.dfm */
+/* C:\DSAI\ERP_siani\Modulos\Operaciones\frm_ProgramaPresupuesto.dfm */
+/* C:\DSAI\ERP_siani\Noil_THY_18.TLB */
+/* C:\DSAI\ERP_siani\Noil_THY_18.res */
+/* C:\DSAI\ERP_siani\Noil_THY_18.drf */

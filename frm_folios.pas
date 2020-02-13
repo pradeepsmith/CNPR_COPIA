@@ -476,8 +476,6 @@ begin
 end;
 
 procedure TfrmFolios.btnAddClick(Sender: TObject);
-var
-  ArrayFolio: TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     cxGDatos.Caption:='Añadiendo';
@@ -487,11 +485,6 @@ begin
     panel2.Visible:=True;
     grid_folios.Enabled:=False;
     zqFolios.Append;
-    // Codigo para folio incremental;
-    ArrayFolio := generar_folio_inc('master_cnf_folios','Id');
-    zqFolios.FieldValues['Id']:= ArrayFolio[0];
-    zqFolios.FieldValues['Periodo']:= ArrayFolio[1];
-
     cxTNombre.SetFocus;
 end;
 

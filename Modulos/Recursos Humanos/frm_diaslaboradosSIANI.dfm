@@ -972,7 +972,6 @@ object frmDiasLaboradosSIANI: TfrmDiasLaboradosSIANI
     object cxCBProyectos: TcxLookupComboBox
       Left = 935
       Top = 5
-      ParentFont = False
       Properties.KeyFieldNames = 'sNumeroOrden'
       Properties.ListColumns = <
         item

@@ -47,7 +47,8 @@ object FrmConfGuardias: TFrmConfGuardias
         inherited btnAdd: TcxButton
           Height = 31
           OnClick = btnAddClick
-          ExplicitLeft = 1
+          ExplicitLeft = -5
+          ExplicitTop = -2
           ExplicitHeight = 31
         end
         inherited btnEdit: TcxButton

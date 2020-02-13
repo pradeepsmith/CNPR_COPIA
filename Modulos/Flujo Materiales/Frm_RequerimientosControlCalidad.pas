@@ -90,7 +90,6 @@ UnitGenerales, FRM_connection, UnitExcepciones;
 {$R *.dfm}
 
 procedure TFrmRequerimientosControlCalidad.btnAddClick(Sender: TObject);
-var arrayFolio : TStringArrayInt;
 begin
     cxLeyenda.Caption:=titulo + '[Añadiendo]';
     frmBarraH11.btnAddClick(Sender);
@@ -101,10 +100,6 @@ begin
     ZRquerimientos.AfterScroll := nil;
 
     ZRquerimientos.Append;
-    arrayFolio := generar_folio_inc('alm_requerimientos_controlcalidad','IdRequerimiento');
-    ZRquerimientos.FieldByName('IdRequerimiento').AsInteger := arrayFolio[0];
-    ZRquerimientos.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
     ZRquerimientos.FieldByName('Activo').AsString:='Si';
     ZRquerimientos.FieldByName('Descripcion').AsString := '*';
     zRquerimientos.FieldByName('Codigo').AsString := autoFolio(zRquerimientos, 'alm_requerimientos_controlcalidad');

@@ -638,8 +638,6 @@ begin
 end;
 
 procedure TFrmGuardias.cxNuevoDetalleClick(Sender: TObject);
-var
-ArrayFolio: TStringArrayInt;
 begin
   if zGuardiasDetalle.FieldByName('Estado').AsString = 'Bajo' then
   begin
@@ -655,10 +653,6 @@ begin
   cxeditar.Enabled := False;
   cxFechaSubida.Date := zGuardiasDetalle.FieldByName('FechaInicio').AsDateTime;
   zFiltroEmpleado.Append;
-  // Codigo para folio incremental;
-  ArrayFolio := generar_folio_inc('rh_guardia_personal','IdGuardiaPersonal');
-  zFiltroEmpleado.FieldValues['IdGuardiaPersonal']:= ArrayFolio[0];
-  zFiltroEmpleado.FieldValues['Periodo']:= ArrayFolio[1];
   zFiltroEmpleado.FieldByName('Activo').AsString:='Si';
 end;
 

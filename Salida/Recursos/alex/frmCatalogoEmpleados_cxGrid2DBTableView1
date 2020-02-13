@@ -1,0 +1,45 @@
+﻿[Main]
+Version=2
+
+[frmCatalogoEmpleados.cxGrid2DBTableView1: TcxGridDBTableView]
+=
+Footer="False"
+GroupByBox="True"
+GroupFooters=0
+NewItemRow="False"
+EditFormUseDefaultLayout="True"
+Version=1
+
+[frmCatalogoEmpleados.cxGrid2DBTableView1/cxColumnI1: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=80
+AlignmentHorz=0
+Index=0
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmCatalogoEmpleados.cxGrid2DBTableView1/cxColumnI3: TcxGridDBColumn]
+=
+GroupIndex=0
+Width=94
+AlignmentHorz=0
+Index=1
+Visible="False"
+SortOrder="soAscending"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+
+[frmCatalogoEmpleados.cxGrid2DBTableView1/cxColumnI2: TcxGridDBColumn]
+=
+GroupIndex=-1
+Width=109
+AlignmentHorz=0
+Index=2
+Visible="True"
+SortOrder="soNone"
+SortIndex=-1
+WasVisibleBeforeGrouping="False"
+

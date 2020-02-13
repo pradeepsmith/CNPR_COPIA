@@ -1452,7 +1452,6 @@ begin
 end;
 
 procedure TfrmCatalogosAlmacen.btnAddClick(Sender: TObject);
-var arrayFolio: TStringArrayInt;
 begin
   titulo:=cxLeyenda.Caption;
   cxLeyenda.Caption:=titulo+'[Añadiendo]';
@@ -1482,10 +1481,6 @@ begin
   case seleccion.ToInteger(seleccion) of
       1: begin
           dxLayoutItem6.Visible:=True;
-          arrayFolio := generar_folio_inc('alm_familias','IdFamilia');
-          ds_catalogos_generales.DataSet.FieldByName('IdFamilia').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           ds_catalogos_generales.DataSet.FieldByName('IdGrupo').AsString:= zqSub.FieldByName('IdGrupo').AsString;
           ds_catalogos_generales.DataSet.FieldByName('Mantenimiento').AsString:=aplica;
           cbCombo.ItemIndex:=0;
@@ -1494,124 +1489,62 @@ begin
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'alm_familias');
       end;
       2:  begin
-          arrayFolio := generar_folio_inc('alm_subfamilia','IdSubfamilia');
-          ds_catalogos_generales.DataSet.FieldByName('IdSubfamilia').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger     := arrayFolio[1];
 
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'alm_subfamilia');
       end;
       3: begin
-          arrayFolio := generar_folio_inc('alm_marcas','IdMarca');
-          ds_catalogos_generales.DataSet.FieldByName('IdMarca').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'alm_marcas');
-      end;
-      4: begin
-          arrayFolio := generar_folio_inc('movimientosdealmacen','IdTipo');
-          ds_catalogos_generales.DataSet.FieldByName('IdTipo').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
-      end;
-      6: begin
-          arrayFolio := generar_folio_inc('formas_pago','IdFormaPago');
-          ds_catalogos_generales.DataSet.FieldByName('IdFormaPago').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
       end;
       7: begin
           //Asignaciones de inicio
-          arrayFolio := generar_folio_inc('master_medidas','IdMedida');
-          ds_catalogos_generales.DataSet.FieldByName('IdMedida').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Activo').AsString := 'Si';
           cxCodigo.SetFocus;
       end;
       8: begin
           //Asignaciones de inicio
-          arrayFolio := generar_folio_inc('master_producto_servicio','IdProducto');
-          ds_catalogos_generales.DataSet.FieldByName('IdProducto').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger   := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Tipo').AsString   := 'Producto';
           zqCatalogosGenerales.FieldByName('Activo').AsString := 'Si';
           cxCodigo.SetFocus;
       end;
       9: begin
           //Asignaciones de inicio
-          arrayFolio := generar_folio_inc('master_giro','IdGiro');
-          ds_catalogos_generales.DataSet.FieldByName('IdGiro').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Activo').AsString := 'Si';
           cxCodigo.SetFocus;
       end;
       10: begin
-          arrayFolio := generar_folio_inc('alm_fabricante','IdFabricante');
-          ds_catalogos_generales.DataSet.FieldByName('IdFabricante').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'alm_fabricante');
           zqCatalogosGenerales.FieldByName('Activo').AsString := 'Si';
           cxCodigo.SetFocus;
       end;
       11: begin
-          arrayFolio := generar_folio_inc('alm_grupos','IdGrupo');
-          ds_catalogos_generales.DataSet.FieldByName('IdGrupo').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'alm_grupos');
           zqCatalogosGenerales.FieldByName('Activo').AsString := 'Si';
           cxCodigo.SetFocus;
       end;
       12: begin
-          arrayFolio := generar_folio_inc('mto_grupo_checklist','IdGrupoCheckList');
-          ds_catalogos_generales.DataSet.FieldByName('IdGrupoCheckList').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'mto_grupo_checklist');
           zqCatalogosGenerales.FieldByName('Activo').AsString:='Si';
           cxCodigo.SetFocus;
       end;
       13: begin
-          arrayFolio := generar_folio_inc('mto_grupo_checklist_cumplimiento','IdGrupoChecklistCumplimiento');
-          ds_catalogos_generales.DataSet.FieldByName('IdGrupoChecklistCumplimiento').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
 
           zqCatalogosGenerales.FieldByName('Activo').AsString:='Si';
           cxFamilia.SetFocus;
       end;
       14: begin
-          arrayFolio := generar_folio_inc('mto_checklist','IdChecklist');
-          ds_catalogos_generales.DataSet.FieldByName('IdChecklist').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'mto_checklist');
           zqCatalogosGenerales.FieldByName('Activo').AsString:='Si';
           cxCodigo.SetFocus;
       end;
       16: begin
-          arrayFolio := generar_folio_inc('master_tipomovimiento','IdTipoMovimiento');
-          ds_catalogos_generales.DataSet.FieldByName('IdTipoMovimiento').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger   := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'master_tipomovimiento');
           cxCodigo.SetFocus;
       end;
       17: begin
-          arrayFolio := generar_folio_inc('master_clases','IdClase');
-          ds_catalogos_generales.DataSet.FieldByName('IdClase').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'master_clases');
           cxCodigo.SetFocus;
       end;
       18: begin
-          arrayFolio := generar_folio_inc('master_rutas','IdRuta');
-          ds_catalogos_generales.DataSet.FieldByName('IdRuta').AsInteger:= arrayFolio[0];
-          ds_catalogos_generales.DataSet.FieldByName('Periodo').AsInteger := arrayFolio[1];
-
           zqCatalogosGenerales.FieldByName('Codigo').AsString:=autofolio(zqCatalogosGenerales,'master_rutas');
           cxCodigo.SetFocus;
       end;

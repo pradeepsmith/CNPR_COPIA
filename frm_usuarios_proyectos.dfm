@@ -334,6 +334,10 @@ object frmUsuariosXproyectos: TfrmUsuariosXproyectos
           object cxTabInfoD3: TcxTabSheet
             Caption = 'cxTabInfoD3'
             ImageIndex = 2
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object dxLayoutControl3: TdxLayoutControl
               Left = 0
               Top = 0
@@ -605,6 +609,10 @@ object frmUsuariosXproyectos: TfrmUsuariosXproyectos
         object cxTabCC: TcxTabSheet
           Caption = 'Centros de Costo por Usuario'
           ImageIndex = 2
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object cxGridCentroCosto: TcxGrid
             Left = 0
             Top = 0
@@ -643,6 +651,10 @@ object frmUsuariosXproyectos: TfrmUsuariosXproyectos
         object cxTabAutorizaciones: TcxTabSheet
           Caption = 'Autorizaciones por Usuario'
           ImageIndex = 3
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object cxGrid1: TcxGrid
             Left = 0
             Top = 81
@@ -755,6 +767,10 @@ object frmUsuariosXproyectos: TfrmUsuariosXproyectos
         object cxTabAutorizacionSAP: TcxTabSheet
           Caption = 'Autorizaciones SAP'
           ImageIndex = 4
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object dxLayoutControl4: TdxLayoutControl
             Left = 0
             Top = 0

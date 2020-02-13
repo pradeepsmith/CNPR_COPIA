@@ -32,7 +32,7 @@ object FrmModal: TFrmModal
     ParentColor = False
     ParentFont = False
     TabOrder = 0
-    Properties.ActivePage = cxTabPuestoFirma
+    Properties.ActivePage = cxTabCotDoc
     Properties.CustomButtons.Buttons = <>
     Properties.Images = connection.cxIconos16
     OnChange = cxPageModalChange
@@ -43,10 +43,6 @@ object FrmModal: TFrmModal
     object cxTabRequisicion: TcxTabSheet
       Caption = 'Requisicion'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl1: TdxLayoutControl
         Left = 0
         Top = 0
@@ -220,10 +216,6 @@ object FrmModal: TFrmModal
     object cxTabCotizacion: TcxTabSheet
       Caption = 'Cotizaci'#243'n'
       ImageIndex = 13
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel3: TPanel
         Left = 0
         Top = 96
@@ -366,10 +358,6 @@ object FrmModal: TFrmModal
     object cxTabEntrada: TcxTabSheet
       Caption = 'Entrada'
       ImageIndex = 61
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl6: TdxLayoutControl
         Left = 0
         Top = 0
@@ -563,10 +551,6 @@ object FrmModal: TFrmModal
     object cxTabFirma: TcxTabSheet
       Caption = 'Firmante'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl7: TdxLayoutControl
         Left = 0
         Top = 0
@@ -918,10 +902,6 @@ object FrmModal: TFrmModal
     object cxTabConfiguraMoneda: TcxTabSheet
       Caption = 'Configura Moneda'
       ImageIndex = 67
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl9: TdxLayoutControl
         Left = 0
         Top = 0
@@ -986,10 +966,6 @@ object FrmModal: TFrmModal
     object cxTabOrdenesCompra: TcxTabSheet
       Caption = 'Orden de Compra'
       ImageIndex = 60
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl10: TdxLayoutControl
         Left = 0
         Top = 0
@@ -1000,7 +976,7 @@ object FrmModal: TFrmModal
         LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
         object cxGridCompras: TcxGrid
           Left = 11
-          Top = 65
+          Top = 63
           Width = 438
           Height = 217
           TabOrder = 3
@@ -1043,7 +1019,7 @@ object FrmModal: TFrmModal
         end
         object cxAddOc: TcxButton
           Left = 248
-          Top = 373
+          Top = 369
           Width = 88
           Height = 27
           Caption = 'Aceptar'
@@ -1054,7 +1030,7 @@ object FrmModal: TFrmModal
         end
         object cxCancelOc: TcxButton
           Left = 342
-          Top = 373
+          Top = 369
           Width = 89
           Height = 25
           Caption = 'Cancelar'
@@ -1089,7 +1065,7 @@ object FrmModal: TFrmModal
         end
         object cxNotaOC: TcxDBMemo
           Left = 103
-          Top = 288
+          Top = 286
           DataBinding.DataField = 'Observaciones'
           DataBinding.DataSource = FrmInspeccionMateriales.dsInspeccionMaterial
           ParentFont = False
@@ -1103,7 +1079,7 @@ object FrmModal: TFrmModal
         end
         object cxFirmanteOC: TcxDBLookupComboBox
           Left = 103
-          Top = 344
+          Top = 342
           DataBinding.DataField = 'IdFirma'
           DataBinding.DataSource = FrmInspeccionMateriales.dsInspeccionMaterial
           ParentFont = False
@@ -1122,7 +1098,7 @@ object FrmModal: TFrmModal
         end
         object checkActivaGrid: TcxCheckBox
           Left = 11
-          Top = 40
+          Top = 38
           AutoSize = False
           Caption = 'Activar Grid Para Edici'#243'n'
           ParentFont = False
@@ -1229,10 +1205,6 @@ object FrmModal: TFrmModal
     object cxTabSolicita: TcxTabSheet
       Caption = 'Solicitar'
       ImageIndex = 60
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl11: TdxLayoutControl
         Left = 0
         Top = 0
@@ -1403,10 +1375,6 @@ object FrmModal: TFrmModal
     object cxTabEstatusPO: TcxTabSheet
       Caption = 'Estatus PO'
       ImageIndex = 72
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl14: TdxLayoutControl
         Left = 0
         Top = 0
@@ -1469,10 +1437,6 @@ object FrmModal: TFrmModal
     object cxTabFechaEntrega: TcxTabSheet
       Caption = 'Fecha de Entrega'
       ImageIndex = 12
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl15: TdxLayoutControl
         Left = 0
         Top = 0
@@ -1531,10 +1495,6 @@ object FrmModal: TFrmModal
     object cxTabCotDoc: TcxTabSheet
       Caption = 'Documento Cotizaci'#243'n'
       ImageIndex = 13
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object dxLayoutControl16: TdxLayoutControl
         Left = 0
         Top = 0

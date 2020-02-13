@@ -121,6 +121,7 @@ begin
         end;
 
     end;
+
     if global_frmActivo='Asistencia_Medica' then
     begin
       frmAsistenciaMed.zPersonal.Refresh;
