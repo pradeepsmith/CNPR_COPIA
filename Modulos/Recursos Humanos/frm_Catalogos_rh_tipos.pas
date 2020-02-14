@@ -289,14 +289,32 @@ begin
     if ((global_frmActivo = 'frmMateriales_CMMI') and (activo = 15)) then
     frmMateriales_CMMI.zCatalogo_docto.Refresh;
 
-  if ((global_frmActivo = 'frmCatalogoEmpleados') and (activo = 15)) then
-    frmCatalogoEmpleados.documentos.Refresh;
+    if ((connection.uContrato.FieldByName('FK_Titulo').AsString <> 'SUBSEA 7') or
+       (connection.uContrato.FieldByName('FK_Titulo').AsString <> 'CMMI')) then begin
 
-  if ((global_frmActivo = 'frmCatalogoEmpleados') and (Activo = 11)) then
-    frmCatalogoEmpleados.puesto.Refresh;
+           if ((global_frmActivo = 'frmCatalogoEmpleados') and (activo = 15)) then
+            frmCatalogoEmpleadosSSI.documentos.Refresh;
 
-  if ((global_frmActivo = 'frmCatalogoEmpleados') and (Activo = 8)) then
-    frmCatalogoEmpleados.especialidad.Refresh;
+           if (((global_frmActivo = 'frmCatalogoEmpleados') and (Activo = 11)) or (global_frmActivo = 'frmCatalogoEmpleadosSSI') or (assigned(frmCatalogoEmpleadosSSI)))then begin
+              frmCatalogoEmpleadosSSI.puesto.Refresh;
+              frmCatalogoEmpleadosSSI.puesto_empleado.Refresh;
+            end;
+
+            if ((global_frmActivo = 'frmCatalogoEmpleados') and (Activo = 8)) then
+              frmCatalogoEmpleadosSSI.especialidad.Refresh;
+
+    end
+    else begin
+      if ((global_frmActivo = 'frmCatalogoEmpleados') and (activo = 15)) then
+        frmCatalogoEmpleados.documentos.Refresh;
+
+      if ((global_frmActivo = 'frmCatalogoEmpleados') and (Activo = 11)) then
+        frmCatalogoEmpleados.puesto.Refresh;
+
+      if ((global_frmActivo = 'frmCatalogoEmpleados') and (Activo = 8)) then
+        frmCatalogoEmpleados.especialidad.Refresh;
+
+    end;
 
   if global_frmActivo = 'frmClientes' then begin
     case Activo of
@@ -1893,8 +1911,22 @@ begin
         mtConfirmation, [mbYes, mbNo], 0) = mrYes then
     begin
       try
-        ds_catalogos_generales.DataSet.Delete;
-        zqCatalogosGenerales.ApplyUpdates();
+//        ds_catalogos_generales.DataSet.Delete;
+//        zqCatalogosGenerales.ApplyUpdates();
+//        TUniquery(ds_catalogos_generales.DataSet).Connection.Commit;
+          zqCatalogosGenerales.Delete;
+          zqCatalogosGenerales.ApplyUpdates();
+          zqCatalogosGenerales.Refresh;
+
+          if ((connection.uContrato.FieldByName('FK_Titulo').AsString <> 'SUBSEA 7') or
+         (connection.uContrato.FieldByName('FK_Titulo').AsString <> 'CMMI')) then begin
+            if ((global_frmActivo = 'frmCatalogoEmpleadosSSI') or (assigned(frmCatalogoEmpleadosSSI))) then
+            begin
+              frmCatalogoEmpleadosSSI.puesto.Refresh;
+              frmCatalogoEmpleadosSSI.puesto_empleado.Refresh;
+            end;
+         end;
+
       except
         on E : exception do begin
            UnitExcepciones.manejarExcep('El Puesto esta asignado a uno u varios empleado(s) por ello no se puede eliminar', E.ClassName, 'Catálogo Generales', 'Al eliminar registro', 0);
@@ -2075,10 +2107,14 @@ begin
     TUniquery(ds_catalogos_generales.DataSet).Connection.StartTransaction;
   END;
 
-  if global_frmActivo = 'frmCatalogoEmpleadosSSI' then
-  begin
-    frmCatalogoEmpleadosSSI.puesto_empleado.Refresh;
-  end;
+   if ((connection.uContrato.FieldByName('FK_Titulo').AsString <> 'SUBSEA 7') or
+       (connection.uContrato.FieldByName('FK_Titulo').AsString <> 'CMMI')) then begin
+      if ((global_frmActivo = 'frmCatalogoEmpleadosSSI') or (assigned(frmCatalogoEmpleadosSSI))) then
+      begin
+        frmCatalogoEmpleadosSSI.puesto.Refresh;
+        frmCatalogoEmpleadosSSI.puesto_empleado.Refresh;
+      end;
+   end;
 
 
 
@@ -2124,6 +2160,15 @@ end;
 procedure TfrmCatalogosRHTipos.btnRefreshClick(Sender: TObject);
 begin
    zqCatalogosGenerales.Refresh;
+
+   if ((connection.uContrato.FieldByName('FK_Titulo').AsString <> 'SUBSEA 7') or
+       (connection.uContrato.FieldByName('FK_Titulo').AsString <> 'CMMI')) then begin
+      if ((global_frmActivo = 'frmCatalogoEmpleadosSSI') or (assigned(frmCatalogoEmpleadosSSI))) then
+      begin
+        frmCatalogoEmpleadosSSI.puesto.Refresh;
+        frmCatalogoEmpleadosSSI.puesto_empleado.Refresh;
+      end;
+   end;
 end;
 
 procedure TfrmCatalogosRHTipos.Can1Click(Sender: TObject);
