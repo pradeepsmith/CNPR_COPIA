@@ -29,7 +29,8 @@ uses
   Vcl.StdCtrls, cxButtons, cxMaskEdit, cxDropDownEdit, cxDBEdit, cxTextEdit,
   cxImage, dxGDIPlusClasses, cxCalc, frxClass, frxDBSet, cxDBLookupComboBox, global,
   cxMemo,ExcelXP,unitExcel,Excel2000, Vcl.OleServer, cxProgressBar,UnitExcepciones,unitMetodos,
-  Vcl.ComCtrls, dxCore, cxDateUtils, Vcl.OleCtrls, zkemkeeper_TLB;
+  Vcl.ComCtrls, dxCore, cxDateUtils, Vcl.OleCtrls, zkemkeeper_TLB,
+  System.Notification, Vcl.Buttons, DateUtils ;
 
 type
   TFrmAsistenciaMed = class(TForm)
@@ -113,6 +114,9 @@ type
     TimerData: TTimer;
     cxGridAsistenciaMedicaDBTableView1Column18: TcxGridDBColumn;
     zUsuario: TUniQuery;
+    NotificationCenter1: TNotificationCenter;
+    cmdShowReaderErrors: TBitBtn;
+    timerBlinkButton: TTimer;
     procedure FormShow(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnPostClick(Sender: TObject);
@@ -133,8 +137,12 @@ type
     procedure cxButton1Click(Sender: TObject);
     procedure TimerDataTimer(Sender: TObject);
     procedure frxEvaluacionGetValue(const VarName: string; var Value: Variant);
+    procedure cmdShowReaderErrorsClick(Sender: TObject);
+    procedure timerBlinkButtonTimer(Sender: TObject);
      private
+     lastIdError : Integer;
     { Private declarations }
+    procedure  CheckErrorsList();
   public
     port:Integer;
     ipAddress:String;
@@ -162,7 +170,7 @@ var
   FrmAsistenciaMed: TFrmAsistenciaMed;
 
 implementation
-  uses frm_connection,UnitGenerales,Comobj,frm_agregar_personal;
+  uses frm_connection,UnitGenerales,Comobj,frm_agregar_personal , uFrmErroresLecturaBiometrico;
 
   var
         objNBioBSP    : variant;
@@ -259,9 +267,61 @@ begin
 
 end;
 
+procedure TFrmAsistenciaMed.timerBlinkButtonTimer(Sender: TObject);
+begin
+    if cmdShowReaderErrors.Font.Color = clWindowText then
+    begin
+      cmdShowReaderErrors.Font.Color:= clRed ;
+    end
+    else
+    begin
+        cmdShowReaderErrors.Font.Color:= clWindowText;
+    end;
+
+end;
+
 procedure TFrmAsistenciaMed.TimerDataTimer(Sender: TObject);
 begin
-zPersonal.Refresh;
+    zPersonal.Refresh;
+    CheckErrorsList();
+end;
+
+procedure  TFrmAsistenciaMed.CheckErrorsList();
+var
+  qryErrores : TUniQuery;
+//  MyNotification2 : TNotification;
+begin
+    qryErrores := TUniQuery.Create(nil);
+
+    AsignarSQL(qryErrores,'ErroresLecturaBio',pReadOnly) ;
+
+    qryErrores.Open;
+    timerBlinkButton.Enabled := False;
+    cmdShowReaderErrors.Font.Color:= clWindowText;
+    if(qryErrores.RecordCount > 0 ) then
+    begin
+        qryErrores.Last;
+
+        timerBlinkButton.Enabled := True;
+        //Solo leer los nuevos errores, si el ultimo es el mismo al anterior,
+        //no notificarlo
+        //if lastIdError <> qryErrores.FieldByName('id').AsInteger then
+        //begin
+         // lastIdError := qryErrores.FieldByName('id').AsInteger;
+          //MyNotification2 := NotificationCenter1.CreateNotification;
+         // try
+
+            //  MyNotification2.Name := 'ErrorLecturaEmpleados';
+            //  MyNotification2.AlertBody := 'Existen empleados con error, por favor verifiquelo. Último mensaje registrado:' + qryErrores.FieldByName('mensage').AsString;
+              //MyNotification2.FireDate := IncSecond(Now,10);// Note this fires 10 secs from NOW
+              //MyNotification2.RepeatInterval := TRepeatInterval.None;
+            //  Notificationcenter1.PresentNotification(MyNotification2);
+         // finally
+            //  MyNotification2.DisposeOf;
+        //  end;
+        //end;
+    end;
+
 end;
 
 procedure TFrmAsistenciaMed.EnterControl(Sender: TObject);
@@ -391,6 +451,19 @@ begin
   end;
 end;
 
+
+procedure TFrmAsistenciaMed.cmdShowReaderErrorsClick(Sender: TObject);
+var
+  formDetallesErr : TFrmErroresLecturaBiometrico;
+begin
+
+  try
+      formDetallesErr := TFrmErroresLecturaBiometrico.Create(Self);
+      formDetallesErr.ShowModal;
+  finally
+    formDetallesErr.free;
+  end;
+end;
 
 procedure TFrmAsistenciaMed.cxbtnFiltrarClick(Sender: TObject);
 begin
