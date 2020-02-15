@@ -2948,7 +2948,7 @@ var
   contEmpGrid,j : Integer;
 begin
 
-if Filtro.Checked=True then
+if Filtro.Checked then
   begin
     contEmpGrid:=cxGridMoePersonal.ViewData.RecordCount;
     for j := 0 to (contEmpGrid - 1) do

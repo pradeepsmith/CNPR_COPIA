@@ -1959,7 +1959,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
             ParentShowHint = False
             ShowHint = True
             TabOrder = 1
-            Properties.ActivePage = cxTabCargo
+            Properties.ActivePage = cxTabInformes
             Properties.CustomButtons.Buttons = <>
             Properties.Images = connection.cxIconos16
             OnClick = cxPageDetalleClick
@@ -1988,7 +1988,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
                   object btnImpInforme: TcxButton
                     Left = 452
-                    Top = 11
+                    Top = -61
                     Width = 145
                     Height = 25
                     Caption = 'Imprimir'
@@ -1999,7 +1999,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object cxButton6: TcxButton
                     Left = 11
-                    Top = 98
+                    Top = 26
                     Width = 166
                     Height = 25
                     Caption = 'Credenciales'
@@ -2010,7 +2010,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object cxButton7: TcxButton
                     Left = 11
-                    Top = 129
+                    Top = 57
                     Width = 166
                     Height = 25
                     Caption = 'Vacaciones'
@@ -2021,7 +2021,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object btnCartaR: TcxButton
                     Left = 11
-                    Top = 160
+                    Top = 88
                     Width = 166
                     Height = 25
                     Caption = 'Carta Responsiva'
@@ -2032,7 +2032,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object btnContrato: TcxButton
                     Left = 11
-                    Top = 191
+                    Top = 119
                     Width = 166
                     Height = 25
                     Caption = 'Contratos'
@@ -2044,7 +2044,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   object opcionImprimir: TcxRadioGroup
                     AlignWithMargins = True
                     Left = 11
-                    Top = 11
+                    Top = -61
                     Caption = 'Opciones de Impresi'#243'n'
                     ParentFont = False
                     Properties.Items = <
@@ -2065,7 +2065,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object Filtro: TcxCheckBox
                     Left = 11
-                    Top = 73
+                    Top = 1
                     Caption = 'Aplicar filtro'
                     ParentFont = False
                     Style.Font.Charset = DEFAULT_CHARSET
@@ -2080,7 +2080,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object cbFInicio: TcxDateEdit
                     Left = 221
-                    Top = 129
+                    Top = 57
                     ParentFont = False
                     Style.Font.Charset = DEFAULT_CHARSET
                     Style.Font.Color = clWindowText
@@ -2094,7 +2094,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object cbFTermino: TcxDateEdit
                     Left = 331
-                    Top = 129
+                    Top = 57
                     ParentFont = False
                     Style.Font.Charset = DEFAULT_CHARSET
                     Style.Font.Color = clWindowText
@@ -2108,7 +2108,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object cxButton8: TcxButton
                     Left = 11
-                    Top = 222
+                    Top = 150
                     Width = 166
                     Height = 25
                     Caption = 'Equipo de Protecci'#243'n'
@@ -2119,7 +2119,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object btnDocumentosxVencer: TcxButton
                     Left = 11
-                    Top = 253
+                    Top = 181
                     Width = 166
                     Height = 25
                     Caption = 'Documentos por vencer'
@@ -2130,7 +2130,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object btnModificaciones: TcxButton
                     Left = 11
-                    Top = 284
+                    Top = 212
                     Width = 166
                     Height = 25
                     Caption = 'Modificaciones'
@@ -2141,7 +2141,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object btnCostoPersonal: TcxButton
                     Left = 11
-                    Top = 315
+                    Top = 243
                     Width = 166
                     Height = 25
                     Caption = 'Costos Por Personal'
@@ -2152,7 +2152,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object edtInicioF: TcxDateEdit
                     Left = 445
-                    Top = 315
+                    Top = 243
                     Enabled = False
                     ParentFont = False
                     Style.Font.Charset = DEFAULT_CHARSET
@@ -2167,7 +2167,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object edtFinF: TcxDateEdit
                     Left = 534
-                    Top = 315
+                    Top = 243
                     Enabled = False
                     ParentFont = False
                     Style.Font.Charset = DEFAULT_CHARSET
@@ -2182,7 +2182,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object CheckFiltro: TCheckBox
                     Left = 183
-                    Top = 315
+                    Top = 243
                     Width = 97
                     Height = 25
                     Caption = 'Filtrar Todos'
@@ -2193,7 +2193,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object btnFirma: TcxButton
                     Left = 372
-                    Top = 346
+                    Top = 274
                     Width = 32
                     Height = 25
                     OptionsImage.Glyph.Data = {
@@ -2236,7 +2236,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object btnSoldadores: TcxButton
                     Left = 11
-                    Top = 346
+                    Top = 274
                     Width = 75
                     Height = 25
                     Caption = 'Reporte Soldadores'
@@ -2247,7 +2247,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object lcbFirma: TcxDBLookupComboBox
                     Left = 221
-                    Top = 346
+                    Top = 274
                     DataBinding.DataField = 'IdFirma'
                     DataBinding.DataSource = dsGuardaFirma
                     ParentFont = False
@@ -2270,7 +2270,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object cbTipoContrato: TcxComboBox
                     Left = 221
-                    Top = 191
+                    Top = 119
                     ParentFont = False
                     Properties.Items.Strings = (
                       'Contrato a prubea'
@@ -2288,7 +2288,7 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                   end
                   object edtSDI: TcxCurrencyEdit
                     Left = 409
-                    Top = 191
+                    Top = 119
                     ParentFont = False
                     Style.Font.Charset = DEFAULT_CHARSET
                     Style.Font.Color = clWindowText
@@ -4522,7 +4522,6 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                           ParentFont = False
                           TabOrder = 0
                           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
-                          ExplicitWidth = 387
                           object cxCredencialVigencia: TcxDateEdit
                             Left = 97
                             Top = 94
@@ -4703,7 +4702,6 @@ object frmCatalogoEmpleadosSSI: TfrmCatalogoEmpleadosSSI
                           ParentFont = False
                           TabOrder = 0
                           LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
-                          ExplicitWidth = 387
                           object cxCredencialContacto: TcxDBTextEdit
                             Left = 65
                             Top = 10
