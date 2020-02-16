@@ -16799,6 +16799,7 @@ object connection: Tconnection
     Username = 'ss7_erp2018'
     Server = '74.208.182.122'
     LoginPrompt = False
+    BeforeDisconnect = UconnectionBeforeDisconnect
     OnConnectionLost = UconnectionConnectionLost
     Left = 464
     Top = 152

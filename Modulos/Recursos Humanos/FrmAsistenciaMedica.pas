@@ -30,7 +30,7 @@ uses
   cxImage, dxGDIPlusClasses, cxCalc, frxClass, frxDBSet, cxDBLookupComboBox, global,
   cxMemo,ExcelXP,unitExcel,Excel2000, Vcl.OleServer, cxProgressBar,UnitExcepciones,unitMetodos,
   Vcl.ComCtrls, dxCore, cxDateUtils, Vcl.OleCtrls, zkemkeeper_TLB,
-  System.Notification, Vcl.Buttons, DateUtils ;
+  System.Notification, Vcl.Buttons, DateUtils, Vcl.DBCtrls ;
 
 type
   TFrmAsistenciaMed = class(TForm)
@@ -117,6 +117,8 @@ type
     NotificationCenter1: TNotificationCenter;
     cmdShowReaderErrors: TBitBtn;
     timerBlinkButton: TTimer;
+    dxLayoutItem17: TdxLayoutItem;
+    dbNombreEmpleado: TDBText;
     procedure FormShow(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnPostClick(Sender: TObject);
@@ -143,6 +145,7 @@ type
      lastIdError : Integer;
     { Private declarations }
     procedure  CheckErrorsList();
+    procedure BloquearControles(editando : Boolean)   ;
   public
     port:Integer;
     ipAddress:String;
@@ -203,6 +206,7 @@ zPersonal.FieldByName('Usuario').AsString:='';
 zPersonal.Post;
 PanelDatos.Visible:=False;
 cxLeyenda.Caption:='Asistencia Medica';
+   BloquearControles(false);
 end;
 
 procedure TFrmAsistenciaMed.btnDeleteClick(Sender: TObject);
@@ -282,8 +286,15 @@ end;
 
 procedure TFrmAsistenciaMed.TimerDataTimer(Sender: TObject);
 begin
-    zPersonal.Refresh;
-    CheckErrorsList();
+    if zPersonal.Active then
+    begin
+      zPersonal.Refresh;
+      CheckErrorsList();
+    end
+    else
+    begin
+       TimerData.Enabled := False;
+    end;
 end;
 
 procedure  TFrmAsistenciaMed.CheckErrorsList();
@@ -373,28 +384,85 @@ begin
 end;
 
 procedure TFrmAsistenciaMed.btnEditClick(Sender: TObject);
+var
+  idAsistenciaMedica: Integer;
+  BM: TBookmark;
+  qryLockTime: TUniQuery;
 begin
   TimerData.Enabled:=False;
+
+  qryLockTime := TUniQuery.Create(nil);
+  try
+
+
+  idAsistenciaMedica :=  zPersonal.FieldByName('IdAsistenciaMedica').AsInteger;
+  BM := zPersonal.Bookmark;
+  zPersonal.Refresh;
+  zPersonal.Bookmark := BM;
+  qryLockTime.Connection :=  zPersonal.Connection;
+
   if not (zPersonal.FieldByName('Usuario').AsString = '') then
   begin
-   if application.MessageBox (pchar('EL empleado ya esta siendo atendido, desea Continuar?'),
+   //application.MessageBox (pchar('EL empleado ya esta siendo atendido, desea continar'),
+   //   pchar('Confirmar'), (MB_OK + MB_ICONWARNING));
+   if application.MessageBox (pchar('EL empleado ya esta siendo atendido por el usuario "' + zPersonal.FieldByName('Usuario').AsString + '", desea continuar?, si continua, puede bloquear el registro'),
       pchar('Confirmar'), (MB_YESNO + MB_ICONQUESTION)) <> IDYES then
    begin
     TimerData.Enabled:=True;
     exit;
+   end
+   else
+   begin
+     qryLockTime.SQL.Clear;
+     qryLockTime.SQL.Append('set innodb_lock_wait_timeout=3');
+     qryLockTime.Execute;
+
+     qryLockTime.SQL.Clear;
+     qryLockTime.SQL.Append('set lock_wait_timeout=3');
+     qryLockTime.Execute;
    end;
   end;
 
+ try
+      zPersonal.Edit;
+      zPersonal.FieldByName('Usuario').AsString:=global_usuario;
+      zPersonal.Post;
 
+      ExistFinger:=False;
+      cxLeyenda.Caption:='Asistencia Medica Editando';
+      zPersonal.Edit;
 
-  zPersonal.Edit;
-  zPersonal.FieldByName('Usuario').AsString:=global_usuario;
-  zPersonal.Post;
-  ExistFinger:=False;
-  cxLeyenda.Caption:='Asistencia Medica Editando';
-  zPersonal.Edit;
-  PanelDatos.Visible:=True;
-  dxLayoutItem8.Visible:=False;
+      PanelDatos.Visible:=True;
+      dxLayoutItem8.Visible:=False;
+
+      BloquearControles(true);
+  except
+   on e:Exception do
+   begin
+     if e.Message.Contains('Lock wait timeout exceeded') then
+     begin
+        application.MessageBox (pchar('No se pudo desbloquear el registro, intentelo nuevamente mas tarde'),
+          pchar('Confirmar'), (MB_OK + MB_ICONERROR));
+     end
+     else
+     begin
+         application.MessageBox (pchar('Ocurrió un error mientras se intentaba bloquear el registro: ' +  e.Message),
+          pchar('Confirmar'), (MB_OK + MB_ICONERROR));
+     end;
+   end;
+
+  end;
+
+  qryLockTime.SQL.Clear;
+  qryLockTime.SQL.Append('set innodb_lock_wait_timeout=25');
+  qryLockTime.Execute;
+
+  qryLockTime.SQL.Clear;
+  qryLockTime.SQL.Append('set lock_wait_timeout=25');
+  qryLockTime.Execute;
+  finally
+    qryLockTime.Free;
+  end;
 end;
 
 procedure TFrmAsistenciaMed.btnHuellaClick(Sender: TObject);
@@ -419,6 +487,7 @@ begin
  PanelDatos.Visible:=False;
  cxLeyenda.Caption:='Asistencia Medica';
  TimerData.Enabled:=True;
+   BloquearControles(false);
 end;
 
 procedure TFrmAsistenciaMed.btnPrinterClick(Sender: TObject);
@@ -636,5 +705,21 @@ begin
   If CompareText(VarName, 'SAP') = 0 then
       Value := zUsuario.FieldByName('CodigoPersonal').AsString;
 end;
+
+procedure TFrmAsistenciaMed.BloquearControles(editando : Boolean)  ;
+begin
+
+  frmBarraH11.btnAdd.Enabled := not editando;
+frmBarraH11.btnEdit.Enabled := not editando;
+frmBarraH11.btnDelete.Enabled := not editando;
+frmBarraH11.btnRefresh.Enabled := not editando;
+frmBarraH11.btnExporta.Enabled := not editando;
+frmBarraH11.btnPrinter.Enabled := not editando;
+frmBarraH11.btnDetalle.Enabled := not editando;
+  cxGridAsistenciaMedica.Enabled := not editando;
+//  frmBarraH11.btnPost.Enabled := editando;
+//  btnCancel.Enabled := editando;
+end;
+
 
 end.

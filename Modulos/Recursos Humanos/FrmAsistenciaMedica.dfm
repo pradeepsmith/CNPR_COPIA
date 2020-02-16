@@ -2,8 +2,8 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
   Left = 0
   Top = 0
   Caption = 'Asistencia Medica'
-  ClientHeight = 472
-  ClientWidth = 791
+  ClientHeight = 505
+  ClientWidth = 894
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,17 +17,18 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
   OnClose = FormClose
   OnShow = FormShow
   DesignSize = (
-    791
-    472)
+    894
+    505)
   PixelsPerInch = 96
   TextHeight = 13
   object PanelMenu: TPanel
     Left = 0
     Top = 0
-    Width = 791
+    Width = 894
     Height = 35
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 791
     object cxLeyenda: TcxLabel
       Left = 1
       Top = 1
@@ -42,9 +43,10 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
       Style.TextColor = clHighlight
       Style.IsFontAssigned = True
       Transparent = True
+      ExplicitWidth = 227
     end
     inline frmBarraH11: TfrmBarraH1
-      Left = 228
+      Left = 331
       Top = 1
       Width = 562
       Height = 33
@@ -106,15 +108,17 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
   object PanelCentral: TPanel
     Left = 0
     Top = 35
-    Width = 791
-    Height = 437
+    Width = 894
+    Height = 470
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 791
+    ExplicitHeight = 437
     object cxGridAsistenciaMedica: TcxGrid
       Left = 1
       Top = 57
-      Width = 789
-      Height = 175
+      Width = 892
+      Height = 208
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -123,6 +127,8 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitWidth = 789
+      ExplicitHeight = 175
       object cxGridAsistenciaMedicaDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         Navigator.Buttons.First.Visible = False
@@ -248,21 +254,24 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
     end
     object PanelDatos: TPanel
       Left = 1
-      Top = 232
-      Width = 789
+      Top = 265
+      Width = 892
       Height = 204
       Align = alBottom
       TabOrder = 1
       Visible = False
+      ExplicitTop = 232
+      ExplicitWidth = 789
       object pnlBtn2: TPanel
         Left = 1
         Top = 167
-        Width = 787
+        Width = 890
         Height = 36
         Align = alBottom
         TabOrder = 0
+        ExplicitWidth = 787
         inline frmBarraH21: TfrmBarraH2
-          Left = 610
+          Left = 713
           Top = 1
           Width = 176
           Height = 34
@@ -306,7 +315,7 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
       object dxLayoutControl1: TdxLayoutControl
         Left = 1
         Top = 1
-        Width = 787
+        Width = 890
         Height = 166
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -317,9 +326,26 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
         ParentFont = False
         TabOrder = 1
         LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
-        object edtTA: TcxDBTextEdit
+        ExplicitWidth = 787
+        object dbNombreEmpleado: TDBText
           Left = 149
           Top = 11
+          Width = 65
+          Height = 17
+          Color = 14803425
+          DataField = 'Nombre'
+          DataSource = dsPersonal
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object edtTA: TcxDBTextEdit
+          Left = 149
+          Top = 34
           DataBinding.DataField = 'TA'
           DataBinding.DataSource = dsPersonal
           ParentFont = False
@@ -332,7 +358,7 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
         end
         object edtFC: TcxDBTextEdit
           Left = 149
-          Top = 40
+          Top = 63
           DataBinding.DataField = 'FC'
           DataBinding.DataSource = dsPersonal
           ParentFont = False
@@ -345,7 +371,7 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
         end
         object edtFR: TcxDBTextEdit
           Left = 149
-          Top = 69
+          Top = 92
           DataBinding.DataField = 'FR'
           DataBinding.DataSource = dsPersonal
           ParentFont = False
@@ -357,8 +383,8 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           Width = 121
         end
         object edtTemp: TcxDBTextEdit
-          Left = 289
-          Top = 11
+          Left = 325
+          Top = 34
           DataBinding.DataField = 'Temp'
           DataBinding.DataSource = dsPersonal
           ParentFont = False
@@ -370,8 +396,8 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           Width = 191
         end
         object edtGluc: TcxDBTextEdit
-          Left = 289
-          Top = 40
+          Left = 325
+          Top = 63
           DataBinding.DataField = 'Gluc'
           DataBinding.DataSource = dsPersonal
           ParentFont = False
@@ -382,9 +408,56 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           OnKeyUp = GlobalKeyUp
           Width = 121
         end
+        object edtTrigli: TcxDBTextEdit
+          Left = 325
+          Top = 92
+          DataBinding.DataField = 'Trigliceridos'
+          DataBinding.DataSource = dsPersonal
+          ParentFont = False
+          Style.HotTrack = False
+          TabOrder = 5
+          Width = 121
+        end
+        object edtColesterol: TcxDBTextEdit
+          Left = 500
+          Top = 34
+          DataBinding.DataField = 'Colesterol'
+          DataBinding.DataSource = dsPersonal
+          ParentFont = False
+          Style.HotTrack = False
+          TabOrder = 6
+          Width = 121
+        end
+        object edtPeso: TcxDBTextEdit
+          Left = 500
+          Top = 63
+          DataBinding.DataField = 'Peso'
+          DataBinding.DataSource = dsPersonal
+          ParentFont = False
+          Style.HotTrack = False
+          TabOrder = 7
+          Width = 121
+        end
+        object cbApto: TcxDBComboBox
+          Left = 500
+          Top = 92
+          DataBinding.DataField = 'Apto'
+          DataBinding.DataSource = dsPersonal
+          ParentFont = False
+          Properties.Items.Strings = (
+            'Pendiente'
+            'Si'
+            'No')
+          Style.HotTrack = False
+          TabOrder = 8
+          OnEnter = EnterControl
+          OnExit = SalidaControl
+          OnKeyUp = GlobalKeyUp
+          Width = 121
+        end
         object btnHuella: TcxButton
-          Left = 483
-          Top = 11
+          Left = 569
+          Top = 34
           Width = 171
           Height = 38
           Caption = 'Confirmar Huella (Hamster)'
@@ -392,9 +465,19 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           TabOrder = 9
           OnClick = btnHuellaClick
         end
+        object cxButton1: TcxButton
+          Left = 569
+          Top = 78
+          Width = 136
+          Height = 34
+          Caption = 'Confirmar Huella (F22)'
+          OptionsImage.Layout = blGlyphTop
+          TabOrder = 10
+          OnClick = cxButton1Click
+        end
         object cxImage1: TcxImage
-          Left = 660
-          Top = 11
+          Left = 746
+          Top = 34
           Picture.Data = {
             0D546478536D617274496D616765FFD8FFE000104A4649460001010100000000
             0000FFDB00430001010101010101010101010101010101010101010101010101
@@ -1229,56 +1312,9 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           Height = 79
           Width = 116
         end
-        object edtTrigli: TcxDBTextEdit
-          Left = 289
-          Top = 69
-          DataBinding.DataField = 'Trigliceridos'
-          DataBinding.DataSource = dsPersonal
-          ParentFont = False
-          Style.HotTrack = False
-          TabOrder = 5
-          Width = 121
-        end
-        object edtColesterol: TcxDBTextEdit
-          Left = 434
-          Top = 11
-          DataBinding.DataField = 'Colesterol'
-          DataBinding.DataSource = dsPersonal
-          ParentFont = False
-          Style.HotTrack = False
-          TabOrder = 6
-          Width = 121
-        end
-        object edtPeso: TcxDBTextEdit
-          Left = 434
-          Top = 40
-          DataBinding.DataField = 'Peso'
-          DataBinding.DataSource = dsPersonal
-          ParentFont = False
-          Style.HotTrack = False
-          TabOrder = 7
-          Width = 121
-        end
-        object cbApto: TcxDBComboBox
-          Left = 434
-          Top = 69
-          DataBinding.DataField = 'Apto'
-          DataBinding.DataSource = dsPersonal
-          ParentFont = False
-          Properties.Items.Strings = (
-            'Pendiente'
-            'Si'
-            'No')
-          Style.HotTrack = False
-          TabOrder = 8
-          OnEnter = EnterControl
-          OnExit = SalidaControl
-          OnKeyUp = GlobalKeyUp
-          Width = 121
-        end
         object mmNotas: TcxDBMemo
           Left = 149
-          Top = 98
+          Top = 121
           DataBinding.DataField = 'Notas'
           DataBinding.DataSource = dsPersonal
           ParentFont = False
@@ -1287,23 +1323,27 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           Height = 55
           Width = 627
         end
-        object cxButton1: TcxButton
-          Left = 483
-          Top = 55
-          Width = 136
-          Height = 34
-          Caption = 'Confirmar Huella (F22)'
-          OptionsImage.Layout = blGlyphTop
-          TabOrder = 10
-          OnClick = cxButton1Click
-        end
         object dxLayoutControl1Group_Root: TdxLayoutGroup
           AlignHorz = ahClient
           AlignVert = avTop
+          CaptionOptions.Visible = False
           ButtonOptions.Buttons = <>
           Hidden = True
           ShowBorder = False
           Index = -1
+        end
+        object dxLayoutAutoCreatedGroup4: TdxLayoutAutoCreatedGroup
+          Parent = dxLayoutControl1Group_Root
+          LayoutDirection = ldHorizontal
+          Index = 1
+          AutoCreated = True
+        end
+        object dxLayoutAutoCreatedGroup1: TdxLayoutAutoCreatedGroup
+          Parent = dxLayoutAutoCreatedGroup4
+          AlignHorz = ahClient
+          AlignVert = avClient
+          Index = 0
+          AutoCreated = True
         end
         object dxLayoutItem1: TdxLayoutItem
           Parent = dxLayoutAutoCreatedGroup1
@@ -1329,6 +1369,13 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           ControlOptions.ShowBorder = False
           Index = 2
         end
+        object dxLayoutAutoCreatedGroup2: TdxLayoutAutoCreatedGroup
+          Parent = dxLayoutAutoCreatedGroup4
+          AlignHorz = ahClient
+          AlignVert = avClient
+          Index = 1
+          AutoCreated = True
+        end
         object dxLayoutItem4: TdxLayoutItem
           Parent = dxLayoutAutoCreatedGroup2
           AlignHorz = ahClient
@@ -1338,13 +1385,6 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           ControlOptions.ShowBorder = False
           Index = 0
         end
-        object dxLayoutAutoCreatedGroup1: TdxLayoutAutoCreatedGroup
-          Parent = dxLayoutAutoCreatedGroup4
-          AlignHorz = ahClient
-          AlignVert = avClient
-          Index = 0
-          AutoCreated = True
-        end
         object dxLayoutItem5: TdxLayoutItem
           Parent = dxLayoutAutoCreatedGroup2
           AlignHorz = ahClient
@@ -1352,31 +1392,6 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           Control = edtGluc
           ControlOptions.ShowBorder = False
           Index = 1
-        end
-        object dxLayoutAutoCreatedGroup2: TdxLayoutAutoCreatedGroup
-          Parent = dxLayoutAutoCreatedGroup4
-          AlignHorz = ahClient
-          AlignVert = avClient
-          Index = 1
-          AutoCreated = True
-        end
-        object dxLayoutItem7: TdxLayoutItem
-          Parent = dxLayoutAutoCreatedGroup5
-          AlignHorz = ahLeft
-          AlignVert = avTop
-          CaptionOptions.Text = 'cxButton1'
-          CaptionOptions.Visible = False
-          Control = btnHuella
-          ControlOptions.ShowBorder = False
-          Index = 0
-        end
-        object dxLayoutItem8: TdxLayoutItem
-          Parent = dxLayoutAutoCreatedGroup4
-          AlignHorz = ahLeft
-          AlignVert = avTop
-          Control = cxImage1
-          ControlOptions.ShowBorder = False
-          Index = 4
         end
         object dxLayoutItem12: TdxLayoutItem
           Parent = dxLayoutAutoCreatedGroup2
@@ -1421,18 +1436,21 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           ControlOptions.ShowBorder = False
           Index = 2
         end
-        object dxLayoutItem15: TdxLayoutItem
-          Parent = dxLayoutControl1Group_Root
-          CaptionOptions.Text = 'Observaciones'
-          Control = mmNotas
-          ControlOptions.ShowBorder = False
-          Index = 1
-        end
-        object dxLayoutAutoCreatedGroup4: TdxLayoutAutoCreatedGroup
-          Parent = dxLayoutControl1Group_Root
-          LayoutDirection = ldHorizontal
-          Index = 0
+        object dxLayoutAutoCreatedGroup5: TdxLayoutAutoCreatedGroup
+          Parent = dxLayoutAutoCreatedGroup4
+          AlignHorz = ahLeft
+          Index = 3
           AutoCreated = True
+        end
+        object dxLayoutItem7: TdxLayoutItem
+          Parent = dxLayoutAutoCreatedGroup5
+          AlignHorz = ahLeft
+          AlignVert = avTop
+          CaptionOptions.Text = 'cxButton1'
+          CaptionOptions.Visible = False
+          Control = btnHuella
+          ControlOptions.ShowBorder = False
+          Index = 0
         end
         object dxLayoutItem16: TdxLayoutItem
           Parent = dxLayoutAutoCreatedGroup5
@@ -1441,25 +1459,43 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
           ControlOptions.ShowBorder = False
           Index = 1
         end
-        object dxLayoutAutoCreatedGroup5: TdxLayoutAutoCreatedGroup
+        object dxLayoutItem8: TdxLayoutItem
           Parent = dxLayoutAutoCreatedGroup4
           AlignHorz = ahLeft
-          Index = 3
-          AutoCreated = True
+          AlignVert = avTop
+          Control = cxImage1
+          ControlOptions.ShowBorder = False
+          Index = 4
+        end
+        object dxLayoutItem17: TdxLayoutItem
+          Parent = dxLayoutControl1Group_Root
+          CaptionOptions.Text = 'Empleado'
+          Control = dbNombreEmpleado
+          ControlOptions.AutoColor = True
+          ControlOptions.ShowBorder = False
+          Index = 0
+        end
+        object dxLayoutItem15: TdxLayoutItem
+          Parent = dxLayoutControl1Group_Root
+          CaptionOptions.Text = 'Observaciones'
+          Control = mmNotas
+          ControlOptions.ShowBorder = False
+          Index = 2
         end
       end
     end
     object PanelFiltro: TPanel
       Left = 1
       Top = 1
-      Width = 789
+      Width = 892
       Height = 56
       Align = alTop
       TabOrder = 2
+      ExplicitWidth = 789
       object dxLayoutControl2: TdxLayoutControl
         Left = 1
         Top = 1
-        Width = 787
+        Width = 890
         Height = 54
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -1470,6 +1506,7 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
         ParentFont = False
         TabOrder = 0
         LayoutLookAndFeel = connection.dxLayoutSkinLookAndFeel1
+        ExplicitWidth = 787
         object edtInicio: TcxDateEdit
           Left = 83
           Top = 11
@@ -1543,7 +1580,7 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
     ControlData = {00090000670C000018090000}
   end
   object cmdShowReaderErrors: TBitBtn
-    Left = 662
+    Left = 765
     Top = 39
     Width = 121
     Height = 32
@@ -1592,6 +1629,7 @@ object FrmAsistenciaMed: TFrmAsistenciaMed
     ParentFont = False
     TabOrder = 3
     OnClick = cmdShowReaderErrorsClick
+    ExplicitLeft = 662
   end
   object zPersonal: TUniQuery
     Connection = connection.Uconnection

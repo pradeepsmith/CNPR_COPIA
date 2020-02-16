@@ -188,6 +188,7 @@ type
     frxDBDatasetPersonal: TfrxDBDataset;
     cxButton7: TcxButton;
     dxLayoutItem21: TdxLayoutItem;
+    cxView_MaterialesColumn3: TcxGridDBColumn;
     procedure btnAddClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -219,6 +220,10 @@ type
     procedure cxButton5Click(Sender: TObject);
     procedure cxButton7Click(Sender: TObject);
     procedure cxGridMaterialesExit(Sender: TObject);
+    procedure cxView_MaterialesEditKeyPress(Sender: TcxCustomGridTableView;
+      AItem: TcxCustomGridTableItem; AEdit: TcxCustomEdit; var Key: Char);
+    procedure cxView_RequsicionEditKeyPress(Sender: TcxCustomGridTableView;
+      AItem: TcxCustomGridTableItem; AEdit: TcxCustomEdit; var Key: Char);
   private
     { Private declarations }
   public
@@ -423,6 +428,26 @@ end;
 procedure TfrmEntregaEquipo.btnRefreshClick(Sender: TObject);
 begin
  zEntregaEPP.Refresh;
+
+  if zEntregaEPP.RecordCount > 0 then
+  begin
+     {$REGION 'Actualizar lista de materiales y mostrar el panel lateral derecho'}
+      PanelDetalle.Visible:=true;
+      cxPageDetalle.ActivePage :=  cxTabMaterial;
+
+      AsignarSQL(zMateriales,'entrada_epp_detalle',pUpdate);
+      FiltrarDataSet(zMateriales,'IdPersonal,IdEntregaEquipo',[zEntregaEPP.FieldByName('IdPersonal').AsString,zEntregaEPP.FieldByName('IdEntregaEPP').AsString]);
+      zMateriales.Open;
+
+     {$ENDREGION}
+  end
+  else
+  begin
+      PanelDetalle.Visible:=false;
+      AsignarSQL(zMateriales,'entrada_epp_detalle',pUpdate);
+      FiltrarDataSet(zMateriales,'IdPersonal,IdEntregaEquipo',['','']);
+      zMateriales.Open;
+  end ;
 end;
 
 procedure TfrmEntregaEquipo.cxbtnFiltrarClick(Sender: TObject);
@@ -431,6 +456,26 @@ begin
   FiltrarDataSet(zEntregaEPP,'IdEntregaEPP,FechaI,FechaF',['-1',fechaSQL(edtInicio.EditValue),fechaSQL(Edtfinal.EditValue)]);
   zEntregaEPP.Open;
 
+  if zEntregaEPP.RecordCount > 0 then
+  begin
+     {$REGION 'Actualizar lista de materiales y mostrar el panel lateral derecho'}
+      PanelDetalle.Visible:=true;
+      cxPageDetalle.ActivePage :=  cxTabMaterial;
+
+      AsignarSQL(zMateriales,'entrada_epp_detalle',pUpdate);
+      FiltrarDataSet(zMateriales,'IdPersonal,IdEntregaEquipo',[zEntregaEPP.FieldByName('IdPersonal').AsString,zEntregaEPP.FieldByName('IdEntregaEPP').AsString]);
+      zMateriales.Open;
+
+     {$ENDREGION}
+  end
+  else
+  begin
+      PanelDetalle.Visible:=false;
+
+      AsignarSQL(zMateriales,'entrada_epp_detalle',pUpdate);
+      FiltrarDataSet(zMateriales,'IdPersonal,IdEntregaEquipo',[zEntregaEPP.FieldByName('IdPersonal').AsString,zEntregaEPP.FieldByName('IdEntregaEPP').AsString]);
+      zMateriales.Open;
+  end ;
 end;
 
 procedure TfrmEntregaEquipo.cxButton1Click(Sender: TObject);
@@ -492,12 +537,27 @@ var
   horaEntrada:String;
   ban: boolean;
   id:String;
+  err: String;
+  index: Integer;
+  found: boolean;
 begin
   ban:=False;
 
  CZKEM1.Connect_Net(ipAddress,port);
 
   try
+    found := false;
+
+    if zEntregaEPP.State in [dsInsert, dsEdit] then
+    begin
+      zEntregaEPP.Cancel;
+    end;
+
+    zEntregaEPP.Refresh;
+    if  zEntregaEPP.RecordCount > 0 then
+    begin
+      zEntregaEPP.First;
+    end;
 
     while CZKEM1.SSR_GetGeneralLogData(DevId,dwEnrollNumber,dwVerifyMode,dwInOutMode,
                                   dwYear,dwMonth,dwDay,dwHour,dwMinute,dwSecond,dwWorkCode) do
@@ -506,6 +566,8 @@ begin
         sHora:=(IntToStr(dwHour)+':'+IntToStr(dwMinute));
         if zEntregaEPP.Locate('SAPID',dwEnrollNumber,[]) then
         begin
+
+             found := true;
              zActualizar.SQL.Text:= 'call cargar_materal(:IdMa, :IdCat)';
              zActualizar.ParamByName('IdMa').AsInteger:=zEntregaEPP.FieldByName('IdEntregaEPP').AsInteger ;
              zActualizar.ParamByName('IdCat').AsInteger:= zEntregaEPP.FieldByName('IdPuesto').AsInteger;
@@ -515,33 +577,54 @@ begin
              zEntregaEPP.FieldByName('Estado').AsString:='Entregado';
              zEntregaEPP.Post;
 
-
              cxView_Requsicion.DataController.FocusedRecordIndex;
              if CZKEM1.ClearGLog(DevId) then
               CZKEM1.RefreshData(DevId);
 
-           id:=zEntregaEPP.FieldByName('IdEntregaEPP').AsString;
+            id:=zEntregaEPP.FieldByName('IdEntregaEPP').AsString;
+
+            zEntregaEPP.Refresh;
+            zEntregaEPP.Locate('SAPID',dwEnrollNumber,[]);
 
         end;
     end;
 
-    zEntregaEPP.Refresh;
-    if PanelDetalle.Visible then
-    begin
-      zMateriales.Refresh;
-    end
-    else
-    begin
-      PanelDetalle.Visible:=true;
-    end;
+     if found then
+     begin
 
-    zMateriales.Filtered:=True;
-    zMateriales.Filter:=' IdEntregaEPP = '+id;
-    zMateriales.Filtered:=False;
+         {$REGION 'Actualizar lista de materiales y mostrar el panel lateral derecho'}
+          PanelDetalle.Visible:=true;
+          cxPageDetalle.ActivePage :=  cxTabMaterial;
 
+          AsignarSQL(zMateriales,'entrada_epp_detalle',pUpdate);
+          FiltrarDataSet(zMateriales,'IdPersonal,IdEntregaEquipo',[zEntregaEPP.FieldByName('IdPersonal').AsString,zEntregaEPP.FieldByName('IdEntregaEPP').AsString]);
+          zMateriales.Open;
 
+          try
+              sleep(500);
+              cxView_Requsicion.DataController.Scroll(cxView_Requsicion.DataController.FocusedRecordIndex);
+          except
+
+          end;
+
+         {$ENDREGION}
+     end
+     else
+     begin
+        PanelDetalle.Visible:=false;
+        AsignarSQL(zMateriales,'entrada_epp_detalle',pUpdate);
+        FiltrarDataSet(zMateriales,'IdPersonal,IdEntregaEquipo',['','']);
+        zMateriales.Open;
+
+        application.MessageBox (pchar('No se encontró el empleado, verifique que haya asistido con el médico o que colocó correctamente su huella en el lector biometrico.'),
+                pchar('Confirmar'), (MB_OK + MB_ICONWARNING));
+     end;
 
   except
+    on E:Exception do
+    begin
+        err := E.Message;
+    end;
 //    zConfiguracion.Edit;
 //    zConfiguracion.FieldByName('Puerto').AsInteger:=4370;
 //    zConfiguracion.Post;
@@ -549,11 +632,16 @@ begin
   end;
 end;
 
+
+
 procedure TfrmEntregaEquipo.cxButton4Click(Sender: TObject);
 begin
   CZKEM1.Connect_Net(ipAddress,port);
    if CZKEM1.ClearGLog(DevId) then
     CZKEM1.RefreshData(DevId);
+
+  application.MessageBox (pchar('Limpieza finalizada'),
+                pchar('Limpieza finalizada'), (MB_OK + MB_ICONINFORMATION));
 end;
 
 procedure TfrmEntregaEquipo.cxButton5Click(Sender: TObject);
@@ -599,7 +687,7 @@ end;
 
 procedure TfrmEntregaEquipo.cxGridMaterialesExit(Sender: TObject);
 begin
-  if zMateriales.State = dsEdit then
+  if zMateriales.State in [dsEdit, dsInsert] then
   begin
      zMateriales.Post;
   end;
@@ -649,6 +737,19 @@ begin
     end;
 end;
 
+procedure TfrmEntregaEquipo.cxView_MaterialesEditKeyPress(
+  Sender: TcxCustomGridTableView; AItem: TcxCustomGridTableItem;
+  AEdit: TcxCustomEdit; var Key: Char);
+begin
+//  if key = #13  then
+//  begin
+//    if zMateriales.State in [dsEdit, dsInsert] then
+//    begin
+//       zMateriales.Post;
+//    end;
+//  end;
+end;
+
 procedure TfrmEntregaEquipo.cxView_RequsicionCellClick(
   Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
   AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
@@ -676,6 +777,19 @@ begin
       zHistorial.Open;
     end;
   end;
+end;
+
+procedure TfrmEntregaEquipo.cxView_RequsicionEditKeyPress(
+  Sender: TcxCustomGridTableView; AItem: TcxCustomGridTableItem;
+  AEdit: TcxCustomEdit; var Key: Char);
+begin
+//  if key = #13  then
+//  begin
+//    if zEntregaEPP.State in [dsEdit, dsInsert] then
+//    begin
+//       zEntregaEPP.Post;
+//    end;
+//  end;;
 end;
 
 procedure TfrmEntregaEquipo.cxView_RequsicionStylesGetContentStyle(

@@ -8056,6 +8056,7 @@ object frmNoil_SS7: TfrmNoil_SS7
     OnKeyDown = FormKeyDown
     object mnInicio: TdxRibbonTab
       Tag = 1
+      Active = True
       Caption = 'Inicio No'#237'l'
       Groups = <
         item
@@ -8074,7 +8075,6 @@ object frmNoil_SS7: TfrmNoil_SS7
     end
     object mnAlmacen: TdxRibbonTab
       Tag = 2
-      Active = True
       Caption = 'Flujo de Materiales'
       Groups = <
         item
@@ -8530,7 +8530,7 @@ object frmNoil_SS7: TfrmNoil_SS7
     Enabled = False
     Interval = 100
     Left = 641
-    Top = 248
+    Top = 232
   end
   object OpenDialog1: TOpenDialog
     Left = 550

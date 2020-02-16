@@ -43,6 +43,7 @@ var
     param_global_contrato,
     global_Pernocta,     //**
     global_turno : string;
+    global_sesioniniciada: Boolean;
 
   global_convenio: string;
   global_inicio : Integer;

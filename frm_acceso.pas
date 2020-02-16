@@ -171,6 +171,7 @@ var
 begin
   salir := False;
   Error := false;
+  global_sesioniniciada := false;
 
   if dbs.Visible = False then
   begin
@@ -629,6 +630,7 @@ begin
           global_nombre := 'ADMINISTRADOR';
           global_activo := '';
           global_grupo := 'ACCESO_TOTAL';
+          global_sesioniniciada := true;
 //          global_ip := ip_client.LocalHostAddr;
           close;
         end;
@@ -711,6 +713,7 @@ begin
               global_notificaoc := connection.qryUBusca.fieldvalues['NotificaOCVencido'];
               global_notificaocMail := connection.qryUBusca.fieldvalues['sMail'];
               global_AplicaMto := connection.qryUBusca.fieldvalues['AplicarMantenimiento'];
+              global_sesioniniciada := true;
 //              Global_ip := ip_client.LocalHostAddr;
               Close;
             except

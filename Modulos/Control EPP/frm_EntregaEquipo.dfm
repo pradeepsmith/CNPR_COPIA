@@ -663,6 +663,8 @@ object frmEntregaEquipo: TfrmEntregaEquipo
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        ExplicitLeft = -4
+        ExplicitTop = 4
         object cxView_Requsicion: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           Navigator.Buttons.First.Visible = False
@@ -684,10 +686,11 @@ object frmEntregaEquipo: TfrmEntregaEquipo
           Navigator.InfoPanel.Visible = True
           Navigator.Visible = True
           OnCellClick = cxView_RequsicionCellClick
+          OnEditKeyPress = cxView_RequsicionEditKeyPress
           DataController.DataSource = dsEntregaEPP
-          DataController.Filter.Options = [fcoCaseInsensitive]
           DataController.Filter.AutoDataSetFilter = True
           DataController.Filter.TranslateBetween = True
+          DataController.Options = [dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding, dcoImmediatePost]
           DataController.Summary.DefaultGroupSummaryItems = <>
           DataController.Summary.FooterSummaryItems = <>
           DataController.Summary.SummaryGroups = <>
@@ -695,6 +698,7 @@ object frmEntregaEquipo: TfrmEntregaEquipo
           FilterRow.Visible = True
           FilterRow.ApplyChanges = fracImmediately
           OptionsCustomize.ColumnsQuickCustomization = True
+          OptionsData.CancelOnExit = False
           OptionsData.Deleting = False
           OptionsData.DeletingConfirmation = False
           OptionsView.NoDataToDisplayInfoText = '<No hay Datos>'
@@ -807,7 +811,7 @@ object frmEntregaEquipo: TfrmEntregaEquipo
           Font.Style = []
           ParentFont = False
           TabOrder = 0
-          Properties.ActivePage = cxTabMaterial
+          Properties.ActivePage = cxHistorial
           Properties.CustomButtons.Buttons = <>
           Properties.Images = connection.cxIconos16
           OnClick = cxPageDetalleClick
@@ -832,6 +836,8 @@ object frmEntregaEquipo: TfrmEntregaEquipo
               ParentFont = False
               TabOrder = 0
               OnExit = cxGridMaterialesExit
+              ExplicitLeft = 2
+              ExplicitTop = -4
               object cxView_Materiales: TcxGridDBTableView
                 Navigator.Buttons.CustomButtons = <>
                 Navigator.Buttons.First.Visible = False
@@ -853,12 +859,15 @@ object frmEntregaEquipo: TfrmEntregaEquipo
                 Navigator.InfoPanel.DisplayMask = '[RecordIndex] de [RecordCount]'
                 Navigator.InfoPanel.Visible = True
                 Navigator.Visible = True
+                OnEditKeyPress = cxView_MaterialesEditKeyPress
                 DataController.DataSource = dsMateriales
+                DataController.Options = [dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding, dcoImmediatePost]
                 DataController.Summary.DefaultGroupSummaryItems = <>
                 DataController.Summary.FooterSummaryItems = <>
                 DataController.Summary.SummaryGroups = <>
                 FilterRow.Visible = True
                 OptionsCustomize.ColumnsQuickCustomization = True
+                OptionsData.CancelOnExit = False
                 OptionsData.Deleting = False
                 OptionsData.DeletingConfirmation = False
                 OptionsSelection.MultiSelect = True
@@ -870,17 +879,17 @@ object frmEntregaEquipo: TfrmEntregaEquipo
                   Caption = 'No. Material'
                   DataBinding.FieldName = 'Codigo'
                   Options.Editing = False
-                  Width = 68
+                  Width = 77
                 end
                 object cxView_MaterialesColumn2: TcxGridDBColumn
                   DataBinding.FieldName = 'Material'
                   Options.Editing = False
-                  Width = 240
+                  Width = 272
                 end
                 object cxView_MaterialesColumn4: TcxGridDBColumn
                   Caption = 'Cant.'
                   DataBinding.FieldName = 'Cantidad'
-                  Width = 47
+                  Width = 54
                 end
                 object cxView_MaterialesColumn7: TcxGridDBColumn
                   Caption = 'Estado'
@@ -892,7 +901,11 @@ object frmEntregaEquipo: TfrmEntregaEquipo
                   Caption = 'Fecha Anterior'
                   DataBinding.FieldName = 'FechaAnt'
                   PropertiesClassName = 'TcxDateEditProperties'
-                  Width = 64
+                  Width = 83
+                end
+                object cxView_MaterialesColumn3: TcxGridDBColumn
+                  DataBinding.FieldName = 'NoBotas'
+                  Width = 62
                 end
               end
               object cxGridMaterialesLevel1: TcxGridLevel
@@ -1078,17 +1091,17 @@ object frmEntregaEquipo: TfrmEntregaEquipo
                 OptionsView.CellAutoHeight = True
                 OptionsView.ColumnAutoWidth = True
                 OptionsView.Indicator = True
-                object cxGridDBColumn2: TcxGridDBColumn
-                  DataBinding.FieldName = 'Material'
-                  Visible = False
-                  GroupIndex = 0
-                  Options.Editing = False
-                  Width = 250
-                end
                 object cxGridDBColumn5: TcxGridDBColumn
                   Caption = 'Fecha de  Entrega'
                   DataBinding.FieldName = 'Fecha'
+                  Visible = False
+                  GroupIndex = 0
                   Width = 403
+                end
+                object cxGridDBColumn2: TcxGridDBColumn
+                  DataBinding.FieldName = 'Material'
+                  Options.Editing = False
+                  Width = 250
                 end
               end
               object cxGridLevel1: TcxGridLevel
