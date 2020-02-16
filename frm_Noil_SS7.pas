@@ -579,7 +579,10 @@ begin
   if lErrorIniciar = False then
   begin
       if MessageDlg('Esta seguro que desea salir completamente de la aplicación?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-        application.Terminate
+      begin
+        global_sesioniniciada := false;
+        application.Terminate;
+      end
       else abort
   end;
 end;
@@ -2264,38 +2267,53 @@ var tb:String;
   sqlCount:TUniquery;
   fAlertWindow: TdxAlertWindow;
 begin
-  sqlCount := TUniquery.Create(nil);
-  sqlCount.Connection := connection.Uconnection;
-  sqlCount.Active := False;
-  sqlCount.SQl.Text := 'Call MensajeNotify(1)';
-  sqlCount.Open;
 
-  if sqlCount.RecordCount > zNotify.RecordCount then
+  if (connection <> nil) and
+      (connection.Uconnection <> nil) and
+        (connection.Uconnection.Connected) then
   begin
-    TimerNotificador.Enabled:=True;
-    zNotifica.SQL.Text := 'Call MensajeNotify(0)';
-    zNotifica.Open;
-    if zNotifica.RecordCount > 0 then
-    begin
-      if(zNotifica.FieldByName('Tipo').AsString = 'Documento') then
-        tb := 'Documentos a vencer: ';
-      if(zNotifica.FieldByName('Tipo').AsString = 'Fecha') then
-        tb := 'Fechas por terminar: ';
-      if(zNotifica.FieldByName('Tipo').AsString = 'Estatus') then
-        tb := 'Operaciones';
 
-      fAlertWindow := alertme.Show('Tipo: '+tb,zNotifica.FieldByName('Mensaje').AsString,10);
-      if zNotify.Active then
-        zNotify.Refresh
-      else
-        zNotify.Open;
-    end;
-    //Notificaciones;
-    //Notificame;
+      try
+          sqlCount := TUniquery.Create(nil);
+          sqlCount.Connection := connection.Uconnection;
+          sqlCount.Active := False;
+          sqlCount.SQl.Text := 'Call MensajeNotify(1)';
+          sqlCount.Open;
+
+          if sqlCount.RecordCount > zNotify.RecordCount then
+          begin
+            TimerNotificador.Enabled:=True;
+            zNotifica.SQL.Text := 'Call MensajeNotify(0)';
+            zNotifica.Open;
+            if zNotifica.RecordCount > 0 then
+            begin
+              if(zNotifica.FieldByName('Tipo').AsString = 'Documento') then
+                tb := 'Documentos a vencer: ';
+              if(zNotifica.FieldByName('Tipo').AsString = 'Fecha') then
+                tb := 'Fechas por terminar: ';
+              if(zNotifica.FieldByName('Tipo').AsString = 'Estatus') then
+                tb := 'Operaciones';
+
+              fAlertWindow := alertme.Show('Tipo: '+tb,zNotifica.FieldByName('Mensaje').AsString,10);
+              if zNotify.Active then
+                zNotify.Refresh
+              else
+                zNotify.Open;
+            end;
+            //Notificaciones;
+            //Notificame;
+          end;
+
+          sqlCount.Close;
+
+      finally
+         sqlCount.Destroy;
+      end;
+  end
+  else
+  begin
+    TimerNot.Enabled := False;
   end;
-
-  sqlCount.Close;
-  sqlCount.Destroy;
 end;
 
 procedure TfrmNoil_SS7.ActivarBiometrico;

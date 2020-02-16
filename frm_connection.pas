@@ -14,7 +14,7 @@ uses
   IdExplicitTLSClientServerBase, IdMessageClient, IdSMTPBase, IdSMTP, cxGraphics,
   dxLayoutLookAndFeels, cxClasses, cxStyles, ZAbstractConnection,CRAccess,
   System.ImageList, UniProvider, MySQLUniProvider, DBAccess, Uni, MemDS,Variants,
-  cxEdit, cxEditRepositoryItems, SQLServerUniProvider, Vcl.Dialogs, Vcl.ExtDlgs, MemData;
+  cxEdit, cxEditRepositoryItems, SQLServerUniProvider, Vcl.Dialogs,ShellAPI, Vcl.ExtDlgs, Vcl.Forms, Winapi.Windows, MemData;
     type
     TStringArray = array of string;
 
@@ -128,6 +128,7 @@ type
     procedure zConnectionAfterConnect(Sender: TObject);
     procedure UconnectionConnectionLost(Sender: TObject; Component: TComponent;
       ConnLostCause: TConnLostCause; var RetryMode: TRetryMode);
+    procedure UconnectionBeforeDisconnect(Sender: TObject);
   private
     { Private declarations }
   public
@@ -319,28 +320,78 @@ begin
 
 end;
 
+procedure Tconnection.UconnectionBeforeDisconnect(Sender: TObject);
+var
+  I: Integer;
+begin
+//       if global_sesioniniciada then
+//       begin
+//         global_sesioniniciada := false;
+////         lErrorIniciar := true;
+//         try
+////           if Screen.FormCount > 0 then
+////           begin
+////
+////              for  I := 0 to Screen.FormCount-1 do
+////              begin
+////
+////                if Screen.Forms[I].Name <> 'frmNoil_SS7' then
+////                begin
+////                    Screen.Forms[I].Close;
+////                    Screen.Forms[I].Free;
+////                end;
+////               end;
+////           end;
+//         finally
+//            // application.MessageBox (pchar('Se perdió la conexión con el servidor, reinicie la aplicación.'),
+//            //    pchar('Confirmar'), (MB_OK + MB_ICONWARNING));
+//              //begin
+//                //ShellExecute(0, nil, PChar(Application.ExeName), nil, nil, SW_SHOWNORMAL);
+//
+//                //for  I := 0 to Screen.FormCount-1 do
+//                //begin
+//                //  if Screen.Forms[I].Name = 'frmNoil_SS7' then
+//                //  begin
+//                      //Screen.Forms[I].Close;
+//                      //Screen.Forms[I].Free;
+//                //  end;
+//                //end;
+//                 //Application.Terminate; // or, if this is the main form, simply Close;
+//
+//              //end
+//         end;
+//    end;
+end;
+
 procedure Tconnection.UconnectionConnectionLost(Sender: TObject;
   Component: TComponent; ConnLostCause: TConnLostCause;
   var RetryMode: TRetryMode);
+var
+  I: Integer;
 begin
-    RetryMode := rmReconnectExecute;
-  case(ConnLostCause) of
+//   RetryMode := rmRaise;
+//
+//    RetryMode := rmReconnectExecute;
+//  case(ConnLostCause) of
+//
+//      clOpen: RetryMode := rmReconnectExecute;
+//      //Connection loss detected during DataSet.ApplyUpdates
+//      clApply: RetryMode := rmReconnectExecute;
+//      // Connection loss detected during Connection.ApplyUpdates
+//      clConnectionApply: RetryMode := rmReconnectExecute;
+//      // Connection loss detected during query opening
+//      clRefresh:     RetryMode := rmReconnectExecute;
+////      // Connection loss detected during service information request
+////      clServiceQuery:
+//      // Connection loss detected during transaction start
+//      clTransStart :
+//         RetryMode := rmReconnectExecute;
+//      clExecute:
+//         RetryMode := rmReconnectExecute;
+//  end;
 
-      clOpen: RetryMode := rmReconnectExecute;
-      //Connection loss detected during DataSet.ApplyUpdates
-      clApply: RetryMode := rmReconnectExecute;
-      // Connection loss detected during Connection.ApplyUpdates
-      clConnectionApply: RetryMode := rmReconnectExecute;
-      // Connection loss detected during query opening
-      clRefresh:     RetryMode := rmReconnectExecute;
-//      // Connection loss detected during service information request
-//      clServiceQuery:
-      // Connection loss detected during transaction start
-      clTransStart :
-         RetryMode := rmReconnectExecute;
-      clExecute:
-         RetryMode := rmReconnectExecute;
-  end;
+
+
 end;
 
 procedure Tconnection.zConnectionAfterConnect(Sender: TObject);
@@ -368,7 +419,12 @@ begin
 end;
 
 
-{ TVarGlobal }
+{procedure Tconnection.zConnectionAfterDisconnect(Sender: TObject);
+begin
+
+end;
+
+ TVarGlobal }
 
 end.
 
