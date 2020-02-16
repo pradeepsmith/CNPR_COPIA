@@ -663,8 +663,6 @@ object frmEntregaEquipo: TfrmEntregaEquipo
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        ExplicitLeft = -4
-        ExplicitTop = 4
         object cxView_Requsicion: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           Navigator.Buttons.First.Visible = False
@@ -836,8 +834,6 @@ object frmEntregaEquipo: TfrmEntregaEquipo
               ParentFont = False
               TabOrder = 0
               OnExit = cxGridMaterialesExit
-              ExplicitLeft = 2
-              ExplicitTop = -4
               object cxView_Materiales: TcxGridDBTableView
                 Navigator.Buttons.CustomButtons = <>
                 Navigator.Buttons.First.Visible = False
